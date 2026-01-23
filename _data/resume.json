@@ -1,0 +1,432 @@
+{
+  "jobs": [
+    {
+      "icon": null,
+      "company": "Bright Tech Consulting",
+      "location": "Chicago, IL (Remote)",
+      "positions": [
+        {
+          "title": "AI Engineer",
+          "start": "September 2025",
+          "end": "Present",
+          "responsibilities": [
+            "Designed and deployed 8+ enterprise-grade multi-agent AI systems for healthcare, manufacturing, and insurance clients, enabling autonomous task execution, workflow routing, and context-aware decision-making across complex operational environments.",
+            "Built RAG pipelines using vector databases (Pinecone, Chroma DB) and graph-based reasoning (Neo4j), connecting to Databricks, Snowflake, and SAP to improve response accuracy by 45%.",
+            "Orchestrated agent workflows with LangGraph, enabling agents to test APIs, analyze documents, interpret logs, generate code, triage tickets, and integrate with CI/CD ecosystems.",
+            "Packaged and deployed models on AWS using Langfuse for real-time telemetry, cost controls, and model switching; ensured systems met security, compliance, and auditability requirements.",
+            "Integrated agentic AI systems with legacy applications (ERP systems, SAP ECC, Salesforce), reducing manual process time by 65%."
+          ],
+          "skills": [
+            "Agile",
+            "Consulting"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "company": "CellTrak Technologies (A Homecare Homebase Company)",
+      "location": "Schaumburg, IL (remote)",
+      "positions": [
+        {
+          "title": "Software Engineer Manager | Site Reliability Focus",
+          "start": "November 2021",
+          "end": "September 2025",
+          "responsibilities": [
+            "Led a 5-person team to stabilize enterprise systems, reducing support overhead many times over via AI-enhanced knowledge bases and custom tooling.",
+            "Architected cloud-native CI/CD pipelines (Jenkins, EventBridge) and automated remediation, cutting deployment time from days to minutes with 0% downtime.",
+            "Co-developed an agentic AI solution that autonomously resolved 90% of billing rejections by analyzing deficiencies and resubmitting claims with qualified data.",
+            "Engineered self-healing systems using Concierge, reducing MTTR by 35% through proactive alerting and feedback loops.",
+            "Directed schema migration and data archiving via Airflow and Snowflake, optimizing database performance 30%.",
+            "Championed hiring and onboarding for engineers of all levels, aligning talent acquisition with technical and cultural standards.",
+            "Built custom deployment architecture and internal tooling to empower QA and dev teams, enhancing velocity and cross-functional collaboration."
+          ],
+          "skills": [
+            "Datadog",
+            "PHP",
+            "Svelte",
+            "Python",
+            "Jenkins",
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "EventBridge",
+            "Lambda",
+            "Symfony",
+            "CloudWatch",
+            "Jira",
+            "OpsGenie",
+            "Vertex",
+            "GCP",
+            "Gemini",
+            "ServiceNow",
+            "Salesforce",
+            "Transparency",
+            "Communication Skills",
+            "Agile",
+            "Project Management",
+            "UI Design",
+            "React",
+            "TypeScript",
+            "PHPUnit",
+            "vite test suite",
+            "Jester",
+            "MySQL",
+            "Postgres",
+            "ChromaDB",
+            "Pinecone",
+            "FastAPI",
+            "Bash",
+            "Management",
+            "Ansible",
+            "Terraform",
+            "Wiz",
+            "Node"
+          ]
+        },
+        {
+          "title": "Software Engineer Manager | Interoperability Focus",
+          "start": "May 2020",
+          "end": "October 2021",
+          "responsibilities": [
+            "Spearheaded the design and implementation of a critical thinking driven hiring framework that improved confidence in a candidate's potential performance",
+            "Recruited and onboarded two top-tier senior software engineers, resulting in 25% higher team productivity through strategic technical and cultural alignment",
+            "Architected 5+ EMR interfaces using modern API standards, enhancing interoperability and user experience for partner healthcare providers",
+            "Led cross-functional transformation initiatives with EMR partners and stakeholders that modernized critical interfaces and streamlined operations, directly contributing to HCHB acquisition",
+            "Resolved critical system failures by conducting deep-dive analysis of legacy interface code and implementing comprehensive documentation that improved system reliability and shared comprehension",
+            "Engineered innovative data remediation solutions for 20+ critical issues, ensuring data integrity and operational continuity",
+            "Pioneered a support-first policy for EMR vendor interactions that streamlined vendor and customer interactions, reducing confusion and improving external perception of the product",
+            "Proactively embedded in Technical Support scrums to accelerate ticket resolution by 25% and enhance cross-departmental synergy through real-time assistance"
+            "Managed both the T3 Technical Support Team and Interops team for about 6 months, managing 7 engineers total"
+          ],
+          "skills": [
+            "PHP",
+            "Symfony",
+            "Jira",
+            "Python",
+            "Management",
+            "Transparency",
+            "Docker",
+            "MySQL",
+            "Bash",
+            "Concierge",
+            "Project Management",
+            "Jenkins",
+            "Agile",
+            "Point of Contact"
+          ]
+        },
+        {
+          "title": "Platform Engineer",
+          "start": "November 2019",
+          "end": "April 2020",
+          "skills": [
+            "Python",
+            "Kubernetes",
+            "Helm",
+            "Docker",
+            "AWS",
+            "Ansible",
+            "Chef",
+            "Datadog",
+            "Jira",
+            "Project Management",
+            "Agile",
+            "Point of Contact",
+            "Node"
+          ],
+          "responsibilities": [
+            "Launched a high-impact remediation initiative to resolve several critical system failures, greatly improving system stability",
+            "Spearheaded end-to-end cloud deployment transformation that reduced deployment time from 7+ days to sub-2 minutes with 0% downtime, enabling daily releases and immediate hotfix patching through DevOps optimization",
+            "Engineered a dynamic schema migration suite that automated database updates during deployments, reducing migration failures by 99% and increasing responsiveness in high impact areas",
+            "Pioneered a data archiving framework using Snowflake and Airflow that shrunk transactional databases by 80%, improving query performance by 12,000% in high demand areas",
+            "Orchestrated cross-functional support engagement with Technical Support teams, resolving 24+ hour critical incidents in <4 hours and reducing average ticket resolution time by 30% through real-time triage"
+          ]
+        },
+        {
+          "title": "Senior Software Engineer",
+          "start": "October 2015",
+          "end": "October 2019",
+          "skills": [
+            "PHP",
+            "Symfony",
+            "React",
+            "Electron",
+            "Vagrant",
+            "Docker",
+            "AWS",
+            "EC2",
+            "Jenkins",
+            "Bash",
+            "Desktop",
+            "Leadership",
+            "Jira",
+            "Agile"
+          ],
+          "responsibilities": [
+            "Proved myself to be a valuabe leader after 1 year and led several cross-functional initiatives as the lead in pods of 4 senior engineers",
+            "Architected a custom SPA framework blending React and Angular capabilities to accelerate feature delivery optimized for our companies needs",
+            "Engineered high-throughput API systems for mobile event processing, enabling 10K+ hourly transactions with 99.95% reliability through asynchronous event streaming",
+            "Leveraged Rails best practices to modernize PHP framework architecture, improving core functionality and reducing bug rates by 20% and marginally increasing readability across monolithic legacy application",
+            "Drove rapid feature development by leveraging the strengths of Symfony through reusable component patterns",
+            "Cultivated a learning culture that increased peer technical proficiency via mentorship programs and knowledge-sharing initiatives",
+            "Orchestrated Vagrant environment standardization, maintaining 100% dev consistency across 20+ environments despite co-lo to cloud system migrations",
+            "Designed QA-ready deployment architecture that reduced testing cycles by 35%, aggressively accelerating time from code complete to production launch",
+            "Synchronized geographically distributed teams in an Electron/React ecosystem, ensuring 99% feature alignment across 4 global time zones"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "company": "Active Campaign",
+      "location": "Chicago, IL",
+      "positions": [
+        {
+          "title": "Software Engineer / Technical Lead",
+          "start": "March 2019",
+          "end": "November 2019",
+          "duration": "April 2019 - November 2019",
+          "responsibilities": [
+            "Drove modernization of legacy PHP systems using AWS, improving reliability and scalability. Improving customer onboarding processing times by 200%",
+            "Architected customer-facing features using Ember.js and PHP that increased platform engagement by 35% through intuitive UX redesigns",
+            "Cultivated a high-impact mentorship program that accelerated junior engineer proficiency by 40%, reducing onboarding time by 25% across 4 teams",
+            "Orchestrated end-to-end automation for CSV payload ingestion, eliminating 70% of manual effort and saving 40 hours of customer onboarding on average",
+            "Engineered a zero-failure JSON batch processing pipeline handling 10K+ daily imports, cutting data import errors by 95% and boosting customer satisfaction by 25%"
+          ],
+          "skills": [
+            "Ember",
+            "PHP",
+            "Custom PHP Framework",
+            "JSOND",
+            "Event System",
+            "Kafka",
+            "Docker",
+            "Node",
+            "UI Design",
+            "NPM",
+            "SQS",
+            "GitHub",
+            "GitLab",
+            "Jira",
+            "Jest",
+            "PHPUnit",
+            "Kubernetes",
+            "Git"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "company": "Springleaf Financial Services",
+      "location": "Chicago, IL",
+      "positions": [
+        {
+          "title": "Senior Backend Engineering & Microservices Strategy",
+          "start": "May 2015",
+          "end": "October 2015",
+          "responsibilities": [
+            "Engineered features within a multi-service RESTful API ecosystem, driving scalability and seamless service integration.",
+            "Designed and expanded microservices architecture strategy, accelerating new service creation by 50%.",
+            "Developed Ruby-based backend functionality, ensuring reliability and performance across distributed systems.",
+            "Built reusable engines for cross-application consistency, embedding self-testing and standardized code idioms.",
+            "Mentored a 50+ engineer team through peer reviews and best practices; enforced GitHub rebase/commit workflows.",
+            "Leveraged Sidekiq and Redis for idempotent, multi-threaded background tasks, boosting system throughput 30%."
+          ],
+          "skills": [
+            "Redis",
+            "Sidekiq",
+            "Ruby",
+            "Ruby on Rails",
+            "Microservices",
+            "Mentoring",
+            "Meta Programming",
+            "MySQL",
+            "Postgres"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "company": "iCrossing",
+      "about": "",
+      "location": "Chicago, IL",
+      "positions": [
+        {
+          "title": "Full-Stack Senior Engineer / Cross-Functional \"Fixer\" Team",
+          "start": "October 2011",
+          "end": "May 2015",
+          "responsibilities": [
+            "Delivered data visualization platforms with D3.js, enabling users to uncover insights by connecting siloed datasets.",
+            "Operated in a high-impact \"fixer\" team, tackling complex marketing systems and multi-platform digital experiences.",
+            "Rapidly adopted emerging frameworks (Sinatra, Ember, Backbone, Angular) to accelerate delivery.",
+            "Contributed to architecture and scaling of microservices for an enterprise business platform.",
+            "Engineered multi-platform UI/UX using SCSS, CSS, JavaScript, jQuery, and EXT.js.",
+            "Managed CentOS-based environments for staging/deployment, optimizing infrastructure reliability.",
+            "Created and maintained customer related products on Heroku for faster and cost-effective deployments.",
+            "Championed code quality with Kane and Rubocop, embedding best practices into the development lifecycle."
+          ],
+          "skills": [
+            "D3.sj",
+            "EXT.js",
+            "Backbone",
+            "Ember",
+            "Sinatra",
+            "jQuery",
+            "SCSS",
+            "CSS",
+            "Bash",
+            "System Administration",
+            "Jira",
+            "Kane",
+            "Rubocop",
+            "Agile",
+            "Coffee",
+            "GitLab",
+            "Git",
+            "Ruby",
+            "Ruby on Rails",
+            "Java",
+            "Maven",
+            "Groovy",
+            "MySQL",
+            "Postgres",
+            "UX Design",
+            "Apache",
+            "Jenkins",
+            "Fedora",
+            "CentOS"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "company": "ISP Painting",
+      "about": "",
+      "location": "Naperville, IL",
+      "positions": [
+        {
+          "title": "Full-Stack Engineer",
+          "duration": "2010–2011",
+          "responsibilities": [
+            "Championed full-stack ownership across 5+ technical domains (SysAdmin, DevOps, PHP, DB, UI/UX)",
+            "Spearheaded user-centric feature prioritization, aligning 40+ requests with roadmap velocity to deliver 25% faster time-to-market for key initiatives",
+            "Leveraged AJAX, VMWare, and modern JavaScript to decrease page load times and add page responsiveness"
+          ],
+          "skills": [
+            "VMWare",
+            "Subversion",
+            "Zendesk",
+            "PHP",
+            "Custom Framework",
+            "System Administration",
+            "Endpoint Setup",
+            "Windows Admin",
+            "MySQL",
+            "Database Admin",
+            "Endpoint Maintenance",
+            "Endpoint Support",
+            "jQuery",
+            "UX Design",
+            "UI Design",
+            "Licensing",
+            "Co-lo management",
+            "Bash",
+            "mainframe development"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "company": "Just5Clicks",
+      "location": "Wauconda, IL",
+      "start": "September 2010",
+      "end": "November 2010",
+      "positions": [
+        {
+          "title": "Full-Stack Engineer",
+          "duration": "2010",
+          "responsibilities": [
+            "Migrated non-modular PHP/ASP.NET monoliths to a modular PHP library, reducing technical debt by 35% and cutting feature delivery time by 25%, removing the need to copy and paste code",
+            "Engineered 15+ end-to-end automation workflows that eliminated 20+ hours/week of manual labor, enabling our rag-tag team of engineers to focus on feature development",
+            "Optimized SQL queries and schemas to reduce query time by 75%, increase feature development time significantly, and allow for security around sensitive data points"
+          ],
+          "skills": [
+            "Subversion"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "about": "",
+      "company": "Sears",
+      "location": "Hoffman Estates, IL",
+      "positions": [
+        {
+          "title": "Frontend Engineer",
+          "start": "August 2009",
+          "end": "September 2010",
+          "responsibilities": [
+            "Successfully prioritized and delivered 10+ concurrent projects—including high-impact initiatives and personal work—while consistently exceeding expectations amidst a high-volume, detailed workload",
+            "Transitioned to a highly technical frontend engineering role, accelerating feature delivery by 20% through OOP jQuery class and module design",
+            "Enhanced a shared jQuery library utilized by 40+ frontend engineers, improving component reusability by 30% and reducing development time by 15%"
+          ],
+          "skills": [
+            "jQuery", "DreamWeaver", "Photoshop", "Flash", "JavaScript", "Java", "CSM"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "about": "",
+      "company": "Tom Rowe and Associates",
+      "location": "Harlingen, TX (Remote)",
+      "website": "https://www.tomrowe.com/",
+      "positions": [
+        {
+          "title": "Frontend Developer",
+          "start": "June 2007",
+          "end": "September 2009",
+          "responsibilities": [
+            "Built web solutions (Flash/JS); mentored peers on clean code."
+          ],
+          "skills": []
+        }
+      ]
+    },
+    {
+      "icon": null,
+      "about": "",
+      "company": "Freelance",
+      "location": "Elgin, IL",
+      "website": null,
+      "positions": [
+        {
+          "title": "Fullstack Developer",
+          "start": "October 2004",
+          "end": "June 2007",
+          "responsibilities": [
+            "Built web solutions (Flash/JS); mentored peers on clean code."
+          ],
+          "skills": [
+            "Subversion"
+          ]
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "PHP",
+      "level": "Expert",
+      "years": "15+",
+      "Details": "PHP was my first programming language back in the early 2000s. While it hasn't always been the main language that I use when working at a job it is always around in some way. For my almost 10 years at CellTrak many of our main projects were built in PHP and used Symfony."
+    }
+  ]
+}

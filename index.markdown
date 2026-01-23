@@ -1,15 +1,22 @@
 ---
-layout: home
+layout: base
 title: Home
 ---
 <h1>Joe Imhoff Portfolio</h1>
 
-<p>If you're looking for professional information about me, you've come to the right place.</p>
+Welcome to portfolio where I can showcase my professional skills along with work samples, projects, and community works.
 
 # Summary
-Full-Stack Engineer and AI Specialist with 15+ years building enterprise-scale systems. Proven expertise in designing multi-agent AI solutions (LangGraph, CrewAI), cloud infrastructure (AWS, Vertex), and data pipelines (Airflow, Kafka). Delivered 12+ agentic AI projects for healthcare, insurance, and manufacturing clients, reducing operational costs by 30%+ through automation. Adept at scaling systems while maintaining SLO-driven reliability and enterprise compliance.
+I've been working in software development for the last 15+ years. I have built and maintained applications for web, mobile, desktop, systems administrations, and platform deliverabilty. I'm a full-stack engineer with a speciality in highly available and scalable software solutions. I'm currently expanding my knowledge into AI through machine learning, deep learning, and agentic systems. And I am passionate about management, helping others grow by meeting them where they're at each day and pushing them to do better for tomorrow.
+
+For more information on my experiences and accomplishments visit my [resume page](/resume).
 
 # Recent Project Notes
+
+While it's not always possible to show off the work I'm doing, here is a spot where I can talk about it, share my thoughs, and maybe present smaller pieces out of context.
+
+[View all project notes](/projects)
+
 {% for post in site.projects limit:5 %}
 <article>
 <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
@@ -17,4 +24,3 @@ Full-Stack Engineer and AI Specialist with 15+ years building enterprise-scale s
 <p><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
 </article>
 {% endfor %}
-<p><a href="/projects/">View all project notes</a></p>

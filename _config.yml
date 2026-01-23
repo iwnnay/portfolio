@@ -19,18 +19,17 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Joe Imhoff - Porfolio
-email: joe.imhoff@outlook.com
-description: Personal portoflio site so I can show off my work and inform others about the benefits of working with me.
+email: joe.imhoff[at]outlook.com
+description: Full-Stack Engineer & AI Specialist portfolio. Explore case studies of my 15+ years of experience in agentic AI and cloud systems, despite not showing daily work.
 baseurl: /
 url: joeimhoff.com
-linked_username: https://www.linkedin.com/in/joe-imhoff/
+linked_username: joe-imhoff
 github_username:  iwnnay
+author: Joe Imhoff
 
 # Build settings
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
+theme: none
 
 defaults:
   - scope:

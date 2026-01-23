@@ -2,9 +2,11 @@
 
 
 :root {
-    --primary-color: #fff;
-    --primary-light: #333;
-    --secondary-color: #000;
+    --primary-color: #000;
+    --primary-light: #606060;
+    --secondary-color: #fff;
+    --secondary-light: #b6b6b6;
+    --background-gradient: radial-gradient(circle at center, var(--secondary-light), var(--primary-light));
 }
 
 header {
@@ -48,6 +50,25 @@ nav a {
     align-items: center;
     width: 60px;
 }
+.passive-logo .circle:hover {
+    cursor: pointer;
+}
+
+.passive-logo .text {
+    color: white;
+    font-family: "Special Gothic Condensed One", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out 1s forwards;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.passive-logo a .text {
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .circle {
     width: 50px;
@@ -60,15 +81,6 @@ nav a {
     position: relative;
 }
 
-.passive-logo .text {
-    color: white;
-    font-family: "Special Gothic Condensed One", sans-serif;
-    font-size: 40px;
-    font-weight: 700;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out 1s forwards;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
 
 @keyframes fadeIn {
     0% {
@@ -80,4 +92,103 @@ nav a {
         transform: scale(1);
     }
 }
+
+body {
+    font-family: sans-serif;
+}
+
+.wave-background {
+    background: linear-gradient(-45deg, #9e8547, #340d77, #496a3f, #5a3232);
+    background-size: 400% 400%;
+    animation: waveGradient 10s ease infinite;
+}
+
+@keyframes waveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.background-blocks {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    height: 50vh;
+}
+
+.background-blocks div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.background-fade {
+    background: linear-gradient(to bottom, rgba(255,255,255, 1) 0%,rgba(255,255,255, 0) 100%);
+    z-index: 1;
+}
+
+.background-pattern {
+    z-index: 0;
+    --s: 194px; /* control the size*/
+    --c1: #beacc8;
+    --c2: #e2dbf0;
+    --c3: #aaabbb;
+
+    --_l: #0000 calc(25% / 3), var(--c1) 0 25%, #0000 0;
+    --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
+    background: var(--_g), var(--_g) 0 calc(var(--s) / 2),
+    conic-gradient(from 180deg at 75%, var(--c2) 60deg, #0000 0),
+    conic-gradient(from 60deg at 75% 75%, var(--c1) 0 60deg, #0000 0),
+    linear-gradient(150deg, var(--_l)) 0 calc(var(--s) / 2),
+    conic-gradient(at 25% 25%, #0000 50%, var(--c2) 0 240deg, var(--c1) 0 300deg, var(--c2) 0),
+    linear-gradient(-150deg, var(--_l)) var(--c3);
+    background-size: calc(0.866 * var(--s)) var(--s);
+}
+
+header, main {
+    z-index: 10;
+    position: relative;
+    margin: 20px;
+}
+
+main {
+    padding-bottom: 60px;
+}
+
+footer {
+    z-index: 10;
+    display: flex;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(255,255,255, 1) 0%,rgba(255,255,255, 0) 100%);
+    margin: 0;
+    padding: 20px 0 0;
+}
+
+footer div {
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    list-style: none;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-links li a{
+    text-decoration: none;
+    color: var(--primary-color);
 }

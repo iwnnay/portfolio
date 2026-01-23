@@ -4,6 +4,7 @@ services:
     container_name: portfolio
     ports:
       - "4000:4000"
+      - "35729:35729"
     volumes:
       - .:/srv/jekyll
     command: jekyll serve --watch --force_polling --livereload --host 0.0.0.0 --port 4000
