@@ -24,12 +24,11 @@ description: Full-Stack Engineer & AI Specialist portfolio. Explore case studies
 baseurl: /
 url: joeimhoff.com
 linked_username: joe-imhoff
-github_username:  iwnnay
+github_username: iwnnay
 author: Joe Imhoff
 
 # Build settings
 markdown: kramdown
-theme: none
 
 defaults:
   - scope:

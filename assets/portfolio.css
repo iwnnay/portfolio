@@ -192,3 +192,12 @@ footer div {
     text-decoration: none;
     color: var(--primary-color);
 }
+
+.company-name {
+   font-weight: bold;
+    font-size: 1.2em;
+}
+
+.company-info {
+    border-left: 1px solid var(--primary-color);
+}

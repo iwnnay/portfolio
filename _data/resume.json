@@ -26,6 +26,8 @@
     {
       "icon": null,
       "company": "CellTrak Technologies (A Homecare Homebase Company)",
+      "end": "September 2025",
+      "start": "October 2015",
       "location": "Schaumburg, IL (remote)",
       "positions": [
         {
@@ -96,7 +98,7 @@
             "Resolved critical system failures by conducting deep-dive analysis of legacy interface code and implementing comprehensive documentation that improved system reliability and shared comprehension",
             "Engineered innovative data remediation solutions for 20+ critical issues, ensuring data integrity and operational continuity",
             "Pioneered a support-first policy for EMR vendor interactions that streamlined vendor and customer interactions, reducing confusion and improving external perception of the product",
-            "Proactively embedded in Technical Support scrums to accelerate ticket resolution by 25% and enhance cross-departmental synergy through real-time assistance"
+            "Proactively embedded in Technical Support scrums to accelerate ticket resolution by 25% and enhance cross-departmental synergy through real-time assistance",
             "Managed both the T3 Technical Support Team and Interops team for about 6 months, managing 7 engineers total"
           ],
           "skills": [
@@ -269,7 +271,7 @@
             "Championed code quality with Kane and Rubocop, embedding best practices into the development lifecycle."
           ],
           "skills": [
-            "D3.sj",
+            "D3.js",
             "EXT.js",
             "Backbone",
             "Ember",
@@ -310,7 +312,8 @@
       "positions": [
         {
           "title": "Full-Stack Engineer",
-          "duration": "2010–2011",
+          "start": "December 2010",
+          "end": "September 2011",
           "responsibilities": [
             "Championed full-stack ownership across 5+ technical domains (SysAdmin, DevOps, PHP, DB, UI/UX)",
             "Spearheaded user-centric feature prioritization, aligning 40+ requests with roadmap velocity to deliver 25% faster time-to-market for key initiatives",
@@ -344,12 +347,12 @@
       "icon": null,
       "company": "Just5Clicks",
       "location": "Wauconda, IL",
-      "start": "September 2010",
-      "end": "November 2010",
       "positions": [
         {
           "title": "Full-Stack Engineer",
           "duration": "2010",
+          "start": "September 2010",
+          "end": "November 2010",
           "responsibilities": [
             "Migrated non-modular PHP/ASP.NET monoliths to a modular PHP library, reducing technical debt by 35% and cutting feature delivery time by 25%, removing the need to copy and paste code",
             "Engineered 15+ end-to-end automation workflows that eliminated 20+ hours/week of manual labor, enabling our rag-tag team of engineers to focus on feature development",
@@ -364,7 +367,7 @@
     {
       "icon": null,
       "about": "",
-      "company": "Sears",
+      "company": "Sears Holdings Corporation",
       "location": "Hoffman Estates, IL",
       "positions": [
         {
@@ -377,7 +380,13 @@
             "Enhanced a shared jQuery library utilized by 40+ frontend engineers, improving component reusability by 30% and reducing development time by 15%"
           ],
           "skills": [
-            "jQuery", "DreamWeaver", "Photoshop", "Flash", "JavaScript", "Java", "CSM"
+            "jQuery",
+            "DreamWeaver",
+            "Photoshop",
+            "Flash",
+            "JavaScript",
+            "Java",
+            "CSM"
           ]
         }
       ]
@@ -391,32 +400,14 @@
       "positions": [
         {
           "title": "Frontend Developer",
-          "start": "June 2007",
-          "end": "September 2009",
+          "start": "March 2009",
+          "end": "August 2009",
           "responsibilities": [
-            "Built web solutions (Flash/JS); mentored peers on clean code."
+            "Led full lifecycle web development—from initial client consultation to successful launch—for 10+ projects, ensuring alignment with business goals and user needs.",
+            "Rapidly prototyped and deployed 5+ micro-sites for new product introductions, leveraging Flash to deliver immersive and engaging user experiences.",
+            "Designed and implemented custom visual assets using Adobe Photoshop and Illustrator, integrating them seamlessly into responsive HTML/CSS layouts for optimal cross-browser compatibility."
           ],
-          "skills": []
-        }
-      ]
-    },
-    {
-      "icon": null,
-      "about": "",
-      "company": "Freelance",
-      "location": "Elgin, IL",
-      "website": null,
-      "positions": [
-        {
-          "title": "Fullstack Developer",
-          "start": "October 2004",
-          "end": "June 2007",
-          "responsibilities": [
-            "Built web solutions (Flash/JS); mentored peers on clean code."
-          ],
-          "skills": [
-            "Subversion"
-          ]
+          "skills": ["ASP.net", "Flash", "HTML", "CSS", "Photoshop", "Illustrator", "IIS", "SharePoint"]
         }
       ]
     }
@@ -426,7 +417,13 @@
       "name": "PHP",
       "level": "Expert",
       "years": "15+",
-      "Details": "PHP was my first programming language back in the early 2000s. While it hasn't always been the main language that I use when working at a job it is always around in some way. For my almost 10 years at CellTrak many of our main projects were built in PHP and used Symfony."
+      "details": "PHP was my first programming language back in the early 2000s. While it hasn't always been the main language that I use when working at a job it is always around in some way. For my almost 10 years at CellTrak many of our main projects were built in PHP and used Symfony."
+    },
+    {
+      "name": "EXT.js",
+      "level": "Expert",
+      "years": "3+",
+      "details": "I haven't worked with EXT.js since 2015. I'm not too worried about that since I think it's fallen out of popularity. But I worked in it day in and day out for a few years. If needed I could probably pick it up very quickly, again."
     }
   ]
 }
