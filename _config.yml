@@ -30,6 +30,9 @@ author: Joe Imhoff
 # Build settings
 markdown: kramdown
 
+sass:
+  style: compressed
+
 defaults:
   - scope:
       path: ""

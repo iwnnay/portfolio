@@ -17,7 +17,7 @@ While it's not always possible to show off the work I'm doing, here is a spot wh
 
 [View all project notes](/projects)
 
-{% for post in site.projects limit:5 %}
+{% for post in site.posts limit:5 %}
 <article>
 <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
 <p>{{ post.excerpt }}</p>

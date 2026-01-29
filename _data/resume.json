@@ -17,8 +17,39 @@
             "Integrated agentic AI systems with legacy applications (ERP systems, SAP ECC, Salesforce), reducing manual process time by 65%."
           ],
           "skills": [
+            "Python",
+            "LangGraph",
+            "LangChain",
+            "Langfuse",
+            "CrewAI",
+            "Neo4j",
+            "Chroma DB",
+            "Pinecone",
+            "Streamlit",
+            "Databricks",
+            "Snowflake",
+            "SAP",
+            "MCP",
+            "AGA",
+            "GCP",
+            "Vertex",
+            "Blob Storage",
+            "Generative AI",
+            "LLM",
+            "SLM",
             "Agile",
-            "Consulting"
+            "Consulting",
+            "Milvus",
+            "fastapi",
+            "fastmcp",
+            "pytest",
+            "pandas",
+            "pydantic",
+            "PyTorch",
+            "OpenAI",
+            "Anthropic",
+            "Gemini",
+            "Microsoft SQL Server"
           ]
         }
       ]
@@ -59,6 +90,8 @@
             "Jira",
             "OpsGenie",
             "Vertex",
+            "LangChain",
+            "LangGraph",
             "GCP",
             "Gemini",
             "ServiceNow",
@@ -72,8 +105,8 @@
             "TypeScript",
             "PHPUnit",
             "vite test suite",
-            "Jester",
-            "MySQL",
+            "Jest",
+            "MariaDB",
             "Postgres",
             "ChromaDB",
             "Pinecone",
@@ -83,7 +116,10 @@
             "Ansible",
             "Terraform",
             "Wiz",
-            "Node"
+            "Node",
+            "Point of Contact",
+            "Concierge",
+            "Informer"
           ]
         },
         {
@@ -109,13 +145,18 @@
             "Management",
             "Transparency",
             "Docker",
-            "MySQL",
+            "MariaDB",
             "Bash",
             "Concierge",
             "Project Management",
             "Jenkins",
             "Agile",
-            "Point of Contact"
+            "Point of Contact",
+            "Microsoft SQL Server",
+            "React",
+            "Jest",
+            "Node",
+            "JavaScript"
           ]
         },
         {
@@ -135,7 +176,8 @@
             "Project Management",
             "Agile",
             "Point of Contact",
-            "Node"
+            "Node",
+            "MariaDB"
           ],
           "responsibilities": [
             "Launched a high-impact remediation initiative to resolve several critical system failures, greatly improving system stability",
@@ -163,7 +205,10 @@
             "Desktop",
             "Leadership",
             "Jira",
-            "Agile"
+            "Agile",
+            "MySQL",
+            "MariaDB",
+            "Windows Office Administrator"
           ],
           "responsibilities": [
             "Proved myself to be a valuabe leader after 1 year and led several cross-functional initiatives as the lead in pods of 4 senior engineers",
@@ -188,7 +233,6 @@
           "title": "Software Engineer / Technical Lead",
           "start": "March 2019",
           "end": "November 2019",
-          "duration": "April 2019 - November 2019",
           "responsibilities": [
             "Drove modernization of legacy PHP systems using AWS, improving reliability and scalability. Improving customer onboarding processing times by 200%",
             "Architected customer-facing features using Ember.js and PHP that increased platform engagement by 35% through intuitive UX redesigns",
@@ -214,7 +258,10 @@
             "Jest",
             "PHPUnit",
             "Kubernetes",
-            "Git"
+            "Git",
+            "TDD",
+            "Meta Programming",
+            "MySQL"
           ]
         }
       ]
@@ -245,7 +292,9 @@
             "Mentoring",
             "Meta Programming",
             "MySQL",
-            "Postgres"
+            "Postgres",
+            "TDD",
+            "Meta Programming"
           ]
         }
       ]
@@ -299,7 +348,10 @@
             "Apache",
             "Jenkins",
             "Fedora",
-            "CentOS"
+            "CentOS",
+            "WordPress",
+            "Heroku",
+            "TDD"
           ]
         }
       ]
@@ -326,19 +378,21 @@
             "PHP",
             "Custom Framework",
             "System Administration",
-            "Endpoint Setup",
-            "Windows Admin",
+            "Windows Office Administrator",
             "MySQL",
             "Database Admin",
             "Endpoint Maintenance",
-            "Endpoint Support",
             "jQuery",
+            "EXT.js",
             "UX Design",
             "UI Design",
             "Licensing",
             "Co-lo management",
             "Bash",
-            "mainframe development"
+            "mainframe development",
+            "SharePoint",
+            "WordPress",
+            "Point of Contact"
           ]
         }
       ]
@@ -350,7 +404,6 @@
       "positions": [
         {
           "title": "Full-Stack Engineer",
-          "duration": "2010",
           "start": "September 2010",
           "end": "November 2010",
           "responsibilities": [
@@ -359,7 +412,27 @@
             "Optimized SQL queries and schemas to reduce query time by 75%, increase feature development time significantly, and allow for security around sensitive data points"
           ],
           "skills": [
-            "Subversion"
+            "Subversion",
+            "Java",
+            "ASP.net",
+            "IIS",
+            "Microsoft SQL Server",
+            "PHP",
+            "Photoshop",
+            "Illustrator",
+            "JavaScript",
+            "jQuery",
+            "CSS",
+            "HTML",
+            "OOP",
+            "MVC",
+            "Building Management",
+            "Automation",
+            "Debugging",
+            "Test Automation",
+            "Waterfall",
+            "OCR",
+            "EXT.js"
           ]
         }
       ]
@@ -386,7 +459,9 @@
             "Flash",
             "JavaScript",
             "Java",
-            "CSM"
+            "CSM",
+            "WordPress",
+            "Point of Contact"
           ]
         }
       ]
@@ -407,7 +482,17 @@
             "Rapidly prototyped and deployed 5+ micro-sites for new product introductions, leveraging Flash to deliver immersive and engaging user experiences.",
             "Designed and implemented custom visual assets using Adobe Photoshop and Illustrator, integrating them seamlessly into responsive HTML/CSS layouts for optimal cross-browser compatibility."
           ],
-          "skills": ["ASP.net", "Flash", "HTML", "CSS", "Photoshop", "Illustrator", "IIS", "SharePoint"]
+          "skills": [
+            "ASP.net",
+            "Flash",
+            "HTML",
+            "CSS",
+            "Photoshop",
+            "Illustrator",
+            "IIS",
+            "SharePoint",
+            "WordPress"
+          ]
         }
       ]
     }
@@ -417,13 +502,283 @@
       "name": "PHP",
       "level": "Expert",
       "years": "15+",
+      "type": "Programming Language",
       "details": "PHP was my first programming language back in the early 2000s. While it hasn't always been the main language that I use when working at a job it is always around in some way. For my almost 10 years at CellTrak many of our main projects were built in PHP and used Symfony."
     },
     {
       "name": "EXT.js",
       "level": "Expert",
       "years": "3+",
+      "type": "JavaScript Framework",
       "details": "I haven't worked with EXT.js since 2015. I'm not too worried about that since I think it's fallen out of popularity. But I worked in it day in and day out for a few years. If needed I could probably pick it up very quickly, again."
+    },
+    {
+      "name": "Python",
+      "type": "Programming Language",
+      "level": "Expert",
+      "years": "7+",
+      "details": "Python has dominated my work as I do more and more with AI. I have several of years of experience with it for everything from scripting, to full on frameworks. It's been integral in the adoption of microservices in AWS, to the foundational language of machine learning and AI orchestration. Luckily, it's a fun language to work with, but there's always more to learn."
+    },
+    {
+      "name": "LangGraph",
+      "type": "AI Framework (Multi-agent Orchestration)",
+      "level": "Expert",
+      "years": "2+",
+      "details": "In the past two years, I’ve turned complex business chaos into autonomous execution using LangGraph. As an AI Engineer at Bright Tech, I orchestrated 8+ enterprise multi-agent systems for healthcare, insurance, and manufacturing clients—where agents don’t just do tasks, they autonomously test APIs, triage tickets, generate code, and even fix broken CI/CD pipelines. This didn’t just save time: it slashed manual process time by 65% and enabled clients to run workloads without human hand-holding. Now, I’m building the next generation of agentic AI where LangGraph isn’t just a tool—it’s the nervous system of smart, self-healing systems."
+    },
+    {
+      "name": "SharePoint",
+      "type": "Collaboration/Content Management Platform",
+      "level": "Intermediate",
+      "years": "4",
+      "details": "During my time at Tom Rowe and ISP Painting, I leveraged SharePoint for project tracking, budget management of software licenses, and cross-team coordination. I was responsible for maintaining project documentation, tracking license allocations, and providing technical support for end-users related to system access and troubleshooting. I utilized SharePoint’s features to streamline internal processes and ensure effective information sharing between development and non-technical teams. And for technical teams we used it to share documents anda launch new projects from roughs down to IIS management for development and production environments."
+    },
+    {
+      "name": "IIS",
+      "type": "Web Server",
+      "level": "Intermediate",
+      "years": "4 (Intermittent)",
+      "details": "I cut my teeth on IIS (Internet Information Services) at Just5Clicks, where I rapidly learned its intricacies to optimize web application performance and stability. This foundational knowledge became invaluable at ISP Painting, a fully Windows-based server environment where I leveraged deep IIS expertise to maintain uptime and scale infrastructure. While IIS wasn’t a daily focus throughout my career, my experience proved essential when troubleshooting a legacy Windows Server product at CellTrak and supporting co-located projects within Homecare Homebase (HCHB). I’m comfortable diving back into IIS configurations—because when it comes to Windows server infrastructure, I know where to look and what to fix."
+    },
+    {
+      "name": "Illustrator",
+      "type": "Vector Graphics Editor / Design Tool",
+      "level": "Expert",
+      "years": "15+",
+      "details": "Early in my career, Adobe Illustrator was a core part of my front-end toolkit – I designed icons, logos, and even full website mockups to bring concepts to life. While my focus shifted over time, I consistently returned to Illustrator for professional projects, crafting visual elements when pixel-perfect precision was critical. And it’s not just work: Illustrator remains a passion. Whether I’m refining a user interface or designing a custom bookcase before committing it to wood, it’s a helpful tool for visualizing ideas and turning them into reality."
+    },
+    {
+      "name": "Photoshop",
+      "type": "Raster Graphics Editor / Image Manipulation",
+      "level": "Expert",
+      "years": "15+",
+      "details": "Photoshop was a key part of my front-end toolkit earlier in my career, used for creating and refining website visuals. While my professional focus evolved, I've consistently relied on Photoshop for projects requiring detailed image editing and manipulation. Beyond work, it’s become a personal playground—I love transforming ordinary family photos into something truly special, adding a little extra \"pizazz\" to capture those memories. Whether it’s a professional mockup or a playful photo edit, Photoshop remains a constant creative outlet."
+    },
+    {
+      "name": "CSS",
+      "type": "Styling Language (Front-end development)",
+      "level": "Expert",
+      "years": "15+",
+      "details": "For over 15 years, CSS has been fundamental to my front-end work, with a strong focus on responsive design and cross-browser compatibility. While I may not be writing CSS daily, I’m constantly exploring the evolving landscape of web styling – particularly the power of CSS math and animations to create dynamic, engaging user experiences. I actively dissect innovative designs I find online, reverse-engineering layouts and techniques to expand my knowledge and push the boundaries of what's possible with CSS. I believe in a continual learning approach to stay ahead of the curve in this ever-changing field."
+    },
+    {
+      "name": "HTML",
+      "type": "Markup Language (Front-end development)",
+      "level": "Expert",
+      "years": "15+",
+      "details": "For over 15 years, HTML has been the cornerstone of my web development work. Beyond simply knowing the tags, I prioritize writing semantic, accessible, and standards-compliant code – ensuring projects are built on a solid foundation. I actively follow the evolving HTML specification from the W3C, embracing new elements and features as they emerge to create modern, sleek, and future-proof web experiences. Maintaining a deep understanding of HTML best practices is non-negotiable for delivering high-quality, sustainable web solutions."
+    },
+    {
+      "name": "Flash",
+      "type": "Multtimedia Platform / Rich Internet Application",
+      "level": "Expert (Historical)",
+      "years": "3",
+      "details": "Adobe Flash was transformative for me, igniting my passion for programming during my college years and early freelance work. Creating interactive marketing solutions with Flash sparked my interest in coding, ultimately leading me down the path of software development. While the technology has since been superseded by Canvas and other modern standards, it laid the foundation for my career – and I might not have discovered my love for building software without it. My time with Flash instilled a deep understanding of interactivity, animation, and the fundamentals of creating engaging digital experiences."
+    },
+    {
+      "name": "ASP.net",
+      "type": "Web Application Framework",
+      "level": "Novice",
+      "years": "~2 (maintenance and migration)",
+      "details": "While not a primary development focus, I have experience maintaining and interacting with ASP.NET applications. My work primarily involved troubleshooting existing systems and, more frequently, migrating functionality to PHP-based solutions. I possess a functional understanding of the framework and its core concepts, enabling me to effectively bridge the gap between ASP.NET and other technologies."
+    },
+    {
+      "name": "Java",
+      "type": "Programming Language",
+      "level": "Novice ",
+      "years": "~1 year (Maintenance and Migration)",
+      "details": "my work with Java primarily involved maintaining existing applications, addressing minor bugs, and implementing small feature enhancements. I’ve also frequently converted Java-based functionality to other languages. While I haven’t engaged in large-scale Java development, I possess a solid understanding of the language and can effectively read, comprehend, and troubleshoot Java codebases."
+    },
+    {
+      "name": "CSM",
+      "type": "System Design / Feature Management",
+      "level": "Expert",
+      "years": "~8 (Aggregate)",
+      "details": "In my early freelance work, I pioneered custom content and component management solutions long before modern library repositories and CMS frameworks were commonplace. Faced with the challenge of managing swappable features from scratch, I built systems to track, deploy, and maintain complex website functionality. While later frameworks like WordPress effectively duplicated aspects of this work, it served as validation of my approach – and a testament to my ability to anticipate and solve evolving web development challenges."
+    },
+    {
+      "name": "WordPress",
+      "type": "Content Management System",
+      "level": "Expert",
+      "years": "~3 (intermittent)",
+      "details": "While building custom web solutions as a freelancer, I extensively evaluated and integrated WordPress into various projects. I recognized its potential to streamline content management and rapidly deploy features – functionality I had previously built from scratch. Though WordPress ultimately served as a viable alternative to some of my custom solutions, it reinforced the value of my early work in defining core CMS principles and building scalable content architectures. Also, WordPress just keeps popping up. My friend needs a favor with his site, it was built in WordPress. The company has an information based web presence, it's written in WordPress. Someone sends me some side work, guess what, they want a WordPress site. Every time, LOL."
+    },
+    {
+      "name": "JavaScript",
+      "type": "Programming Language (Full-stack development)",
+      "level": "Expert",
+      "years": "15+",
+      "details": "JavaScript has been my go-to language since the beginning – and remains my absolute favorite. While professional opportunities haven’t always allowed for consistent, dedicated JavaScript work, I consistently return to it for its versatility and power. From simple front-end enhancements to leveraging Node.js for rapid prototyping and embracing the benefits of TypeScript’s strong typing, I appreciate JavaScript's ability to adapt to virtually any web development challenge. Its asynchronous nature presents both opportunities and complexities, but overall, it’s the indispensable Swiss Army knife of the web."
+    },
+    {
+      "name": "DreamWeaver",
+      "type": "Web Development Tool",
+      "level": "Expert",
+      "years": "~3 (Early Career)",
+      "details": "While initially used as a learning aid to grasp the fundamentals of HTML and CSS, Dreamweaver proved unexpectedly powerful during my time at Sears. I leveraged its capabilities to automate a significant portion of our front-end ad generation workflow, creating a reusable code library that dramatically reduced team workload. What started as a 15-person team working 80-hour weeks was transformed – following adoption, we consistently operated at 40-50 hours, representing nearly a 45% increase in productivity. To this day, that automation earns me a free beer or two whenever I reconnect with my former colleagues."
+    },
+    {
+      "name": "JQuery",
+      "type": "JavaScript Framework",
+      "level": "Expert",
+      "years": "8+",
+      "details": "Although often considered a relic of the past, jQuery was the first true JavaScript framework and a pivotal technology in my development journey. My rapid adoption of jQuery set me apart from many front-end designers, introducing me to the complex world of JavaScript object-oriented programming and enabling the creation of highly interactive web experiences. While I occasionally encounter jQuery in legacy projects, much of its foundational concepts are embedded within modern frameworks – ensuring my skills remain relevant and readily adaptable."
+    },
+    {
+      "name": "OCR",
+      "type": "Image Processing / Data Extraction",
+      "level": "Expert",
+      "years": "5+ (More intense training and early adoption at Just5Clicks)",
+      "details": "At Just5Clicks, I was deeply involved in the daily implementation of OCR technology for standardized test grading. This involved training the system to accurately identify filled-in circles based on pencil mark variations, then extracting the corresponding answer letter within each section. This pioneering work – predating widespread adoption of modern image recognition techniques like those found in PyTorch – was a challenging frontier, rife with issues like data hallucination and misrepresentation, problems that continue to plague computer vision today.<br/>PHP served as the ideal platform for integrating and deploying OCR solutions, leveraging its robust functional library for image processing and data extraction. While my initial intensive work with OCR occurred at Just5Clicks, I continued to implement the technology at iCrossing and SpringLeaf, where it had matured into a more reliable and easily deployable tool."
+    },
+    {
+      "name": "Waterfall",
+      "type": "Project Management Methodology",
+      "level": "Expert (Unfortunately)",
+      "years": "~8 (Aggregate)",
+      "details": "I have firsthand experience with the Waterfall methodology, spanning multiple implementations throughout my career, including a recent project at HCHB (CellTrak). While historically significant, I strongly believe Waterfall is an inefficient and inflexible approach to project management. I have witnessed its limitations – and the resulting frustrations – repeatedly and actively seek opportunities to implement more agile and iterative methodologies. To put it simply: I do not like waterfall, I do not like it in a job, I do not like it with at all, I do not like that waterfall."
+    },
+    {
+      "name": "Test Automation",
+      "type": "Software Quality Assurance / DevOps",
+      "level": "Expert",
+      "years": "10+",
+      "details": "I began implementing test automation practices at Just5Clicks before it was widely adopted, recognizing its potential to drastically improve software quality and accelerate delivery. Today, test automation is integral to everything from data and code validation to comprehensive build and behavioral testing. I’m a strong advocate for incorporating automated testing and monitoring into modern CI/CD pipelines, and I proactively champion the creation of automated scenarios to prevent downtime and ensure seamless production deployments."
+    },
+    {
+      "name": "Debugging",
+      "type": "Problem Solving / Software Diagnostics",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I possess a strong analytical ability to systematically investigate and resolve complex software issues. I excel at thinking through system architecture and interpreting error messages to pinpoint the root cause of bugs efficiently. Through extensive experience, I've observed that effective debugging is a skill often underestimated – and that many developers spend significantly more time pursuing irrelevant paths. I consistently minimize diagnostic time by focusing on logical deduction and targeted investigation."
+    },
+    {
+      "name": "Automation",
+      "type": "Process Optimization / Software Engineering",
+      "level": "Expert / Champion",
+      "years": "15+",
+      "details": "Automation is not just a skill, but a core principle of my work. From the moment a task is completed, I immediately consider how to automate it, driving consistent productivity gains throughout my career. I’ve repeatedly been recognized and rewarded for automating tedious or problematic elements within the software industry—ranging from bug fixes and data integration to complex deployments and platform compliance. These successes were often quietly implemented, resolving pain points and allowing teams to focus on new challenges. I’m eager to further champion automation initiatives, simplifying workflows and enabling a focus on innovation."
+    },
+    {
+      "name": "Building Management",
+      "type": "Administrative / Operational Support",
+      "level": "Intermediate",
+      "years": "~3 (aggregate)",
+      "details": "Throughout my involvement with several small companies, I've consistently contributed to essential business operations beyond my core technical role. This includes hands-on building management tasks, ranging from facilities access and maintenance to administrative duties like vendor management and bill payment. While often an underrated aspect of running a business, I recognize its necessity and value contributing to a smooth and functional work environment."
+    },
+    {
+      "name": "MVC",
+      "type": "Architecture Pattern / Software Design",
+      "level": "Expert",
+      "years": "10+",
+      "details": "MVC is a fundamental architectural pattern for developing user interfaces. It separates application logic (Model), data presentation (View), and user input handling (Controller), fostering code organization, maintainability, and testability. This separation of concerns is crucial for building scalable and robust web applications."
+    },
+    {
+      "name": "OOP",
+      "type": "Programming Paradigm",
+      "level": "Expert",
+      "years": "15+",
+      "details": "Object-Oriented Programming has been a cornerstone of my development approach throughout my career. I recognize its fundamental importance in building reusable, modular, and scalable code – particularly within complex systems. OOP principles facilitate code organization, maintainability, and extensibility, leading to more robust and efficient software solutions."
+    },
+    {
+      "name": "Microsoft SQL Server",
+      "type": "Relational Database Management System (RDBMS)",
+      "level": "intermediate",
+      "years": "~3 (aggregate)",
+      "details": "I have experience with Microsoft SQL Server gained across multiple roles, including recent work at CellTrak and earlier experience at Just5Clicks. While not a dedicated database administrator, I’ve regularly utilized SQL for data retrieval, troubleshooting, and assisting with vendor integrations. Currently at Bright Tech, my understanding of SQL is valuable for comprehending data extraction requirements and supporting customer support initiatives."
+    },
+    {
+      "name": "Subversion",
+      "type": "Version Control System",
+      "level": "Expert",
+      "years": "4 (early career)",
+      "details": "I have been a consistent and strong advocate for version control throughout my career, beginning with extensive use of Subversion early on. From small personal projects to larger team efforts at ISP Painting, I recognize the critical importance of tracking changes, collaborating effectively, and maintaining a comprehensive project history."
+    },
+    {
+      "name": "Point of Contact",
+      "type": "Communication / Relationship Management",
+      "level": "Expert",
+      "years": "10+",
+      "details": "My expertise and relatable communication style have been paired several times with point-of-contact work. I'm often the company's counterpart with consultants and have been the right hand on touchy, complicated support calls. I have often been used as the reason for customer retention thanks to my ability to stay calm and demonstrate fairness, equity, and accountability in the development cycle or to our customers in need."
+    },
+    {
+      "name": "Mainframe Development",
+      "type": "Infrastructure Support / System Administration",
+      "level": "Expert",
+      "years": "~1",
+      "details": "I have experience maintaining, operating, and facilitating coding environments within mainframe-style setups. My contributions have focused on supporting development processes and ensuring the smooth functioning of these environments."
+    },
+    {
+      "name": "Bash",
+      "type": "Scripting Language, System Administration, and DevOps",
+      "level": "Expert",
+      "years": "12+",
+      "details": "I have been a consistent user of Bash scripting since my time at ISP Painting, leveraging it for system administration at both ISP Painting and iCrossing. This included maintaining endpoint compliance and updates within CentOS environments, and continued at CellTrak upon my arrival. Beyond daily administration, this foundational knowledge has been instrumental in my evolution toward modern infrastructure concepts, seamlessly bridging the gap between manual server configuration and code-as-configuration principles within cloud systems and microservice architectures."
+    },
+    {
+      "name": "Co-lo management",
+      "level": "Expert / Enthusiast",
+      "type": "Infrastructure / System Administration",
+      "years": "4 professional and 15+ personal",
+      "details": "I have experience managing server infrastructure in co-location facilities during my early career. This experience has evolved into a continuing personal interest – I actively maintain a home server environment for experimentation with software, APIs, and emerging technologies, providing a hands-on platform for continuous learning and skill development."
+    },
+    {
+      "name": "Licensing",
+      "type": "DevOps / Compliance",
+      "level": "Novice",
+      "years": "~1",
+      "details": "During my time at ISP Painting, I gained practical experience in managing Microsoft Server licensing. This involved understanding licensing models, ensuring compliance, and optimizing costs associated with Windows server infrastructure, providing valuable insight into the financial aspects of IT systems."
+    },
+    {
+      "name": "UI Design",
+      "type": "Front-end Development / Visual Design",
+      "level": "Intermediate",
+      "years": "15+",
+      "details": "While not a dedicated visual designer, I readily embrace UI implementation, particularly adapting and extending existing themes to create cohesive and functional elements. As a seasoned backend developer, UI work provides a welcome creative outlet, ensuring a consistent and user-friendly front-end experience."
+    },
+    {
+      "name": "UX Design",
+      "type": "Interaction Design / User Experience",
+      "level": "Enthusiast",
+      "years": "~12 (aggregate)",
+      "details": "I am passionate about understanding user behavior and designing intuitive software experiences. I actively research UX best practices (including studies from leading tech companies) and engage in observational analysis of user interactions – both internal and external – to identify opportunities for improving quality of life and overall usability."
+    },
+    {
+      "name": "Endpoint Maintenance",
+      "type": "IT Support / Troubleshooting / Help Desk Support",
+      "level": "Intermediate",
+      "years": "Ongoing (Professional and extended family support)",
+      "details": "I gained hands-on experience with endpoint maintenance and help desk support during my time at ISP Painting, resolving hardware and software issues for internal users. This professional experience has naturally extended beyond the workplace – I am the go-to IT resource for family and friends, providing ongoing support and troubleshooting for a wide range of devices and technical challenges (thankfully, without the need to manage system policy updates!)."
+    },
+    {
+      "name": "Database Admin",
+      "type": "DevOps",
+      "level": "Intermediate",
+      "years": "~1 (Non-cloud)",
+      "details": "My experience with database administration extends beyond software – I’ve been responsible for the full lifecycle of physical database servers, including hardware maintenance, cooling, network connectivity, and licensing. This hands-on experience, which included late-night emergency repairs (yes, even replacing fans on internet switches at 3 am!), provided a foundational understanding of how services and microservices interconnect and depend on robust infrastructure."
+    },
+    {
+      "name": "MySQL",
+      "type": "Relational Database Management System (RDBMS)",
+      "level": "Expert",
+      "years": "15+",
+      "details": "MySQL was my first experience with relational databases and provided a foundational understanding that I've consistently leveraged throughout my career. I have delved into the deeper aspects of MySQL documentation and followed database updates, establishing a strong base for working with other RDBMS technologies."
+    },
+    {
+      "name": "MariaDB",
+      "type": "Relational Database Management System (RDBMS)",
+      "level": "Expert",
+      "years": "15+ (starting when it was MySQL)",
+      "details": "I’ve been working with MariaDB extensively for the past seven years, leveraging a strong foundation built on 8+ years of experience with MySQL. I’ve been pleased to see the evolution of the database and have actively embraced MariaDB in deployments, particularly within AWS cloud environments, while continuing to utilize MySQL in other contexts."
+    },
+    {
+      "name": "Windows Office Administrator",
+      "years": "~2 (Aggregate from ISP Painting and CellTrak)",
+      "type": "Administrative Support / IT",
+      "level": "Intermediate",
+      "details": "I received comprehensive training in Windows Officeancen administration during my time at ISP Painting and later applied those skills at CellTrak, stepping in to provide support following a consultant's departure. While office technologies have evolved, I am capable of quickly adapting and providing functional administrative support when needed, though this isn’t a skill I actively maintain."
     }
-  ]
+  ],
+  "education": [],
+  "certificates": []
 }

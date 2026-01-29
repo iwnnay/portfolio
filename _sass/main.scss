@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap');
+
+:root {
+  --primary-color: #000;
+  --primary-light: #606060;
+  --secondary-color: #fff;
+  --secondary-light: #b6b6b6;
+  --s: 360px; /* size of pattern */
+  --c1: #d6aeec;
+  --c2: #e2dbf0;
+  --c3: #aaabbb;
+
+  --w1: var(--secondary-light);
+  --w2: var(--c1);
+  --w3: var(--c2);
+  --w4: var(--c3);
+}
+
+@import "layout/base";
+@import "layout/nav";
+@import "layout/footer";
+@import "layout/animations";
+@import "layout/background";
+@import "resume";

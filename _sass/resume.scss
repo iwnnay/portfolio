@@ -1,0 +1,86 @@
+.company-name {
+  font-weight: 1000;
+  font-size: 1.2em;
+}
+
+.company-info {
+  border-left: 1px solid var(--primary-light);
+  padding-left: 10px;
+}
+
+.position {
+  padding-bottom: 10px;
+  margin: 10px;
+  border-left: 1px solid var(--secondary-light);
+  padding-left: 10px;
+}
+
+.job-title {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.duration {
+  color: var(--primary-light);
+  padding-left: 10px;
+
+  &::before {
+    content: "(";
+  }
+
+  &::after {
+    content: ")";
+  }
+
+}
+
+.skill {
+  background-color: var(--c1);
+}
+
+.skill:hover {
+  background-color: var(--c2);
+}
+
+ul.responsibilities li {
+  padding-bottom: 5px;
+}
+
+dialog {
+  width: 50vw;
+  padding: 10px 40px 20px;
+  border: 1px solid var(--primary-light) !important;
+  border-radius: 10px;
+
+  .close-skill {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+  }
+
+  .close-skill:hover {
+    background: var(--primary-light);
+  }
+
+  h3 {
+    margin: 10px 0;
+    font-size: 2em;
+  }
+
+  .skill-label {
+    font-weight: bolder;
+  }
+
+  .skill-value, .skill-details {
+  }
+
+  .skill-details {
+    line-height: 1.5em;
+  }
+
+  .skill-row {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+//Wave animation WIP
+.wave-background {
+  background: linear-gradient(-45deg, var(--w1), var(--w2), var(--w3), var(--w4));
+  background-size: 400% 400%;
+  animation: waveGradient 10s ease infinite;
+}
+
+@keyframes waveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
