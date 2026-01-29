@@ -119,7 +119,8 @@
             "Node",
             "Point of Contact",
             "Concierge",
-            "Informer"
+            "Informer",
+            "TDD"
           ]
         },
         {
@@ -156,7 +157,8 @@
             "React",
             "Jest",
             "Node",
-            "JavaScript"
+            "JavaScript",
+            "TDD"
           ]
         },
         {
@@ -334,7 +336,7 @@
             "Kane",
             "Rubocop",
             "Agile",
-            "Coffee",
+            "CoffeeScript",
             "GitLab",
             "Git",
             "Ruby",
@@ -351,7 +353,8 @@
             "CentOS",
             "WordPress",
             "Heroku",
-            "TDD"
+            "TDD",
+            "VMWare"
           ]
         }
       ]
@@ -777,7 +780,163 @@
       "type": "Administrative Support / IT",
       "level": "Intermediate",
       "details": "I received comprehensive training in Windows Officeancen administration during my time at ISP Painting and later applied those skills at CellTrak, stepping in to provide support following a consultant's departure. While office technologies have evolved, I am capable of quickly adapting and providing functional administrative support when needed, though this isn’t a skill I actively maintain."
+    },
+
+    {
+      "name": "System Administration",
+      "type": "DevOps / Infrastructure",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I have consistently practiced system administration throughout my career, from managing co-located servers to overseeing cloud-based infrastructure. This experience provides me with a strong understanding of underlying system packages, containerization principles, and the intricacies of building, optimizing, and updating Docker containers for deployment in Kubernetes environments."
+    },
+    {
+      "name": "Custom Framework",
+      "type": "Software Development / Architecture",
+      "level": "Expert",
+      "years": "~5 (aggregate)",
+      "details": "Early in my career, particularly while working with PHP, I gained experience developing custom frameworks in situations where robust, established frameworks were unavailable. This involved implementing design principles and patterns that were later validated and refined by industry-standard frameworks. This experience provides me with a deep understanding of framework architecture, data flow, and the underlying mechanisms that deliver content to the internet."
+    },
+    {
+      "name": "VMWare",
+      "type": "Infrastructure / Virtualization",
+      "level": "Intermediate",
+      "years": "~4 (early cloud adoption & cost optimization)",
+      "details": "I received intensive VMWare training while working at companies that were early adopters of cloud computing and virtualization technologies. This focused on leveraging VMWare to reduce costs and optimize infrastructure, particularly transforming existing hardware into virtualized environments. While I’ve since transitioned to AWS, Azure, and GCP, I gained significant experience with VMWare during my time at ISP Painting and iCrossing."
+    },
+    {
+      "name": "TDD",
+      "level": "Expert / Advocate",
+      "years": "8+ (consistent practice & team leadership)",
+      "type": "Software Development / Quality Assurance",
+      "details": "I am a strong advocate for Test-Driven Development (TDD) and believe it should be central to the software development process. As a team manager at CellTrak, I successfully implemented a culture of TDD, resulting in a significant reduction in production errors and a streamlined QA cycle, even in challenging resource environments."
+    },
+    {
+      "name": "Zendesk",
+      "type": "Ticketing System",
+      "level": "Novice",
+      "years": "< 1",
+      "details": "I primarily focused on adding and managing plugins for Zendesk, which was utilized as an internal ticketing system. Although it’s been some time since I’ve actively used it, I’m aware of its significant maturation and improved feature set."
+    },
+    {
+      "name": "Heroku",
+      "type": "Cloud Platform / DevOps",
+      "level": "Expert",
+      "years": "3+",
+      "details": "While at iCrossing, I utilized Heroku extensively to facilitate rapid prototyping and deployment of proof-of-concept projects. This cost-effective platform allowed us to quickly showcase working applications to clients and stakeholders, enabling faster feedback loops and bringing innovative ideas to life that might otherwise have remained undeveloped. I still leverage Heroku for personal projects and helping people start up their own businesses."
+    },
+    {
+      "name": "CentOS",
+      "type": "Infrastructure / System Administration",
+      "level": "Expert",
+      "years": "8+",
+      "details": "I used from the time I was ISP Painting to my first role at CellTrak. I would often be one of the stand-alone linux users at a company and maintain my own endpoint as well as be a back up devops contact for unusual situations. I know my way around Bash and z-shell and even tinkered with and contributed to Fedora. But I have worked with several flavors of linux, CentOS was the longest, though."
+    },
+    {
+      "name": "Fedora",
+      "type": "Linux Operating System",
+      "level": "Expert",
+      "years": "3+",
+      "details": "I used Fedora as my main operating system at iCrossing, where I had the freedom to make decisions about my personal computer's configuration. This autonomy empowered me to work exactly how I wanted and kept me close to the OS running our web servers. A notable highlight of my experience is a bug‑fix contribution to Fedora’s time‑zone calculation routine—a small but proud claim to fame."
+    },
+    {
+      "name": "Jenkins",
+      "type": "CI/CD Automation Tool",
+      "level": "Expert",
+      "years": "10+",
+      "details": "I have become a power user of Jenkins through the varied and veracious work at CellTrak. I have leveraged it to improve development cycles, build CI/CD pipelines, enhance monitoring, ship internal tools, deploy AWS Lambdas, and launch services both synchronously and asynchronously—managing resources and connections through secure channels. While Jenkins is fundamentally a job runner, its well‑thought‑out and flexible architecture enabled us to streamline massive automation and simplify very complex tasks."
+    },
+    {
+      "name": "Apache",
+      "type": "Web Server / Infrastructure / DevOps",
+      "level": "Intermediate",
+      "years": "15+",
+      "details": "I know my way around Apache, though I wouldn't call myself an expert because there is still a lot to learn. I can easily maintain and configure an Apache server, almost by heart at this point. I have delivered many web servers personally, privately, and professionally using my knowledge of Apache and its configuration. This experience is highly transferable, as other web servers rely on the same principles of Apache, simply tweaked or paired with different languages or tailored for different circumstances."
+    },
+    {
+      "name": "Postgres",
+      "type": "Relational Database Management System (RDBMS)",
+      "level": "Intermediate",
+      "years": "10+",
+      "details": "I have been using PostgreSQL since my time at iCrossing. I value its strong community, especially the Python community, which has helped it gain surprising popularity despite not being as feature‑rich or as fast as some other databases. This community support has made deployment easy, and PostgreSQL is often the go‑to database for many Platform‑as‑a‑Service web companies. My foundational understanding of MySQL further helps me recognize PostgreSQL’s pitfalls and benefits."
+    },
+    {
+      "name": "Groovy",
+      "type": "Programming Language",
+      "level": "Novice",
+      "years": "~1",
+      "details": "I have only had to troubleshoot with Groovy and set up projects that combine Maven and Groovy. While I’ve barely used the language directly, this exposure gives me a surface‑level understanding of its syntax and typical build‑script scenarios. I would be the Ruby developer collaborating with  teammates who specializes in Groovy."
+    },
+    {
+      "name": "Maven",
+      "type": "Build Automation Tool",
+      "level": "Novice",
+      "years": "< 1",
+      "details": "I know how to run Maven and compile Java projects with it. I haven’t used it extensively, but I understand its value in managing precompiled code and dependency resolution."
+    },
+    {
+      "name": "Ruby on Rails",
+      "type": "Web Application Framework",
+      "level": "Expert (a little rusty)",
+      "years": "4+ (Professionally and personally)",
+      "details": "I loved working in Ruby on Rails—the vibrant community and the mindset of convention over configuration made every day a pleasure. The fact that the framework is built on Ruby itself added to the enjoyment. I used Rails heavily day‑in and day‑out during my time at iCrossing and Springleaf, and continued to build personal projects with it for many years afterward, though that was the end of my professional Rails experience.<br><br>My proudest accomplishment came at Springleaf: I meta‑programmed an event‑driven, idempotent emailing service that automatically generated a base set of tests and checks for hard‑to‑identify program choices. The design made subclass creation straightforward, which enabled us to transform a project that would have taken 18 months with the previous setup into a fully extensible, easy‑to‑learn service completed in just 3 months. The service incorporated numerous safeguards against spamming or sending unnecessary email communications, drastically improving both speed and quality."
+    },
+    {
+      "name": "Ruby",
+      "type": "Programming Language",
+      "level": "Expert",
+      "years": "8+",
+      "details": "I use Ruby as often as possible when creating scripts and quick one‑off projects. I employed it heavily at iCrossing and Springleaf alongside Rails and would happily jump at a chance to work with it again. Ruby is a language that feels built with the developer in mind—its expressiveness and developer‑friendly syntax make it a joy to use. While it isn’t as “fast” as some other languages and its rapid rise to popularity has attracted its share of critics, it remains a wonderful language for automating tasks on my machine or writing scripts that I don’t expect others to maintain."
+    },
+    {
+      "name": "Git",
+      "type": "Version Control System",
+      "level": "Expert",
+      "years": "14",
+      "details": "I have always viewed version control as a fundamental skill for any collaborative code or project work. Git blew me away with its ease of use and clarity of control compared to early version control systems, making it the de‑facto standard. I am frequently regarded as the Git expert wherever I have worked: I routinely untangle complex merge conflicts, recover deleted work, and resolve bugs that arise when others merge over each other’s changes."
+    },
+    {
+      "name": "GitLab",
+      "type": "DevOps / Repository Management",
+      "level": "Intermediate",
+      "years": "~4 (professional experience at iCrossign and ActiveCampaign)",
+      "details": "GitLab has consistently appeared throughout my career, offering controls over repositories that GitHub doesn’t provide—webhooks, automation, commit hooks, and a growing suite of features. While working at iCrossing, I helped a team install and run GitLab internally, advocating best‑practice deployment to the DevOps group. Later at ActiveCampaign, I addressed and fixed several bugs as the organization adopted GitLab. I understand the tradeoffs of hosting GitLab in‑house versus paying for external services, and I know how to run Git servers independently and deploy GitLab to support those environments. I appreciate all the additional controls and plugins that come with GitLab and use it to enhance repository governance."
+    },
+    {
+      "name": "CoffeeScript",
+      "type": "Programming Language (JavaScript Superset)",
+      "level": "Expert",
+      "years": "< 3",
+      "details": "I used CoffeeScript heavily at iCrossing, turning vanilla JavaScript into OOP‑driven custom frameworks with ease. Its syntax is close to Ruby, which made it natural to pair with my everyday work in Ruby on Rails. Today, with the advancements in ES6, I consider CoffeeScript largely obsolete."
+    },
+    {
+      "name": "Agile",
+      "type": "Development Methodology",
+      "level": "Expert",
+      "years": "20+",
+      "details": "I am a strong advocate for Agile, always balancing time, speed, and quality. After attending multiple conferences and reading numerous books on the topic, I apply Agile principles with a focus on clarity rather than buzzwords. I emphasize the bottleneck of limited developers against feature count and critique companies that push developers into long hours and risky decisions. Agile de‑escalates the process, openly communicating project capabilities and uncertainties. In practice, stakeholders—customers, clients, managers, and teammates—appreciate the transparency and effectiveness that Agile brings to project delivery."
+    },
+    {
+      "name": "Rubocop",
+      "type": "Ruby Static Analysis Tool",
+      "level": "Intermediate",
+      "years": "2-4",
+      "details": "RuboCop is a popular tool in the Ruby on Rails ecosystem for enforcing coding style, catching anti‑patterns, and ensuring consistency. I have used it regularly in development and test environments to maintain high‑quality code, integrating it into CI pipelines and project workflows."
+    },
+    {
+      "name": "Kane",
+      "type": "Complexity Analysis Tool",
+      "level": "Intermediate",
+      "years": "2-4",
+      "details": "Kane is a lightweight Ruby gem that was popular in the Rails ecosystem during my time at iCrossing and Springleaf. It helps developers assess and manage code complexity by evaluating cyclomatic complexity, nesting depth, and other maintainability metrics. I used it for quick, cursory checks to keep our codebases from becoming overly complex, but it is not a full‑blown testing framework—rather a handy sanity tool for keeping complexity in check."
+    },
+    {
+      "name": "Jira - Leaving off here",
+      "type": "",
+      "level": "",
+      "years": "1+",
+      "details": ""
     }
+
   ],
   "education": [],
   "certificates": []
