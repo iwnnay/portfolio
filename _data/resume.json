@@ -210,7 +210,8 @@
             "Agile",
             "MySQL",
             "MariaDB",
-            "Windows Office Administrator"
+            "Windows Office Administrator",
+            "Meta Programming"
           ],
           "responsibilities": [
             "Proved myself to be a valuabe leader after 1 year and led several cross-functional initiatives as the lead in pods of 4 senior engineers",
@@ -296,7 +297,6 @@
             "MySQL",
             "Postgres",
             "TDD",
-            "Meta Programming"
           ]
         }
       ]
@@ -930,11 +930,53 @@
       "details": "Kane is a lightweight Ruby gem that was popular in the Rails ecosystem during my time at iCrossing and Springleaf. It helps developers assess and manage code complexity by evaluating cyclomatic complexity, nesting depth, and other maintainability metrics. I used it for quick, cursory checks to keep our codebases from becoming overly complex, but it is not a full‑blown testing framework—rather a handy sanity tool for keeping complexity in check."
     },
     {
-      "name": "Jira - Leaving off here",
-      "type": "",
-      "level": "",
+      "name": "Jira",
+      "type": "Project Management & Issue Tracking Platform",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I have used Jira professionally and personally since its early adoption at iCrossing. It remains the primary project‑management tool across all my positions, surpassing alternatives in flexibility and feature richness. I have served as a Jira administrator, setting up new projects, configuring custom workflows, and creating numerous dashboards. My extensive experience also includes deep engagement with Jira APIs, where I built automated triggers that perform actions on tickets and transition them to completion."
+    },
+    {
+      "name": "SCSS",
+      "type": "CSS Preprocessor",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I really like using SCSS and incorporate it into almost every project I work on. Its features—variables, nesting, mixins, and partials—make it straightforward to integrate into existing build pipelines and dramatically improve the organization and readability of CSS. By leveraging SCSS, I create modular, reusable styles that reduce duplication, speed up development, and simplify maintenance across multiple teams and projects."
+    },
+    {
+      "name": "Sinatra",
+      "type": "Ruby Web Framework",
+      "level": "Intermediate",
+      "years": "< 2",
+      "details": "I was exposed to and used Sinatra during my time at Ruby. I found myself using it more for quick POCs for myself or in meetings. It’s a lightweight, DSL‑based web framework that shares many design concepts with FastAPI (Python) and feels closer to Streamlit’s simplicity. While I haven’t used Sinatra extensively, I can quickly reacquaint myself with its routing, middleware, and template handling if a lean server is needed in any language I’m working with."
+    },
+    {
+      "name": "Ember",
+      "type": "JavaScript Web Framework",
+      "level": "Beginner",
+      "years": "< 1",
+      "details": "I’ve used Ember in a few projects while doing backend work, and I’ve completed several training courses that gave me a solid grasp of its core concepts—routing, components, services, and Ember CLI tooling. Although I haven’t executed extensive development with Ember, I’m comfortable navigating its structure and can quickly ramp back up if the project requires a lean, convention‑driven front‑end stack."
+    },
+    {
+      "name": "Backbone",
+      "type": "JavaScript MVC Library",
+      "level": "Intermediate",
       "years": "1+",
-      "details": ""
+      "details": "I’m comfortable with Backbone, having built several features during a quick proof‑of‑concept at iCrossing. I handled routing, models, collections, and views to deliver functional components and maintained the project smoothly, demonstrating a solid grasp of Backbone’s architecture and best practices."
+    },
+    {
+      "name": "D3.js",
+      "type": "JavaScript Visualization Library",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have a strong passion for visual data engineering—D3.js is my go‑to tool for turning large, complex data sets into interactive, responsive visualizations. Although it has a steep learning curve, its powerful binding and transformation capabilities make it one of the most versatile libraries I’ve worked with. I routinely recommend D3.js to my direct reports and colleagues for any project requiring detailed diagrams, maps, or intricate data interactions. In a multi‑year Hearst project at iCrossing, I helped visualize user traffic using gravity, weights, and filters to reveal user communities and interest alignment across enterprises, drawing directly from our data lake. The work was rewarding, uncovering insights that were otherwise hidden in raw data."
+    },
+    {
+      "name": "Meta Programming",
+      "type": "Advanced Programming Technique",
+      "level": "Expert",
+      "years": "(as needed)",
+      "details": "Meta‑programming in Ruby and PHP is all about writing code that writes code. I’ve applied this skill in two high‑impact scenarios:<br/><br/><b>SpringLeaf – Ruby on Rails Email Service Framework</b> – I built a superclass that understood the email service architecture, its safety requirements, and idempotent design. Sub‑classes automatically generated comprehensive test suites (commit‑ready with a single command), while the framework enforced Rails conventions, provided detailed documentation, and surfaced warnings or errors. The result was a superset service that turned minimal input into a fully‑featured, test‑ready component.<br/><br/><b>CellTrak – PHP/Symfony IVR DSL</b> – While developing an IVR system in PHP with Symfony, I created a lightweight domain‑specific language that let project managers describe phone interactions—from menu navigation to background callbacks—in natural, declarative syntax. The DSL handled data collection, audio file references, and interaction logic, enabling developers to focus on testing rather than plumbing code. This required harnessing PHP’s ReflectionClass, __call, and Symfony’s Compiler Passes to inject generated code into the service container at compile time.<br/><br/>These projects demonstrate my ability to leverage language‑specific metaprogramming features to deliver clean, reusable, and fully‑tested code generators that adapt to the needs of a given codebase."
     }
 
   ],
