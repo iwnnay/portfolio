@@ -23,7 +23,7 @@
             "Langfuse",
             "CrewAI",
             "Neo4j",
-            "Chroma DB",
+            "ChromaDB",
             "Pinecone",
             "Streamlit",
             "Databricks",
@@ -102,10 +102,8 @@
             "Project Management",
             "UI Design",
             "React",
+            "Redux",
             "TypeScript",
-            "PHPUnit",
-            "vite test suite",
-            "Jest",
             "MariaDB",
             "Postgres",
             "ChromaDB",
@@ -116,10 +114,14 @@
             "Ansible",
             "Terraform",
             "Wiz",
-            "Node",
+            "Node.js",
             "Point of Contact",
             "Concierge",
             "Informer",
+            "Vitest",
+            "PHPUnit",
+            "Jest",
+            "Playwright",
             "TDD"
           ]
         },
@@ -156,7 +158,7 @@
             "Microsoft SQL Server",
             "React",
             "Jest",
-            "Node",
+            "Node.js",
             "JavaScript",
             "TDD"
           ]
@@ -178,7 +180,7 @@
             "Project Management",
             "Agile",
             "Point of Contact",
-            "Node",
+            "Node.js",
             "MariaDB"
           ],
           "responsibilities": [
@@ -204,7 +206,7 @@
             "EC2",
             "Jenkins",
             "Bash",
-            "Desktop",
+            "Desktop Deployment",
             "Leadership",
             "Jira",
             "Agile",
@@ -214,7 +216,7 @@
             "Meta Programming"
           ],
           "responsibilities": [
-            "Proved myself to be a valuabe leader after 1 year and led several cross-functional initiatives as the lead in pods of 4 senior engineers",
+            "Proved myself to be a valuable leader after 1 year and led several cross-functional initiatives as the lead in pods of 4 senior engineers",
             "Architected a custom SPA framework blending React and Angular capabilities to accelerate feature delivery optimized for our companies needs",
             "Engineered high-throughput API systems for mobile event processing, enabling 10K+ hourly transactions with 99.95% reliability through asynchronous event streaming",
             "Leveraged Rails best practices to modernize PHP framework architecture, improving core functionality and reducing bug rates by 20% and marginally increasing readability across monolithic legacy application",
@@ -246,12 +248,11 @@
           "skills": [
             "Ember",
             "PHP",
-            "Custom PHP Framework",
+            "Custom Framework",
             "JSOND",
-            "Event System",
             "Kafka",
             "Docker",
-            "Node",
+            "Node.js",
             "UI Design",
             "NPM",
             "SQS",
@@ -297,6 +298,7 @@
             "MySQL",
             "Postgres",
             "TDD",
+            "Jira"
           ]
         }
       ]
@@ -395,6 +397,7 @@
             "mainframe development",
             "SharePoint",
             "WordPress",
+            "Jira",
             "Point of Contact"
           ]
         }
@@ -429,6 +432,7 @@
             "HTML",
             "OOP",
             "MVC",
+            "Jira",
             "Building Management",
             "Automation",
             "Debugging",
@@ -494,7 +498,8 @@
             "Illustrator",
             "IIS",
             "SharePoint",
-            "WordPress"
+            "WordPress",
+            "Custom Framework"
           ]
         }
       ]
@@ -977,6 +982,315 @@
       "level": "Expert",
       "years": "(as needed)",
       "details": "Meta‑programming in Ruby and PHP is all about writing code that writes code. I’ve applied this skill in two high‑impact scenarios:<br/><br/><b>SpringLeaf – Ruby on Rails Email Service Framework</b> – I built a superclass that understood the email service architecture, its safety requirements, and idempotent design. Sub‑classes automatically generated comprehensive test suites (commit‑ready with a single command), while the framework enforced Rails conventions, provided detailed documentation, and surfaced warnings or errors. The result was a superset service that turned minimal input into a fully‑featured, test‑ready component.<br/><br/><b>CellTrak – PHP/Symfony IVR DSL</b> – While developing an IVR system in PHP with Symfony, I created a lightweight domain‑specific language that let project managers describe phone interactions—from menu navigation to background callbacks—in natural, declarative syntax. The DSL handled data collection, audio file references, and interaction logic, enabling developers to focus on testing rather than plumbing code. This required harnessing PHP’s ReflectionClass, __call, and Symfony’s Compiler Passes to inject generated code into the service container at compile time.<br/><br/>These projects demonstrate my ability to leverage language‑specific metaprogramming features to deliver clean, reusable, and fully‑tested code generators that adapt to the needs of a given codebase."
+    },
+    {
+      "name": "Mentoring",
+      "type": "Leadership / Professional Development",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I enjoy helping others discover their passion for coding. I’ve served as a mentor in several roles, most notably at CellTrak, where my team functioned as an onboarding springboard for new hires. These individuals would spend one to six months with us, learning the skills and cultural norms needed to succeed before joining their dedicated teams. As a software engineering manager at CellTrak, I led a team of four junior developers and one senior developer, consistently challenging them to step outside their comfort zones and achieve significant milestones. I continue to receive feedback from former team members who express difficulty finding managers who prioritize their professional development to the same extent. While flattered by their recognition of my impact, I’m more disheartened that they aren’t receiving the support they deserve elsewhere. I believe in fostering growth within teams—both offering and seeking mentorship opportunities."
+    },
+    {
+      "name": "Microservices",
+      "type": "Software Architecture",
+      "level": "Expert",
+      "years": "10+",
+      "details": "I have extensive experience designing, building, and maintaining microservice systems, dating back to my time at Springleaf. Most recently, I've been focused on building Retrieval-Augmented Generation (RAG) systems from the ground up using Google Cloud Platform (GCP). These systems represent the ultimate expression of microservice architecture, comprising modular applications that can seamlessly integrate various Large Language Models (LLMs) and data sources. For example, the sales team can use a RAG system to conduct market research by leveraging Gemini against a sales knowledge base, with outputs adaptable for file generation or chatbot responses. Similarly, the project management team can pull information from the internal wiki to develop strategic plans and automatically generate work tickets within their project management platform. The ability to swap data sources, LLMs, and output formats demonstrates the power of this architecture to create flexible, scalable, and easily upgradable solutions."
+    },
+    {
+      "name": "Redis",
+      "type": "In-Memory Data Store",
+      "level": "Expert",
+      "years": "10+",
+      "details": "I’ve used Redis extensively to improve the responsiveness of applications and provide caching across pods and microservices, enhancing performance and scalability."
+    },
+
+    {
+      "name": "Sidekiq",
+      "type": "Background Job Processor",
+      "level": "Expert",
+      "years": "4+",
+      "details": "I’ve utilized Sidekiq as a lightweight and reliable event queue within Ruby on Rails projects, offloading time-consuming tasks and improving application responsiveness."
+    },
+    {
+      "name": "Jest",
+      "type": "JavaScript Testing Framework",
+      "level": "Expert",
+      "years": "7+",
+      "details": " I’ve used Jest extensively with React projects, appreciating its comprehensive features—including built-in reporting and a wide range of testing capabilities. I’m very comfortable with the framework and find its easy-to-write syntax encourages and facilitates Test-Driven Development (TDD)."
+    },
+    {
+      "name": "PHPUnit",
+      "type": "PHP Testing Framework",
+      "level": "Expert",
+      "years": "10+",
+      "details": "I have substantial experience with PHPUnit, utilizing it both within established frameworks like Symfony and Laravel, and in completely custom projects at ActiveCampaign and CellTrak. This has included creating custom configurations and data loaders to ensure proper test execution. Recognizing that PHPUnit can be resource-intensive, I’ve also implemented parallel CI/CD pipelines within GitLab to significantly reduce testing times for development branches."
+    },
+    {
+      "name": "Kubernetes",
+      "type": "Container Orchestration Platform",
+      "level": "Intermediate",
+      "years": "6+",
+      "details": "I’ve led development efforts to establish Kubernetes environments and utilize Minikube for local development cycles. I’ve also created Helm charts to streamline deployments for DevOps teams. While I possess a strong theoretical understanding of Kubernetes deployment and configuration, I’ve typically relied on a dedicated DevOps team to finalize the production deployment process within Terraform. I view this as the final gap in my skillset and plan to address it through further training in the near future."
+    },
+    {
+      "name": "GitHub",
+      "type": "Online Respository Platform",
+      "level": "Expert",
+      "years": "12+",
+      "details": "GitHub is a robust and constantly evolving platform with a comprehensive set of features. I’ve leveraged its webhooks, administration features, and plugins extensively, and have overseen the operation of several smaller enterprises utilizing the platform. While I have preferences for other repository platforms due to minor usability quirks, I readily recommend GitHub as a reliable and widely adopted solution for version control and collaboration."
+    },
+    {
+      "name": "SQS",
+      "type": "Message Queue Service",
+      "level": "Expert",
+      "years": "8+",
+      "details": "I have extensive experience architecting systems around Amazon SQS, encompassing everything from standalone applications performing asynchronous tasks to complex messaging platforms supporting numerous microservices and applications. I’m comfortable implementing SQS and its related APIs to maximize responsiveness and maintain up-to-date information across disparate entities, including integrating it with Lambda functions and Amazon EventBridge events."
+    },
+    {
+      "name": "NPM",
+      "type": "Pckage Manager",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I have been utilizing NPM since its early releases, with experience creating and publishing professional-grade packages, leveraging its private deployment system for managing organization-wide libraries, and employing it for general package management and project-level scripting."
+    },
+    {
+      "name": "Node.js",
+      "type": "JavaScript Runtime Environment",
+      "level": "Expert",
+      "years": "15+",
+      "details": "I was an early adopter of Node.js, immediately drawn to its asynchronous capabilities and rapid development cycle. I’ve implemented numerous personal projects, proof-of-concepts, and team-specific solutions using Node. I appreciate its expansion into a full-stack, multi-platform development environment. While the platform continues to evolve at a rapid pace, I am highly proficient with Node.js and eager to apply my expertise to new challenges."
+    },
+    {
+      "name": "Docker",
+      "type": "Containerization Platform",
+      "level": "Expert",
+      "years": "10+",
+      "details": "I began using Docker in its early stages at iCrossing, initially finding it buggy and lacking the features of established virtualization platforms like VMWare and Vagrant. However, after witnessing significant improvements and the emergence of new capabilities, I adopted it for personal projects and quickly recognized the power of containerization. I championed its implementation at ActiveCampaign and CellTrak, leveraging proof-of-concepts and the growing momentum around Kubernetes to successfully transition development teams from Vagrant to Docker. I’ve never looked back, and I’m now a strong advocate for Docker’s “code as configuration” approach, enabling rapid, repeatable system administration and eliminating the need for managing a library of tiny scripts to ensure consistent environments for the development team."
+    },
+    {
+      "name": "Kafka",
+      "type": "Novice",
+      "level": "",
+      "years": "1+",
+      "details": "I have experience building a number of Proof-of-Concept implementations of Kafka. At ActiveCampaign were even aided by a team of AWS consultants to facilitate integration with existing systems. While recognizing its power and scalability, most integrations have been halted because the complexity and associated costs often outweigh the benefits for many development teams, where simpler solutions like SQS are sufficient. I have also explored alternative streaming platforms such as Kinesis to evaluate viability for specific use cases."
+    },
+    {
+      "name": "JSOND",
+      "type": "Data Format",
+      "level": "Expert",
+      "years": "~1",
+      "details": "JSOND is a departure from traditional data formats like JSON, CSV, and XML, designed to facilitate structured streaming data flows. While not widely known, it offers significant advantages in specific scenarios and can be a game-changer when applied appropriately."
+    },
+    {
+      "name": "Custom Frameworks",
+      "type": "Software Architecture",
+      "level": "Expert",
+      "years": "~4",
+      "details": "My experience building custom frameworks, mostly in PHP, from a low level provides a deep understanding of the underlying needs, drawbacks, and advantages inherent in modern frameworks. This foundational knowledge enhances my appreciation and effective utilization of established frameworks."
+    },
+    {
+      "name": "Leadership",
+      "type": "Management / Team Leadership",
+      "level": "Expert",
+      "years": "10+",
+      "details": "Throughout my career, I've been entrusted with leadership roles in various capacities. Beginning with project leadership at CellTrak, I quickly demonstrated an ability to organize teams and ensure on-time delivery. This evolved into management positions at both CellTrak and ActiveCampaign, where I successfully led teams with diverse personalities and skill levels. As Software Engineering Manager, I was responsible for the full employee lifecycle – interviewing, project management, performance management, personal development planning, budget oversight, career growth, and mentorship – fostering a high-performing team of passionate individuals. I've consistently received positive feedback on my leadership style, with team members actively requesting to join my teams. Furthermore, upper management frequently entrusts me with critical projects and significant decision-making autonomy, consistently resulting in successful outcomes."
+    },
+    {
+      "name": "Desktop Deployment",
+      "type": "Software release / System Administration",
+      "level": "Expert",
+      "years": "4",
+      "details": "Desktop application deployment presents unique challenges beyond standard software release procedures. This includes securing appropriate licensing and code signing for Windows, navigating the app store submission and approval process, and establishing automated update mechanisms through platforms like GitHub. Successfully managing this process requires ongoing adaptation to OS updates and evolving security/permission requirements. While streamlined, less secure deployment methods are possible, I prioritize a full-fledged, robust approach to ensure reliable and secure updates for end-users."
+    },
+    {
+      "name": "EC2",
+      "type": "Cloud Computing / System Administration",
+      "level": "Expert",
+      "years": "10+",
+      "details": "Leveraging my system administration expertise, I can rapidly provision EC2 instances and associated resources within AWS to facilitate Proof-of-Concept development. At CellTrak, I utilized this skill to initiate the creation of a CI pipeline during our platform migration to cloud storage. While the DevOps team ultimately expanded on this work, I also contributed to a Kubernetes-adjacent deployment strategy for our legacy applications on the platform team. This approach offers cost savings and accelerated environment validation, though it requires careful consideration regarding security and governance."
+    },
+    {
+      "name": "AWS",
+      "type": "Cloud Platform",
+      "level": "intermediate",
+      "years": "15+",
+      "details": " I have a solid foundation in AWS, having integrated various AWS services into projects since my time at iCrossing. While I’ve had the opportunity to work on teams fully dedicated to AWS for short periods, my AWS integration work has primarily been conducted with the support of dedicated DevOps teams."
+    },
+    {
+      "name": "Vagrant",
+      "type": "Virtual Development Environment",
+      "level": "Expert (irrelevant)",
+      "years": "~9",
+      "details": "I have experience with Vagrant from its early adoption as a tool for standardizing development environments. However, with the prevalence of Docker and Kubernetes, its practical application in current projects is limited."
+    },
+    {
+      "name": "Electron",
+      "type": "Cross-Platform Desktop Application Framework",
+      "level": "Expert",
+      "years": "7+",
+      "details": " I have extensive experience developing cross-platform desktop applications using Electron, and have led teams utilizing it for shared applications, Proof-of-Concept development, and accelerating web-based application creation with frameworks like React and Svelte. It’s a valuable tool for quickly bypassing DevOps overhead when needed. While not without its quirks, I’m familiar with its challenges and can leverage its strengths to deliver effective solutions."
+    },
+    {
+      "name": "React",
+      "type": "JavaScript Framework",
+      "level": "Expert",
+      "years": "13+",
+      "details": "I have maintained proficiency with React since its release in 2013, consistently keeping my skills sharp as it has become a prevalent technology. My most intensive experience includes building a full-fledged Electron-based desktop application using React as its core framework. I am proficient in Test-Driven Development (TDD) with React, and comfortable establishing new projects with Redux."
+    },
+    {
+      "name": "Redux",
+      "type": "State Management Library",
+      "level": "Expert",
+      "years": "4+",
+      "details": "I am proficient in using Redux for predictable state management in JavaScript applications. I have experience integrating Redux with React projects, implementing reducers, actions, and middleware to manage complex application data flows. I'm comfortable setting up new Redux stores and scaling existing implementations."
+    },
+    {
+      "name": "Symfony",
+      "type": "PHP Framework",
+      "level": "Expert",
+      "years": "~10",
+      "details": "I have extensive experience with Symfony, utilizing its versatility throughout my time at CellTrak. I am comfortable setting up, running, and maintaining Symfony projects, with a strong understanding of its advanced features including the event and listener system for asynchronous processing, robust security components, dependency injection layer, and reusable services and components."
+    },
+    {
+      "name": "Project Management",
+      "type": "Leadership / Planning / Communication",
+      "level": "Expert",
+      "years": "5+",
+      "details": "In addition to my role as Engineering Manager, I have frequently assumed project management responsibilities when dedicated resources were unavailable. This includes collaborating with upper management to align projects with customer and product goals, developing comprehensive plans encompassing architecture, pricing, and feature rollout timelines, and presenting this information to stakeholders. I’m experienced in creating demonstration materials and providing regular progress updates, effectively wearing multiple hats to ensure successful project delivery."
+    },
+    {
+      "name": "Datadog",
+      "type": "Monitoring & Observability Platform",
+      "level": "Expert",
+      "years": "~10",
+      "details": "I have been a dedicated user of Datadog for over 10 years, witnessing its evolution from early feature development to a comprehensive observability solution. I was involved in the initial implementation and configuration of Datadog for PHP and EC2 monitoring, collaborating directly with Datadog engineers during platform expansion. I played a key role in establishing centralized log management for both legacy and new microservice architectures across CellTrak and ActiveCampaign, overcoming challenges posed by varied business decisions over time. I contributed to the research, setup, and tailoring of initial monitoring agents, and championed the adoption of synthetic monitoring as a standard for new development endpoints and applications. Additionally, I assisted in the creation of custom alerts and alert equilibrium, working with DevOps and development teams to ensure timely notifications of critical issues while minimizing alert fatigue."
+    },
+    {
+      "name": "Chef",
+      "type": "Configuration Management Tool",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I invested significant effort in learning and implementing Chef at CellTrak, building a Proof-of-Concept to evaluate its potential benefits. Leveraging my understanding of traditional infrastructure platforms, I developed a containerized deployment recipe for Chef. While the organization ultimately decided against adopting Chef due to licensing costs and required adjustments, the insights gained from this POC directly informed the evolution of our existing Jenkins pipelines and the integration of Ansible, enabling asynchronous task execution and the creation of server images for rapid deployment in AWS."
+    },
+    {
+      "name": "Ansible",
+      "type": "Configuration Management Tool",
+      "level": "Beginner",
+      "years": "<1",
+      "details": "I have experience working alongside DevOps teams utilizing Ansible for configuration management, application deployment, and automation. While I’ve contributed to the creation of configuration files, my primary exposure has been leveraging the work of dedicated Ansible engineers and benefiting from its capabilities within a broader DevOps workflow. It is something that I'm curious to learn more about in the future."
+    },
+    {
+      "name": "Helm",
+      "type": "Kubernetes Package Manager",
+      "level": "Intermediate",
+      "years": "~5 (but sparsely)",
+      "details": "I have experience working alongside DevOps teams utilizing Ansible for configuration management, application deployment, and automation. While I’ve contributed to the creation of configuration files, my primary exposure has been leveraging the work of dedicated Ansible engineers and benefiting from its capabilities within a broader DevOps workflow."
+    },
+    {
+      "name": "Concierge",
+      "type": "Automation & Remediation tool",
+      "level": "Expert",
+      "years": "6+",
+      "details": " I was a key contributor to the development and evolution of Concierge, an in-house automation and remediation tool built at CellTrak. Initially designed to enable remote troubleshooting and hotfix deployment for the Tier 3 technical support team, Concierge evolved into a sophisticated system capable of autonomously resolving issues identified through Jira tickets. I proposed and implemented the integration with our existing Jira ticket processing library, enabling Concierge to automatically detect, diagnose, and resolve known issues. This involved overcoming significant technical challenges in ensuring data integrity and preventing unintended consequences when interacting with diverse systems. Later development phases involved migrating Concierge to a serverless architecture utilizing AWS Lambdas, EventBridge, and CloudWatch, enabling real-time error detection and remediation. Concierge was written in Python and deployed as a self-updating agent. This system predated widespread AI adoption, effectively achieving automated problem resolution at scale."
+    },
+    {
+      "name": "Transparency",
+      "type": "Leadership / Communication / Interpersonal Skills",
+      "level": "Expert",
+      "years": "6+",
+      "details": "Transparency is a core principle of my management style, built on the belief that sound decision-making and a healthy team environment require open and honest communication. I prioritize fostering a culture where team members feel comfortable voicing concerns and sharing feedback, even on difficult topics. This approach, rooted in mutual respect, has consistently resulted in more candid conversations regarding working conditions and individual challenges, allowing for proactive support rather than reactive intervention. I also understand the importance of balancing transparency with the need to maintain confidentiality and uphold company integrity, particularly when communicating unfavorable decisions."
+    },
+    {
+      "name": "Management",
+      "type": "Leadership / Mentorship / Team Building",
+      "level": "Expert",
+      "years": "8+",
+      "details": "While initially hesitant due to my introverted nature and passion for coding, I have found management to be a deeply rewarding experience. I particularly enjoy mentoring team members, leveraging my strong foundation in coding and architecture to foster a culture of collaboration and experimentation with new technologies and paradigms. Driven by a desire to be the type of manager I would have thrived under, I excel at maintaining both micro and macro level goals, facilitating thoughtful discussions around architecture strategies, and empowering my team to achieve success. Despite the inherent challenges, the positive impact on team growth and project outcomes makes the effort worthwhile."
+    },
+    {
+      "name": "Informer",
+      "type": "Incident Communication and Escalation Tool",
+      "level": "Expert",
+      "years": "5",
+      "details": "I was a key contributor to the development of Informer, an in-house incident communication and escalation tool built at CellTrak. Designed to complement and enhance the capabilities of Concierge, Informer automated the process of alerting the appropriate personnel and coordinating response efforts in the event of priority one issues or service disruptions. The system implemented a tiered escalation process, beginning with automated Teams chat invitations for on-call support personnel, progressing to direct messaging and phone calls if no response was received, and ultimately involving management intervention. Informer also automated the creation of external communication templates, centralized customer reporting via Jira tickets, and provided real-time status updates to relevant channels. Like Concierge, Informer was integral to the success of our technical support teams and significantly improved incident resolution times. (The application’s evoked memories of that 90's song of the same title.)"
+    },
+    {
+      "name": "Wiz",
+      "type": "Cloud Security / Vulnerability Management Tool",
+      "level": "Novice",
+      "years": "2",
+      "details": "I have experience utilizing Wiz, a cloud security platform, to identify security vulnerabilities, including configuration faults, malicious activity, and known issues within software dependencies. While I haven't deeply explored the full capabilities of the tool, I have leveraged it on an as-needed basis to address security concerns, appreciating its ability to surface critical issues efficiently."
+    },
+    {
+      "name": "Terraform",
+      "type": "DevOps / Infrastructure Automation",
+      "level": "Intermediate",
+      "years": "5+",
+      "details": "I have experience contributing to the setup and configuration of Terraform, an Infrastructure as Code (IaC) tool. I’ve written Terraform configurations to automate infrastructure provisioning, but my involvement has been primarily focused on contributing to broader team efforts rather than deep, independent development. I am eager to expand my expertise in Terraform and actively seek opportunities to gain greater familiarity with the tool, while recognizing that dedicated teams will likely remain the primary experts in this area."
+    },
+    {
+      "name": "FastAPI",
+      "type": "Backend Development / API Design",
+      "level": "Expert",
+      "years": "7+",
+      "details": "I am an expert in developing APIs using FastAPI, a modern, high-performance Python framework. I have extensive experience with various Python API libraries, but I consistently choose FastAPI for its self-documenting capabilities, lightweight design, and focus on delivering efficient APIs. I have successfully deployed countless production-quality APIs, POCs, and lightweight development projects utilizing FastAPI, and appreciate its seamless integration with other frameworks like Streamlit for expanding application functionality."
+    },
+    {
+      "name": "Blob Storage",
+      "type": "Cloud Storage / Data Management",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have extensive experience utilizing Google Cloud Blob Storage (akin to AWS S3) for storing large files. Over the past two years, my usage has significantly increased in conjunction with the development of Retrieval Augmented Generation (RAG) systems, facilitated by the seamless integration with Google Vertex AI and the prevalence of Google Workspace data sources such as wikis and documents. I am comfortable accessing and managing blob storage at scale through both the command-line interface and API. While not a complex technology, I have a strong understanding of best practices for its effective utilization."
+    },
+    {
+      "name": "Communication Skills",
+      "type": "Soft Skills / Interpersonal Communication",
+      "level": "Expert",
+      "years": "15+",
+      "details": "Based on consistent positive feedback, I excel at communicating complex technical concepts to both technical and non-technical audiences, tailoring the depth and brevity of my explanations to their specific interests and needs. I am also known for being thoughtful and considerate of colleagues’ professional and personal well-being, consistently going the extra mile to ensure understanding and inclusivity. I understand the importance of discerning when to provide detailed explanations and when to prioritize clarity and conciseness, recognizing that effective communication requires knowing when to elaborate and when to maintain a high-level overview."
+    },
+    {
+      "name": "Pinecone",
+      "type": "Vector Database / AI Infrasctructure",
+      "level": "Intermediate",
+      "years": "2+",
+      "details": "I have recently been introduced to and am actively utilizing Pinecone, a vector database, primarily within the context of Retrieval Augmented Generation (RAG) systems where AI directly interacts with the database. While I am comfortable using Pinecone in these applications, I recognize the potential for optimization at scale and am actively learning on the job to expand my expertise in this area as I build increasingly complex systems utilizing AI orchestration."
+    },
+    {
+      "name": "ChromaDB",
+      "type": "Data Management / AI Infrasctructure",
+      "level": "Intermediate",
+      "years": "2+",
+      "details": "I am comfortable utilizing ChromaDB, a vector database particularly well-suited for development and smaller-scale projects. While I have experience with the tool, I haven’t extensively explored its advanced features due to the limited number of use cases."
+    },
+    {
+      "name": "Vitest",
+      "type": "Testing Framework",
+      "level": "Expert",
+      "years": "4+",
+      "details": "I am proficient in utilizing Vitest, a JavaScript testing framework designed to work seamlessly with Vite. I am a strong advocate of Test-Driven Development (TDD) and appreciate Vitest’s ease of use, which promotes consistent and reliable testing practices. I have found that Vitest significantly contributes to the stability of the Svelte applications I have developed."
+    },
+    {
+      "name": "Playwright",
+      "type": "Testing Framework / End-to-End Testing",
+      "level": "Expert",
+      "years": "4+",
+      "details": "I am proficient in utilizing Playwright, an end-to-end (E2E) testing framework. I value its simplicity and ease of interaction, which supports a robust testing strategy and contributes to the overall quality and stability of the applications I build, particularly within the Svelte ecosystem."
+    },
+    {
+      "name": "TypeScript",
+      "type": "Programming Language / Static Typing",
+      "level": "Expert",
+      "years": "3+",
+      "details": "I have significant personal experience utilizing TypeScript, appreciating its benefits in terms of code maintainability and static typing. While my professional experience has primarily involved JavaScript development due to project requirements, I believe its concise syntax and logical structure would allow most developers to become proficient within 4-6 months."
+    },
+    {
+      "name": "Salesforce",
+      "type": "CRM / Platform Integration",
+      "level": "Novice",
+      "years": "~1 (aggregate)",
+      "details": "I have experience developing Apex plug-ins and building automations for the Salesforce platform. While I haven’t utilized the core Salesforce application extensively, I possess a foundational understanding of its architecture and capabilities. I would require a brief refresher to quickly regain familiarity with specific features and functionalities."
     }
 
   ],
