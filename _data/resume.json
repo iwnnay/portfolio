@@ -30,7 +30,7 @@
             "Snowflake",
             "SAP",
             "MCP",
-            "AGA",
+            "A2A",
             "GCP",
             "Vertex",
             "Blob Storage",
@@ -46,8 +46,8 @@
             "pandas",
             "pydantic",
             "PyTorch",
-            "OpenAI",
-            "Anthropic",
+            "Chat-GPT",
+            "Claude",
             "Gemini",
             "Microsoft SQL Server"
           ]
@@ -93,8 +93,9 @@
             "LangChain",
             "LangGraph",
             "GCP",
+            "Chat-GPT",
+            "Claude",
             "Gemini",
-            "ServiceNow",
             "Salesforce",
             "Transparency",
             "Communication Skills",
@@ -1291,6 +1292,217 @@
       "level": "Novice",
       "years": "~1 (aggregate)",
       "details": "I have experience developing Apex plug-ins and building automations for the Salesforce platform. While I haven’t utilized the core Salesforce application extensively, I possess a foundational understanding of its architecture and capabilities. I would require a brief refresher to quickly regain familiarity with specific features and functionalities."
+    },
+    {
+      "name": "Gemini",
+      "type": "Large Lanuage Model",
+      "level": "Expert",
+      "years": "3+",
+      "details": "In 2024, I participated in a charter at CellTrak to research and evaluate the strengths of various Large Language Models (LLMs), including Gemini, Chat-GPT, and Claude. We assessed their practical application to different business ideas and development scenarios. Ultimately, we selected Gemini for implementation due to the robust Vertex platform and the availability of pre-built, enterprise-level integrations offered by Google. Currently, at Bright Tech, I assist clients in selecting the optimal LLM based on factors such as scale, cost, and specific nuances among the available AI options."
+    },
+    {
+      "name": "Chat-GPT",
+      "type": "Large Language Model",
+      "level": "Expert",
+      "years": "3+",
+      "details": "In 2024, I participated in a charter at CellTrak to research and evaluate the strengths of various Large Language Models (LLMs), including Gemini, Chat-GPT, and Claude. We assessed their practical application to different business ideas and development scenarios. Currently, at Bright Tech, I assist clients in selecting the optimal LLM based on factors such as scale, cost, and specific nuances among the available AI options."
+    },
+    {
+      "name": "Claude",
+      "type": "Large Language Model",
+      "level": "Expert",
+      "years": "3+",
+      "details": "In 2024, I participated in a charter at CellTrak to research and evaluate the strengths of various Large Language Models (LLMs), including Gemini, Chat-GPT, and Claude. We assessed their practical application to different business ideas and development scenarios. Currently, at Bright Tech, I assist clients in selecting the optimal LLM based on factors such as scale, cost, and specific nuances among the available AI options."
+    },
+    {
+      "name": "GCP",
+      "type": "Cloud Computing",
+      "level": "Intermediate",
+      "years": "1+",
+      "details": "While relatively new to the Google Cloud Platform (GCP), I possess a strong foundation in cloud computing principles developed through extensive experience with Amazon Web Services (AWS) at CellTrak. I’ve found a high degree of transferability between the two platforms, with GCP offering analogous services to those available in AWS. The primary exception is Gemini, which is a unique strength of the Google ecosystem."
+    },
+    {
+      "name": "Vertex",
+      "type": "Machine Learning Platform / AI Development",
+      "level": "Expert",
+      "years": "2+",
+      "details": "Vertex AI has been essential to my recent research and development efforts in the field of AI. Its low-code environment and simplified dependency management have enabled rapid prototyping and the development of numerous Proof-of-Concepts (POCs). Vertex AI has proven valuable for both small-scale projects and enterprise-level integrations within the Google Cloud Platform, making it an ideal platform for exploring and validating AI initiatives."
+    },
+    {
+      "name": "LangChain",
+      "type": "LLM Orchestration Framework",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have extensive experience utilizing LangChain to build and deploy complex AI-powered applications. This includes developing custom chains for specific business needs, integrating with vector databases like Pinecone and Chroma, and implementing various memory modules to enhance conversational AI experiences. I’ve also leveraged LangChain’s Agent capabilities to create autonomous systems with access to external tools and APIs. While LangChain provides a robust foundation, I've actively optimized components like embeddings and memory management to improve performance and reduce resource utilization, ensuring scalability for enterprise-level applications. I believe LangChain offers a highly effective environment for developers seeking to rapidly prototype and deploy sophisticated AI solutions."
+    },
+    {
+      "name": "OpsGenie",
+      "type": "Alert Management",
+      "level": "Novice",
+      "years": "1-3",
+      "details": "I gained experience with OpsGenie during my time at CellTrak, utilizing it for on-call scheduling and incident management for my team. While I found its capabilities to be somewhat limited compared to our internally developed Informer application – particularly regarding escalation pathways tailored to specific service-derived teams and company needs – I am familiar with its core functionality and workflows."
+    },
+    {
+      "name": "CloudWatch",
+      "type": "Cloud Monitoring / Observability",
+      "level": "Expert",
+      "years": "8+",
+      "details": "I have leveraged Amazon CloudWatch in virtually every capacity over the years, utilizing its full range of capabilities for monitoring, logging (including integration with Datadog), proactive incident prevention, major incident intervention, alerting, and automation through triggers like Lambda functions. I have a deep understanding of its features and have consistently applied them to optimize system performance and reliability."
+    },
+    {
+      "name": "Lambda",
+      "type": "Serverless Architecture",
+      "level": "Expert",
+      "years": "7+",
+      "details": "I am proficient in developing and deploying AWS Lambda functions as part of microservice and serverless architectures. I understand the ideal use cases for Lambda and have experience building CI/CD pipelines to ensure continuous updates and maintainability. I've also contributed to the architectural design of Lambda functions, integrating them into both new and existing network and system configurations."
+    },
+    {
+      "name": "EventBridge",
+      "type": "Event-Driven Architecture / Integration",
+      "level": "Expert",
+      "years": "3+",
+      "details": "I was quick to adopt Amazon EventBridge, recognizing its potential to significantly enhance our existing AWS-based architectures. Building upon our established use of CloudWatch for system monitoring, we rapidly integrated EventBridge to advance automation and proactively address system issues. A key transformation was migrating parallel processing tasks to Lambda functions triggered by real-time error events, enabling us to move from reactive troubleshooting to proactive issue resolution. This allowed us to address both long-term, complex problems and minor bugs efficiently, while also identifying and mitigating new errors introduced during deployments. EventBridge was instrumental in shifting our approach to system maintenance and significantly improving our operational efficiency."
+    },
+    {
+      "name": "Svelte",
+      "type": "JavaScript Framework",
+      "level": "Expert",
+      "years": "4+",
+      "details": "Having been a long-time and proficient React developer, I initially approached the transition to Svelte with some skepticism. However, I quickly became a strong advocate for the framework, recognizing its significant advantages in streamlining development workflows. Svelte elegantly addresses many of my long-standing frustrations with React, particularly regarding routing, state management, and component complexity. I’ve found Svelte to be remarkably versatile and capable of delivering responsive, enterprise-level products with a focus on simplicity. As a result, I have proactively migrated both my personal and professional projects to Svelte, and I continue to be impressed by its ongoing evolution and commitment to developer experience."
+    },
+    {
+      "name": "PyTorch",
+      "type": "Machine Learingin / Computer Vision",
+      "level": "Beginner",
+      "years": "<1",
+      "details": "I am excited about the potential of PyTorch and have completed a certificate-level program to gain a foundational understanding of the framework. I have also applied computer vision techniques, utilizing PyTorch principles, at Bright Tech to train Retrieval-Augmented Generation (RAG) systems on PDF and scanned documents. While I haven’t yet had significant opportunities to directly develop in PyTorch professionally, I am actively exploring its capabilities and plan to focus on expanding my expertise in the coming year."
+    },
+    {
+      "name": "Pydantic",
+      "type": "Data Science / Python Library",
+      "level": "Expert",
+      "years": "7+",
+      "details": "I have extensive experience utilizing Pydantic for data validation, settings management, and controlling data flows within my applications. I’ve found its capabilities particularly valuable in recent years for structuring the output of AI models, ensuring consistent and predictable responses."
+    },
+    {
+      "name": "Pandas",
+      "type": "Data Science / Python Library",
+      "level": "Expert",
+      "years": "7+",
+      "details": "I have extensive experience utilizing Pandas for data cleaning, transformation, and preparation. Within the Concierge automation/support tool at CellTrak, Pandas was crucial for converting unstructured or corrupted data into a usable format, often in conjunction with Pydantic for data validation. I've also leveraged Pandas extensively in the data preparation phase for AI model training and building AI orchestration pipelines, recognizing its critical role in ensuring data quality and accuracy for production quality applications."
+    },
+    {
+      "name": "Pytest",
+      "type": "Pythong Testing Framework",
+      "level": "Expert",
+      "years": "5+",
+      "details": "I have extensive experience utilizing Pytest for comprehensive software testing, particularly within API and microservice architectures. I highly value its mocking capabilities, which significantly reduce the need for complex development environments and allow developers to focus on testing specific components in isolation."
+    },
+    {
+      "name": "FastMCP",
+      "type": "MCP Framework",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I recently began utilizing FastMCP and have been impressed by its ease of implementation and potential for enhancing modularity and reusability within orchestration workflows. By acting as a decorator on existing skills, it allows for effortless component extraction and reuse across projects, future-proofing our development efforts. I’ve already found it valuable for accelerating testing and development cycles, enabling focused analysis of specific functionalities for bugs, hallucinations, or effectiveness, and strongly advocate for its adoption across all projects."
+    },
+    {
+      "name": "Milvus",
+      "type": "Vector Database",
+      "level": "Expert?",
+      "years": "<1",
+      "details": "I have implemented Milvus as a vector database in systems requiring accurate phrase and passage recognition. I’ve observed its strengths compared to other databases when dealing with large datasets centered around specific phrases, rather than evolving queries. Coupling Milvus with Neo4J for tracking data relationships further enhances its performance. While I consider myself proficient in applying Milvus to solve practical problems, I haven’t extensively focused on low-level optimization, resulting in a hybrid skill level of expert application with intermediate optimization knowledge."
+    },
+    {
+      "name": "Consulting",
+      "type": "Professional Services / Communication",
+      "level": "Expert",
+      "years": "*",
+      "details": "I possess strong technical knowledge, problem-solving skills, and communication abilities, allowing me to effectively transition between projects and deliver valuable solutions as a technical consultant. I enjoy identifying and resolving complex issues or implementing advanced features for organizations that may lack the internal expertise or resources. While I find consulting to be rewarding work, I prioritize long-term project engagement and the stability of a full-time employment arrangement."
+    },
+    {
+      "name": "SLM",
+      "type": "Machine Learning / AI Development",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I recognize the advantages of utilizing Small Language Models (SLMs) over Large Language Models (LLMs), including reduced cost, lower latency, enhanced privacy, and improved customization potential. I identify a significant barrier to SLM adoption as a lack of internal expertise and/or properly formatted data within most organizations. I anticipate increasing my focus on SLM development and implementation in the future."
+    },
+    {
+      "name": "LLM",
+      "type": "Machine Learning / AI Development",
+      "level": "Beginner",
+      "years": "<1",
+      "details": "I possess a strong understanding of interacting with existing Large Language Models (LLMs) via APIs and tokenization, with experience utilizing platforms like OpenAI’s ChatGPT. I am currently building my expertise in the more complex process of training and deploying custom LLMs, having completed foundational coursework and exploratory projects. I am actively seeking opportunities to apply and expand this skillset through practical implementation."
+    },
+    {
+      "name": "Generative AI",
+      "type": "AI Development",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have quickly become proficient in utilizing Generative AI tools and APIs for content creation, including documents, images, videos, and slides. While effective API integration and account management are key, I also possess the ability to deploy and manage open-source Generative AI models on GPU-equipped machines using Python, addressing challenges related to dependency management and optimizing for cost and speed. I am actively evaluating and implementing open-source alternatives as they approach the performance of leading proprietary models."
+    },
+    {
+      "name": "A2A",
+      "type": "AI Development / System Integration",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I have experience designing and implementing Agent to Agent (A2A) communication systems to orchestrate complex tasks and workflows. I have specifically worked with connecting and integrating third-party agent systems within the Gemini ecosystem, leveraging their capabilities to create cohesive and automated solutions. My expertise includes establishing communication protocols and managing data flow between diverse AI agents."
+    },
+
+    {
+      "name": "MCP",
+      "type": "AI Orchestration",
+      "level": "Expert",
+      "years": "2+",
+      "details": " have been consistently integrating FastMCP into my AI orchestration development workflows for over two years, leveraging its ease of implementation to enhance the modularity and reusability of tasks built with frameworks like CrewAI and LangChain. I have experience deploying and maintaining FastMCP servers, although I find its greatest utility lies in accelerating development and streamlining testing phases."
+    },
+    {
+      "name": "SAP",
+      "type": "Business Intelligence",
+      "level": "Intermediate",
+      "years": "1+",
+      "details": "While a traditionally established system, SAP’s potential is being revitalized through AI-driven advancements. I’ve focused on leveraging SAP to create a unified view of inventory, cost, and resource management, particularly at Bright Tech, with the goal of providing a robust foundation for advanced orchestration and AI development initiatives."
+    },
+    {
+      "name": "Snowflake",
+      "type": "Data Warehouse / Data Engineering",
+      "level": "Expert",
+      "years": "7+",
+      "details": "I am a highly proficient user of the Snowflake data cloud platform, with experience connecting it to Power BI via APIs and shared keys, building data archiving ETLs to improve application responsiveness, and denormalizing data to facilitate efficient data extraction for AI queries. I am a strong advocate for Snowflake and recognize its versatility and performance capabilities."
+    },
+    {
+      "name": "Databricks",
+      "type": "Data Engineering / AI Infrastructure",
+      "level": "Itnermediate",
+      "years": "1+",
+      "details": "I have quickly become proficient with Databricks, leveraging its user-friendly interface and comprehensive documentation to support AI orchestration and data lake implementations. At Bright Tech, Databricks has been instrumental in training, fine-tuning, and supplying data to AI initiatives, as well as enabling the creation of efficient and near-realtime SAP environments for our customers."
+    },
+    {
+      "name": "Streamlit",
+      "type": "UI/UX Development",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I am proficient with Streamlit, a lightweight Python framework for rapidly building and deploying user interfaces. I’ve found it particularly valuable at Bright Tech for creating UI interfaces for AI chatbots and other applications where a full-fledged JavaScript framework is unnecessary but more functionality is needed than simple scripting provides."
+    },
+    {
+      "name": "Neo4j",
+      "type": "Graph Database",
+      "level": "Intermediate",
+      "years": "2+",
+      "details": "I have successfully implemented Neo4j as a graph database to enhance AI-powered systems, particularly Retrieval-Augmented Generation (RAG) pipelines. I've leveraged its capabilities to improve query speed, increase search result relevancy, and reduce data hallucinations. While my focus has been on utilizing Neo4j in conjunction with vector databases rather than optimizing the database itself, I recognize its potential and may expand my expertise in this area."
+    },
+    {
+      "name": "CrewAI",
+      "type": "AI Orchestration",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I am highly proficient with CrewAI, leveraging its capabilities to design, orchestrate, and optimize AI agent workflows. I enjoy the creative process of building teams of agents, defining clear requirements, and iteratively improving their performance through prompt engineering and collaboration. CrewAI has proven to be an invaluable tool for automating complex tasks, both professionally and personally, and translating intricate ideas into clean, executable code."
+    },
+    {
+      "name": "Langfuse",
+      "type": "AI Monitoring",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have found Langfuse to be an invaluable tool for sculpting and refining AI performance across numerous projects. Its detailed audit trails allow me to identify and correct poorly prompted agents, validate task execution, and gain insights into the internal workings of LLMs. I leverage Langfuse to implement necessary guardrails and ensure the reliability and desirability of AI-generated results."
     }
 
   ],
