@@ -1032,7 +1032,7 @@
       "type": "Container Orchestration Platform",
       "level": "Intermediate",
       "years": "6+",
-      "details": "I’ve led development efforts to establish Kubernetes environments and utilize Minikube for local development cycles. I’ve also created Helm charts to streamline deployments for DevOps teams. While I possess a strong theoretical understanding of Kubernetes deployment and configuration, I’ve typically relied on a dedicated DevOps team to finalize the production deployment process within Terraform. I view this as the final gap in my skillset and plan to address it through further training in the near future."
+      "details": "I’ve led development efforts to establish Kubernetes environments and utilize Minikube for local development cycles. I’ve also created Helm charts to streamline deployments for DevOps teams. While I possess a strong theoretical understanding of Kubernetes deployment and configuration, I’ve typically relied on a dedicated DevOps team to finalize the production deployment process within Terraform. I view this as the final gap in my skill set and plan to address it through further training in the near future."
     },
     {
       "name": "GitHub",
@@ -1050,7 +1050,7 @@
     },
     {
       "name": "NPM",
-      "type": "Pckage Manager",
+      "type": "Package Manager",
       "level": "Expert",
       "years": "15+",
       "details": "I have been utilizing NPM since its early releases, with experience creating and publishing professional-grade packages, leveraging its private deployment system for managing organization-wide libraries, and employing it for general package management and project-level scripting."
@@ -1253,14 +1253,14 @@
     },
     {
       "name": "Pinecone",
-      "type": "Vector Database / AI Infrasctructure",
+      "type": "Vector Database / AI Infrastructure",
       "level": "Intermediate",
       "years": "2+",
       "details": "I have recently been introduced to and am actively utilizing Pinecone, a vector database, primarily within the context of Retrieval Augmented Generation (RAG) systems where AI directly interacts with the database. While I am comfortable using Pinecone in these applications, I recognize the potential for optimization at scale and am actively learning on the job to expand my expertise in this area as I build increasingly complex systems utilizing AI orchestration."
     },
     {
       "name": "ChromaDB",
-      "type": "Data Management / AI Infrasctructure",
+      "type": "Data Management / AI Infrastructure",
       "level": "Intermediate",
       "years": "2+",
       "details": "I am comfortable utilizing ChromaDB, a vector database particularly well-suited for development and smaller-scale projects. While I have experience with the tool, I haven’t extensively explored its advanced features due to the limited number of use cases."
@@ -1295,7 +1295,7 @@
     },
     {
       "name": "Gemini",
-      "type": "Large Lanuage Model",
+      "type": "Large Language Model",
       "level": "Expert",
       "years": "3+",
       "details": "In 2024, I participated in a charter at CellTrak to research and evaluate the strengths of various Large Language Models (LLMs), including Gemini, Chat-GPT, and Claude. We assessed their practical application to different business ideas and development scenarios. Ultimately, we selected Gemini for implementation due to the robust Vertex platform and the availability of pre-built, enterprise-level integrations offered by Google. Currently, at Bright Tech, I assist clients in selecting the optimal LLM based on factors such as scale, cost, and specific nuances among the available AI options."
@@ -1372,7 +1372,7 @@
     },
     {
       "name": "PyTorch",
-      "type": "Machine Learingin / Computer Vision",
+      "type": "Machine Learning / Computer Vision",
       "level": "Beginner",
       "years": "<1",
       "details": "I am excited about the potential of PyTorch and have completed a certificate-level program to gain a foundational understanding of the framework. I have also applied computer vision techniques, utilizing PyTorch principles, at Bright Tech to train Retrieval-Augmented Generation (RAG) systems on PDF and scanned documents. While I haven’t yet had significant opportunities to directly develop in PyTorch professionally, I am actively exploring its capabilities and plan to focus on expanding my expertise in the coming year."
@@ -1472,7 +1472,7 @@
     {
       "name": "Databricks",
       "type": "Data Engineering / AI Infrastructure",
-      "level": "Itnermediate",
+      "level": "Intermediate",
       "years": "1+",
       "details": "I have quickly become proficient with Databricks, leveraging its user-friendly interface and comprehensive documentation to support AI orchestration and data lake implementations. At Bright Tech, Databricks has been instrumental in training, fine-tuning, and supplying data to AI initiatives, as well as enabling the creation of efficient and near-realtime SAP environments for our customers."
     },
@@ -1506,6 +1506,31 @@
     }
 
   ],
-  "education": [],
-  "certificates": []
+  "education": [
+    {
+      "degree": "Bachelor of Digital Media Production",
+      "institution": "Illinois Institute of Art (Schaumburg)"
+    }
+
+  ],
+  "certificates": [
+    {
+      "name": "ADaSci Certified Agentic AI System Architect",
+      "institution": "ADaSci",
+      "link": "https://adasci.org/certifications/adasci-certified-agentic-ai-system-architect",
+      "image": null,
+      "skills": ["RAG","AGA","A2A","MCP","Pinecone","GCP","n8n", "Agentic AI","CrewAI","LangChain", "Multimodal", "LangGraph", "CrewAI", "Ollama", "AutoGen" ],
+      "description": "This certificate focused on the design, governance, strengths, weaknesses, and best practices of Agentic AI systems through labs and a mix of recorded and live sessions.",
+      "credID": "#CERT-20251223-3126",
+      "date": "December 2025"
+    }
+  ],
+  "classes": [
+    {
+      "title": "",
+      "description": "",
+      "link": "",
+      "skills": []
+    }
+  ]
 }
