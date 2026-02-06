@@ -1,9 +1,4 @@
-let openSkillDialog;
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('.passive-logo .circle').addEventListener('click', () => document.location = '/');
-
-    const slugName = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-
+const initializeDurations = () => {
     const durations = document.getElementsByClassName('duration');
     const starts = document.getElementsByClassName('start');
     const ends = document.getElementsByClassName('end');
@@ -17,23 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
             let years = endDate.getFullYear() - startDate.getFullYear();
             let months;
             if (startDate.getMonth() < endDate.getMonth()) {
-                months = endDate.getMonth() - startDate.getMonth()
+                months = endDate.getMonth() - startDate.getMonth();
             } else {
                 months = 12 - startDate.getMonth() + endDate.getMonth();
                 years -= 1;
             }
 
             duration.innerText = (years ? `${years} year${years > 1 ? 's' : ''} ` : '')
-                + (months ? `${months} month${months > 1 ? 's' : ''} ` : '')
+                + (months ? `${months} month${months > 1 ? 's' : ''} ` : '');
 
         }
     }
+};
 
+let openSkillDialog;
+const slugName = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const initializeSkillDialogBehavior = () => {
     const closeSkillDialog = () => {
         if (openSkillDialog) {
             openSkillDialog.close();
         }
-    }
+    };
 
     for (let skillEl of document.getElementsByClassName('skill')) {
         const skill = skillEl.innerText;
@@ -53,4 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let closeBtn of document.getElementsByClassName('close-skill')) {
         closeBtn.addEventListener('click', () => closeSkillDialog());
     }
+
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDurations();
+    initializeSkillDialogBehavior();
+
+    // Add listener for logo click
+    document.querySelector('.passive-logo .circle').addEventListener('click', () => document.location = '/');
 });
