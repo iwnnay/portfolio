@@ -1527,10 +1527,11 @@
   ],
   "classes": [
     {
-      "title": "",
+      "title": "Angular Deep Dive - Beginner to Advanced (Angular 21)",
       "description": "",
       "link": "",
-      "skills": []
+      "completedOn": "Current",
+      "skills": [ "Angular", "TypeScript"]
     }
   ]
 }
