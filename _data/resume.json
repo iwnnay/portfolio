@@ -1528,8 +1528,8 @@
   "classes": [
     {
       "title": "Angular Deep Dive - Beginner to Advanced (Angular 21)",
-      "description": "",
-      "link": "",
+      "description": "12 hour course that covers Angular 21 and the backwards compatibility to angular 17",
+      "link": "https://www.udemy.com/course/angular-course/",
       "completedOn": "Current",
       "skills": [ "Angular", "TypeScript"]
     }
