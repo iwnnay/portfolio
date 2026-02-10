@@ -17,6 +17,8 @@
             "Integrated agentic AI systems with legacy applications (ERP systems, SAP ECC, Salesforce), reducing manual process time by 65%."
           ],
           "skills": [
+            "RAG",
+            "Agentic AI",
             "Python",
             "LangGraph",
             "LangChain",
@@ -90,6 +92,8 @@
             "Jira",
             "OpsGenie",
             "Vertex",
+            "RAG",
+            "Agentic AI",
             "LangChain",
             "LangGraph",
             "GCP",
@@ -1503,6 +1507,62 @@
       "level": "Expert",
       "years": "2+",
       "details": "I have found Langfuse to be an invaluable tool for sculpting and refining AI performance across numerous projects. Its detailed audit trails allow me to identify and correct poorly prompted agents, validate task execution, and gain insights into the internal workings of LLMs. I leverage Langfuse to implement necessary guardrails and ensure the reliability and desirability of AI-generated results."
+    },
+    {
+      "name": "RAG",
+      "type": "AI Development / Data Science",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have extensive experience building Retrieval-Augmented Generation (RAG) systems, ranging from text-based applications to multimodal systems incorporating slides and images. I’ve developed RAG solutions for both Bright Tech and CellTrak, including several enterprise-grade product, demonstrating my ability to design, implement, and scale robust and effective knowledge retrieval systems."
+    },
+    {
+      "name": "Angular",
+      "type": "JavaScript Framework",
+      "level": "Intermediate",
+      "years": "1+ (professionally)",
+      "details": "I have significant experience with Angular, leveraging it extensively during my time at iCrossing. I recently completed a course on Angular 21 with backward compatibility to version 17 to refresh my skills and ensure I can effectively contribute to projects requiring Angular development. I am eager to apply this knowledge in future opportunities."
+    },
+    {
+      "name": "n8n",
+      "type": "Low-Code / No-Code / Workflow Automation",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I gained hands-on experience with n8n, a no-code workflow automation platform, during my ADaSci certification program. I successfully set up n8n locally and leveraged its plug-and-play functionality to streamline coursework and explore potential integrations with professional projects. I was impressed by its versatility and ease of use."
+    },
+    {
+      "name": "Ollama",
+      "type": "Open Source AI Model Server",
+      "level": "Expert",
+      "years": "<1",
+      "details": "I consistently utilize Ollama in my AI development workflows. It's become an essential tool for quickly prototyping agent interactions and significantly reducing costs associated with cloud-based LLM usage. While acknowledging that some open-source LLMs may not match the performance of enterprise models, Ollama offers a valuable balance between accessibility, speed, and affordability."
+    },
+    {
+      "name": "AutoGen",
+      "type": "Multi-Agent Framework",
+      "level": "Intermediate",
+      "years": "<1",
+      "details": "I gained hands-on experience with AutoGen during my ADaSci certification program. It provided valuable insight into the capabilities of multi-agent frameworks, bridging the gap between low-code/no-code solutions like n8n and custom agentic AI code. I also gained an understanding of how these systems are implemented within the Microsoft/Azure environment."
+    },
+    {
+      "name": "Multimodal",
+      "type": "AI Development / Data Engineering",
+      "level": "Expert",
+      "years": "2+",
+      "details": " I have extensive experience building multimodal AI systems capable of processing a wide range of input formats, including audio files, images, PDFs, documents, API endpoints, and wiki pages. I have also developed systems that generate diverse outputs, such as videos, images, slide decks, and PDFs, demonstrating my ability to create fully integrated and versatile AI solutions."
+    },
+    {
+      "name": "Agentic AI",
+      "type": "AI Development / Orchestration",
+      "level": "Expert",
+      "years": "2+",
+      "details": "I have been heavily involved in hands-on Agentic AI work at Bright Tech, focusing on building and deploying AI agents to orchestrate complex tasks within RAG systems. This includes leveraging agents to either enhance existing systems or effectively replace them, demonstrating my ability to design and implement scalable and intelligent agent-based solutions."
+    },
+    {
+      "name": "AGA",
+      "type": "AI Ethics / AI Safety",
+      "level": "Intermediate",
+      "years": "~1",
+      "details": "I prioritize Agent Goal Alignment (AGA) in my AI development work, ensuring that AI systems are designed and deployed in a responsible and ethical manner. While much of my experience with AGA is based on academic exploration and discussion, these principles directly inform my approach to architecting and implementing AI solutions."
     }
 
   ],
@@ -1528,6 +1588,7 @@
   "classes": [
     {
       "title": "Angular Deep Dive - Beginner to Advanced (Angular 21)",
+      "institution": "Udemy",
       "description": "12 hour course that covers Angular 21 and the backwards compatibility to angular 17",
       "link": "https://www.udemy.com/course/angular-course/",
       "completedOn": "Current",

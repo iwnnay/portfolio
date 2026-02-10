@@ -3,14 +3,16 @@ const initializeDurations = () => {
     const starts = document.getElementsByClassName('start');
     const ends = document.getElementsByClassName('end');
 
+
     if (durations.length === starts.length && durations.length === ends.length) {
         for (let i = 0; i < durations.length; i++) {
-            const startDate = new Date(starts[i].innerText);
-            const endDate = ends[i].innerText === 'Present' ? new Date() : new Date(ends[i].innerText);
+            const startDate = new Date(starts[i].innerHTML);
+            const endDate = ends[i].innerHTML === 'Present' ? new Date() : new Date(ends[i].innerHTML);
             const duration = durations[i];
 
             let years = endDate.getFullYear() - startDate.getFullYear();
             let months;
+
             if (startDate.getMonth() < endDate.getMonth()) {
                 months = endDate.getMonth() - startDate.getMonth();
             } else {
@@ -18,7 +20,7 @@ const initializeDurations = () => {
                 years -= 1;
             }
 
-            duration.innerText = (years ? `${years} year${years > 1 ? 's' : ''} ` : '')
+            duration.innerHTML = (years ? `${years} year${years > 1 ? 's' : ''} ` : '')
                 + (months ? `${months} month${months > 1 ? 's' : ''} ` : '');
 
         }
@@ -35,7 +37,7 @@ const initializeSkillDialogBehavior = () => {
     };
 
     for (let skillEl of document.getElementsByClassName('skill')) {
-        const skill = skillEl.innerText;
+        const skill = skillEl.innerHTML;
         const slug = slugName(skill);
         if (!document.getElementById(slugName('skill-' + slug))) {
             console.log('need to add skill detail for ' + skill);
@@ -55,9 +57,38 @@ const initializeSkillDialogBehavior = () => {
 
 };
 
+const setOpenSections = () => {
+    let openSections = JSON.parse(localStorage.getItem('openDetails')) || [];
+    openSections.forEach(sectionText => {
+        document.querySelectorAll('summary').forEach(el => {
+            if (el.innerHTML === sectionText) {
+                el.parentElement.open = true;
+            }
+        });
+    });
+};
+
+const storeOpenSections = () => {
+    const openSections = [];
+    document.querySelectorAll('details[open]').forEach(section => {
+        const summaryText = section.querySelector('summary').textContent.trim();
+        openSections.push(summaryText);
+    });
+    localStorage.setItem('openDetails', JSON.stringify(openSections));
+};
+
+const init = () => {
+    setOpenSections();
+
+    document.querySelectorAll('details').forEach((el) => {
+        el.addEventListener('toggle', storeOpenSections);
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     initializeDurations();
     initializeSkillDialogBehavior();
+    init();
 
     // Add listener for logo click
     document.querySelector('.passive-logo .circle').addEventListener('click', () => document.location = '/');

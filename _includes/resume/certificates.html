@@ -1,0 +1,20 @@
+{% for cert in site.data.resume.certificates %}
+<div class="company-name">{{ cert.name }}</div>
+<div class="company-info">
+    <div><span class="label">Institution:</span> <span class="value">{{cert.institution}}</span></div>
+    <div><span class="label">Date:</span> <span class="value">{{cert.date}}</span></div>
+    <div>
+        <span class="label">Description:</span>
+        <span class="value">{{cert.description}}</span>
+    </div>
+    <div><span class="label">Certification ID:</span><span class="value">
+        {{cert.credID}}
+        <a href="{{cert.link}}" target="_blank"><i class="fa fa-link"></i></a>
+        </span></div>
+    <div class="skills">
+        {% for skill in cert.skills %}
+        <span class="button skill">{{ skill }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}

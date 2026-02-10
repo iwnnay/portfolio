@@ -1,0 +1,17 @@
+{% for class in site.data.resume.classes %}
+<div class="company-name">{{ class.title }}</div>
+<div class="company-info">
+    <div><span class="label">Institution:</span> <span class="value">{{class.institution}}</span></div>
+    <div><span class="label">Completion Date:</span> <span class="value">{{class.completedOn}}</span></div>
+    <div>
+        <span class="label">Description:</span>
+        <span class="value">{{class.description}}</span>
+        <a href="{{class.link}}" target="_blank"><i class="fa fa-link"></i></a>
+    </div>
+    <div class="skills">
+        {% for skill in class.skills %}
+        <span class="button skill">{{ skill }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}

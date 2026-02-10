@@ -8,7 +8,7 @@ const initializeSkillDialogBehavior = () => {
     }
 
     for (let skillEl of document.getElementsByClassName('skill')) {
-        const skill = skillEl.innerText;
+        const skill = skillEl.innerHTML;
         const slug = slugName(skill);
         if (!document.getElementById(slugName('skill-' + slug))) {
             console.log('need to add skill detail for ' + skill);

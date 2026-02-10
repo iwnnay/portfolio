@@ -1,0 +1,29 @@
+{% for job in site.data.resume.jobs %}
+<div class="company-name">{{ job.company }}</div>
+<div class="company-info">
+    <div class="company-location">{{ job.location }}</div>
+    {% if job.start and job.end %}
+    <div class="job-duration">
+        <span class="start">{{ job.start }}</span> - <span class="end">{{ job.end }}</span> <span class="duration"></span>
+    </div>
+    {%  endif %}
+    {% for position in job.positions %}
+    <div class="position">
+        <div class="job-title">{{ position.title }}</div>
+        <div class="job-duration">
+            <span class="start">{{ position.start }}</span> - <span class="end">{{ position.end }}</span> <span class="duration"></span>
+        </div>
+        <ul class="responsibilities">
+            {% for responsibility in position.responsibilities %}
+            <li>{{ responsibility }}</li>
+            {% endfor %}
+        </ul>
+        <div class="skills">
+            {% for skill in position.skills %}
+            <span class="button skill">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}

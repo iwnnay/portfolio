@@ -1,0 +1,6 @@
+{% for item in site.data.resume.education %}
+<div class="company-name">{{ item.institution }}</div>
+<div class="company-info">
+    <div class="company-location">{{ item.degree }}</div>
+</div>
+{% endfor %}

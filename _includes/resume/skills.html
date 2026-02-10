@@ -1,0 +1,10 @@
+{% for skill in site.data.resume.skills %}
+<dialog id="skill-{{ skill.name | slugify }}" class="wave-background">
+    <h3>{{ skill.name }}</h3>
+    <div class="button close-skill">X</div>
+    <div class="skill-type skill-row"><span class="skill-label">Type:</span> <span class="skill-value">{{ skill.type }}</span></div>
+    <div class="skill-level skill-row"><span class="skill-label">Level:</span> <span class="skill-value">{{ skill.level }}</span></div>
+    <div class="skill-years skill-row"><span class="skill-label">Years:</span> <span class="skill-value">{{ skill.years }}</span></div>
+    <div class="skill-details">{{ skill.details }}</div>
+</dialog>
+{% endfor %}
