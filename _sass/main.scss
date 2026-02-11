@@ -6,16 +6,73 @@ body.light {
   --secondary-color: #fff;
   --secondary-light: #b6b6b6;
   --stand-out: rgba(255, 255, 255, 0.4);
+
   --s: 360px; /* size of pattern */
   --c1: #d6aeec;
   --c2: #e2dbf0;
   --c3: #aaabbb;
+  --_l: #0000 calc(25% / 3), var(--c1) 0 25%, #0000 0;
+  --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
 
   --w1: var(--secondary-light);
   --w2: var(--c1);
   --w3: var(--c2);
   --w4: var(--c3);
+
+  --background-fade: linear-gradient(to bottom, rgba(255,255,255, 1) 0%,rgba(255,255,255, 0) 100%);
+  --footer-fade: linear-gradient(to top, rgba(255,255,255, 1) 0%,rgba(255,255,255, 0) 100%);
+
+  background: var(--secondary-color);
 }
+
+body.dark {
+  --primary-color: #FFF;
+  --primary-light: #b6b6b6;
+  --secondary-color: #000;
+  --secondary-light: #606060;
+  --stand-out: rgba(0, 0, 0, 0.4);
+
+  --s: 360px; /* size of pattern */
+  --c1: #4f2a63;
+  --c2: #36215e;
+  --c3: #2c2b30;
+  --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
+  --_l: #0000 calc(25% / 3), var(--c1) 0 25%, #0000 0;
+
+  --w1: var(--secondary-light);
+  --w2: var(--c1);
+  --w3: var(--c2);
+  --w4: var(--c3);
+
+  --background-fade: linear-gradient(to bottom, rgba(0,0,0, 1) 0%,rgba(0,0,0, 0) 100%);
+  --footer-fade: linear-gradient(to top, rgba(0,0,0, 1) 0%,rgba(0,0,0, 0) 100%);
+
+  background: var(--secondary-color);
+}
+
+body.zdark {
+  --primary-color: #FFF;
+  --primary-light: #b6b6b6;
+  --secondary-color: #000;
+  --secondary-light: #606060;
+  --stand-out: rgba(0, 0, 0, 0.4);
+
+  --s: 360px; /* size of pattern */
+  --c1: #8d4bb1;
+  --c2: #3a1d75;
+  --c3: #35363a;
+  --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
+
+  --w1: var(--secondary-light);
+  --w2: var(--c1);
+  --w3: var(--c2);
+  --w4: var(--c3);
+
+  --background-fade: linear-gradient(to bottom, rgba(0,0,0, 1) 0%,rgba(0,0,0, 0) 100%);
+
+  background: var(--secondary-color);
+}
+
 
 @import "layout/base";
 @import "layout/nav";
