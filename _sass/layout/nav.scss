@@ -70,10 +70,18 @@ nav a {
   position: relative;
 }
 
-body.light .mode-switch {
+body.light .mode-switch i {
   --fa: "\f185";
 }
 
-body.dark .mode-switch {
+body.dark .mode-switch i {
   --fa: "\f186";
+}
+
+.mode-switch {
+  cursor: pointer;
+
+  &:hover {
+   color: var(--primary-light);
+  }
 }
