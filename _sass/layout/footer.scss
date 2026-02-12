@@ -32,3 +32,9 @@ footer div {
   text-decoration: none;
   color: var(--primary-color);
 }
+
+@media screen and (max-width: 460px) {
+  .social-links {
+    display: none;
+  }
+}

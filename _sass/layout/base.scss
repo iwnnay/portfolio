@@ -23,3 +23,19 @@ main {
   margin: 5px;
   cursor: pointer;
 }
+
+a {
+  color: var(--c1);
+
+  &:hover {
+    color: var(--c2);
+  }
+
+  &:visited {
+    color: var(--primary-light);
+
+    &:hover {
+    color: var(--c1);
+    }
+  }
+}

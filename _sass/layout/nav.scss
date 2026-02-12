@@ -33,6 +33,14 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   font-size: 30px;
+
+  &:visited {
+    color: var(--primary-color);
+  }
+
+  &.current {
+    color: var(--primary-light);
+  }
 }
 
 .passive-logo {

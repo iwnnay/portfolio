@@ -6,8 +6,8 @@
     </div>
     <nav>
        <ul>
-           <li><a href="/resume">Résumé</a></li>
-           <li><a href="/projects">Projects</a></li>
+           <li><a href="/resume" class="{% if page.url == '/resume/' %}current{% endif %}">Résumé</a></li>
+           <li><a href="/projects" class="{% if page.url == '/projects/'%}current{% endif %}">Projects</a></li>
        </ul>
     </nav>
     <div class="mode-switch"><i class="fa-solid fa-moon"></i></div>
