@@ -1499,7 +1499,7 @@
       "type": "AI Orchestration",
       "level": "Expert",
       "years": "2+",
-      "details": "I am highly proficient with CrewAI, leveraging its capabilities to design, orchestrate, and optimize AI agent workflows. I enjoy the creative process of building teams of agents, defining clear requirements, and iteratively improving their performance through prompt engineering and collaboration. CrewAI has proven to be an invaluable tool for automating complex tasks, both professionally and personally, and translating intricate ideas into clean, executable code."
+      "details": "I am highly proficient with CrewAI, leveraging its capabilities to design, orchestrate, and optimize AI agent workflows. I enjoy the creative process of building teams of agents, defining clear requirements, and iteratively improving their performance through prompt engineering and collaboration. I have extensive experience starting projects from scratch with crews and flows, utilizing the CrewAI API functionality to deploy agentic AI solutions to production quickly. CrewAI has proven to be an invaluable tool for automating complex tasks, both professionally and personally, and translating intricate ideas into clean, executable code."
     },
     {
       "name": "Langfuse",
@@ -1586,6 +1586,22 @@
     }
   ],
   "classes": [
+    {
+      "title": "Practical Multi-AI Agents and Advanced Use Cases with CrewAI",
+      "institution": "deeplearning.ai",
+      "description": "This course focused on building and deploying multi-agent AI systems using the CrewAI framework. Key topics likely included:,
+      <ul>
+        <li>Multi-agent architecture design for complex AI workflows</li>
+        <li>CrewAI framework fundamentals and advanced features</li>
+        <li>Agent coordination and task delegation strategies</li>
+        <li>Real-world use case implementations (research, content creation, analysis)</li>
+        <li>Advanced prompt engineering for agent interactions</li>
+        <li>Error handling and system optimization techniques</li>
+        <li>The course emphasized practical application of AI agent systems rather than theoretical concepts, with hands-on implementation of multi-agent workflows for various business scenarios.</li></ul>",
+      "link": "https://learn.deeplearning.ai/courses/practical-multi-ai-agents-and-advanced-use-cases-with-crewai/information",
+      "completedOn": "February 16, 2023",
+      "skills": [ "CrewAI"]
+    },
     {
       "title": "Angular Deep Dive - Beginner to Advanced (Angular 21)",
       "institution": "Udemy",
