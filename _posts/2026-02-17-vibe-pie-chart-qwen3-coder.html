@@ -1,0 +1,683 @@
+---
+layout: post
+title: "Vibe Pie Chart: Exploring Different Models - qwen3-coder"
+---
+I have been curious about different models when it comes to vibe coding. I found an open-soource model called Qwen3-coder that I'm utilitzing to generate the following code.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .controls {
+            width: 250px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            height: 500px;
+            overflow-y: auto;
+        }
+        .controls h2 {
+            margin-top: 0;
+            text-align: center;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 10px;
+        }
+        .category-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        .category-btn:hover {
+            background-color: #2980b9;
+            transform: translateX(5px);
+        }
+        .category-btn.active {
+            background-color: #e74c3c;
+            font-weight: bold;
+        }
+        .chart-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart-container h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .chart {
+            width: 400px;
+            height: 400px;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        .total {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="controls">
+        <h2>Expense Categories</h2>
+        <button class="category-btn" data-category="groceries">Groceries</button>
+        <button class="category-btn" data-category="bills">Bills</button>
+        <button class="category-btn" data-category="entertainment">Entertainment</button>
+        <button class="category-btn" data-category="education">Education</button>
+        <button class="category-btn" data-category="travel">Travel</button>
+    </div>
+    <div class="chart-container">
+        <h1>Expense Distribution</h1>
+        <div class="chart" id="pieChart"></div>
+        <div class="total" id="totalAmount">Total: $0</div>
+        <div class="legend" id="legend"></div>
+    </div>
+</div>
+
+<script>
+    // Expense data
+    const expenses = {
+        groceries: [
+            { name: "Fruits", value: 120 },
+            { name: "Vegetables", value: 80 },
+            { name: "Meat", value: 150 },
+            { name: "Dairy", value: 60 },
+            { name: "Snacks", value: 40 }
+        ],
+        bills: [
+            { name: "Electricity", value: 120 },
+            { name: "Water", value: 40 },
+            { name: "Internet", value: 60 },
+            { name: "Phone", value: 80 },
+            { name: "Insurance", value: 200 }
+        ],
+        entertainment: [
+            { name: "Movies", value: 60 },
+            { name: "Streaming", value: 30 },
+            { name: "Concerts", value: 100 },
+            { name: "Games", value: 50 },
+            { name: "Travel", value: 200 }
+        ],
+        education: [
+            { name: "Books", value: 150 },
+            { name: "Courses", value: 200 },
+            { name: "Supplies", value: 80 },
+            { name: "Software", value: 120 },
+            { name: "Tuition", value: 1000 }
+        ],
+        travel: [
+            { name: "Flights", value: 500 },
+            { name: "Hotels", value: 300 },
+            { name: "Car Rental", value: 150 },
+            { name: "Food", value: 200 },
+            { name: "Activities", value: 180 }
+        ]
+    };
+
+    // Color palette
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'];
+
+    // Initialize chart
+    let currentCategory = 'groceries';
+    let svg, pie, arc;
+
+    // Set up the SVG container
+    function initChart() {
+        const width = 400;
+        const height = 400;
+        const radius = Math.min(width, height) / 2 - 20;
+
+        // Remove existing chart
+        d3.select("#pieChart").selectAll("*").remove();
+
+        // Create SVG
+        svg = d3.select("#pieChart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", `translate(${width/2}, ${height/2})`);
+
+        // Create pie generator
+        pie = d3.pie()
+            .value(d => d.value)
+            .sort(null);
+
+        // Create arc generator
+        arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+        // Initialize with groceries
+        updateChart('groceries');
+    }
+
+    // Update chart with new data
+    function updateChart(category) {
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        const data = expenses[category];
+        currentCategory = category;
+
+        // Calculate total
+        const total = data.reduce((sum, item) => sum + item.value, 0);
+        document.getElementById('totalAmount').textContent = `Total: $${total}`;
+
+        // Create pie data
+        const pieData = pie(data);
+
+        // Remove existing arcs and labels
+        svg.selectAll("path").remove();
+        svg.selectAll("text").remove();
+
+        // Add new arcs with smooth transitions
+        const paths = svg.selectAll("path")
+            .data(pieData)
+            .enter()
+            .append("path")
+            .attr("d", arc)
+            .attr("fill", (d, i) => colors[i])
+            .attr("stroke", "white")
+            .attr("stroke-width", 2)
+            .attr("opacity", 0.8);
+
+        // Update existing arcs with smooth transitions
+        svg.selectAll("path")
+            .data(pieData)
+            .transition()
+            .duration(1000) // 1 second animation
+            .attr("d", arc);
+
+        // Add labels with smooth transitions
+        const labels = svg.selectAll("text")
+            .data(pieData)
+            .enter()
+            .append("text")
+            .attr("transform", d => {
+                const centroid = arc.centroid(d);
+                return `translate(${centroid[0]}, ${centroid[1]})`;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", "0.35em")
+            .style("font-size", "12px")
+            .style("font-weight", "bold")
+            .style("fill", "black")
+            .text(d => {
+                const percentage = ((d.data.value / total) * 100).toFixed(0);
+                return `${percentage}%`;
+            });
+
+        // Update existing labels with smooth transitions
+        svg.selectAll("text")
+            .data(pieData)
+            .transition()
+            .duration(1000) // 1 second animation
+            .attr("transform", d => {
+                const centroid = arc.centroid(d);
+                return `translate(${centroid[0]}, ${centroid[1]})`;
+            })
+            .text(d => {
+                const percentage = ((d.data.value / total) * 100).toFixed(0);
+                return `${percentage}%`;
+            });
+
+        // Update legend
+        updateLegend(data);
+    }
+
+    // Update legend
+    function updateLegend(data) {
+        const legendContainer = document.getElementById('legend');
+        legendContainer.innerHTML = '';
+
+        data.forEach((item, index) => {
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+
+            const colorBox = document.createElement('div');
+            colorBox.className = 'legend-color';
+            colorBox.style.backgroundColor = colors[index];
+
+            const label = document.createElement('span');
+            label.style.color = 'black';
+            label.textContent = `${item.name}: $${item.value}`;
+
+            legendItem.appendChild(colorBox);
+            legendItem.appendChild(label);
+            legendContainer.appendChild(legendItem);
+        });
+    }
+
+    // Add event listeners to buttons
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            updateChart(category);
+        });
+    });
+
+    // Initialize the chart
+    initChart();
+</script>
+
+<h3>Conclusion</h3>
+
+<p>This was fun. I tried to create a prompt to get it all in one go. And for the most part it followed what I wanted</p>
+<p>It struggled with getting the animations to work. Having worked with D3 before they did seem to be using the D3 library correctly to get the transition. I have to conclude that they somehow broke the animation with the CSS. I am not going to troubleshoot it more than some minor things. It picked to use white on white fonts and some it had the whole chart fade to white and then fade up with the new values which seemed like it was trying to cover up for the fact that the actual animations were not working.</p>
+<p>This is a good baseline. I'm going to try a different model tomorrow. This is a pretty simple example with a very easy to implement D3 chart. The code is almost an exact copy from the D3 doc page with the data hand bombed in place.</p>
+
+<h3>The prompt</h3>
+
+<pre>
+    Create a single-page expense tracker application with a D3.js pie chart visualization. The app should include:
+
+Features:
+
+5 expense categories: Groceries, Bills, Entertainment, Education, Travel
+Interactive category buttons on the left side for switching between categories
+Animated pie chart that smoothly transitions between different expense distributions
+Percentage labels inside each pie slice
+Color-coded legend showing category names and values
+Total expense amount display
+Responsive design with clean, professional styling
+Technical Requirements:
+
+Use D3.js for chart rendering with smooth 1-second animations
+Implement proper data transitions when switching categories
+Include hover effects on buttons
+Make animations clearly visible and noticeable
+Use a consistent color palette for all pie slices
+Ensure the chart is centered and properly sized (400x400px)
+Include proper legend with color indicators
+Show total amount at the bottom of the chart
+Design:
+
+Left sidebar with category buttons (250px width)
+Main chart area with pie chart and legend
+Professional color scheme with blue header and white chart area
+Clear typography and spacing
+Responsive layout that works on different screen sizes
+Data Structure:
+
+Each category should contain 5 expense items with different values
+Data should be organized in a way that shows meaningful differences between categories
+Include realistic expense values for each item
+The application should allow users to click any category button and see the pie chart smoothly animate to show the new distribution of expenses.
+</pre>
+
+<h3>The code</h3>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Expense Tracker&lt;/title&gt;
+    &lt;script src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .controls {
+            width: 250px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            height: 500px;
+            overflow-y: auto;
+        }
+        .controls h2 {
+            margin-top: 0;
+            text-align: center;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 10px;
+        }
+        .category-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        .category-btn:hover {
+            background-color: #2980b9;
+            transform: translateX(5px);
+        }
+        .category-btn.active {
+            background-color: #e74c3c;
+            font-weight: bold;
+        }
+        .chart-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart-container h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .chart {
+            width: 400px;
+            height: 400px;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        .total {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+    &lt;div class="controls"&gt;
+        &lt;h2&gt;Expense Categories&lt;/h2&gt;
+        &lt;button class="category-btn" data-category="groceries"&gt;Groceries&lt;/button&gt;
+        &lt;button class="category-btn" data-category="bills"&gt;Bills&lt;/button&gt;
+        &lt;button class="category-btn" data-category="entertainment"&gt;Entertainment&lt;/button&gt;
+        &lt;button class="category-btn" data-category="education"&gt;Education&lt;/button&gt;
+        &lt;button class="category-btn" data-category="travel"&gt;Travel&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="chart-container"&gt;
+        &lt;h1&gt;Expense Distribution&lt;/h1&gt;
+        &lt;div class="chart" id="pieChart"&gt;&lt;/div&gt;
+        &lt;div class="total" id="totalAmount"&gt;Total: $0&lt;/div&gt;
+        &lt;div class="legend" id="legend"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // Expense data
+    const expenses = {
+        groceries: [
+            { name: "Fruits", value: 120 },
+            { name: "Vegetables", value: 80 },
+            { name: "Meat", value: 150 },
+            { name: "Dairy", value: 60 },
+            { name: "Snacks", value: 40 }
+        ],
+        bills: [
+            { name: "Electricity", value: 120 },
+            { name: "Water", value: 40 },
+            { name: "Internet", value: 60 },
+            { name: "Phone", value: 80 },
+            { name: "Insurance", value: 200 }
+        ],
+        entertainment: [
+            { name: "Movies", value: 60 },
+            { name: "Streaming", value: 30 },
+            { name: "Concerts", value: 100 },
+            { name: "Games", value: 50 },
+            { name: "Travel", value: 200 }
+        ],
+        education: [
+            { name: "Books", value: 150 },
+            { name: "Courses", value: 200 },
+            { name: "Supplies", value: 80 },
+            { name: "Software", value: 120 },
+            { name: "Tuition", value: 1000 }
+        ],
+        travel: [
+            { name: "Flights", value: 500 },
+            { name: "Hotels", value: 300 },
+            { name: "Car Rental", value: 150 },
+            { name: "Food", value: 200 },
+            { name: "Activities", value: 180 }
+        ]
+    };
+
+    // Color palette
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'];
+
+    // Initialize chart
+    let currentCategory = 'groceries';
+    let svg, pie, arc;
+
+    // Set up the SVG container
+    function initChart() {
+        const width = 400;
+        const height = 400;
+        const radius = Math.min(width, height) / 2 - 20;
+
+        // Remove existing chart
+        d3.select("#pieChart").selectAll("*").remove();
+
+        // Create SVG
+        svg = d3.select("#pieChart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", `translate(${width/2}, ${height/2})`);
+
+        // Create pie generator
+        pie = d3.pie()
+            .value(d =&gt; d.value)
+            .sort(null);
+
+        // Create arc generator
+        arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+        // Initialize with groceries
+        updateChart('groceries');
+    }
+
+    // Update chart with new data
+    function updateChart(category) {
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn =&gt; {
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        const data = expenses[category];
+        currentCategory = category;
+
+        // Calculate total
+        const total = data.reduce((sum, item) =&gt; sum + item.value, 0);
+        document.getElementById('totalAmount').textContent = `Total: $${total}`;
+
+        // Create pie data
+        const pieData = pie(data);
+
+        // Remove existing arcs and labels
+        svg.selectAll("path").remove();
+        svg.selectAll("text").remove();
+
+        // Add new arcs with smooth transitions
+        const paths = svg.selectAll("path")
+            .data(pieData)
+            .enter()
+            .append("path")
+            .attr("d", arc)
+            .attr("fill", (d, i) =&gt; colors[i])
+            .attr("stroke", "white")
+            .attr("stroke-width", 2)
+            .attr("opacity", 0.8);
+
+        // Update existing arcs with smooth transitions
+        svg.selectAll("path")
+            .data(pieData)
+            .transition()
+            .duration(1000) // 1 second animation
+            .attr("d", arc);
+
+        // Add labels with smooth transitions
+        const labels = svg.selectAll("text")
+            .data(pieData)
+            .enter()
+            .append("text")
+            .attr("transform", d =&gt; {
+                const centroid = arc.centroid(d);
+                return `translate(${centroid[0]}, ${centroid[1]})`;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", "0.35em")
+            .style("font-size", "12px")
+            .style("font-weight", "bold")
+            .style("fill", "black")
+            .text(d =&gt; {
+                const percentage = ((d.data.value / total) * 100).toFixed(0);
+                return `${percentage}%`;
+            });
+
+        // Update existing labels with smooth transitions
+        svg.selectAll("text")
+            .data(pieData)
+            .transition()
+            .duration(1000) // 1 second animation
+            .attr("transform", d =&gt; {
+                const centroid = arc.centroid(d);
+                return `translate(${centroid[0]}, ${centroid[1]})`;
+            })
+            .text(d =&gt; {
+                const percentage = ((d.data.value / total) * 100).toFixed(0);
+                return `${percentage}%`;
+            });
+
+        // Update legend
+        updateLegend(data);
+    }
+
+    // Update legend
+    function updateLegend(data) {
+        const legendContainer = document.getElementById('legend');
+        legendContainer.innerHTML = '';
+
+        data.forEach((item, index) =&gt; {
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+
+            const colorBox = document.createElement('div');
+            colorBox.className = 'legend-color';
+            colorBox.style.backgroundColor = colors[index];
+
+            const label = document.createElement('span');
+            label.style.color = 'black';
+            label.textContent = `${item.name}: $${item.value}`;
+
+            legendItem.appendChild(colorBox);
+            legendItem.appendChild(label);
+            legendContainer.appendChild(legendItem);
+        });
+    }
+
+    // Add event listeners to buttons
+    document.querySelectorAll('.category-btn').forEach(button =&gt; {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            updateChart(category);
+        });
+    });
+
+    // Initialize the chart
+    initChart();
+&lt;/script&gt;
+</pre>
+
+</body>
+</html>
