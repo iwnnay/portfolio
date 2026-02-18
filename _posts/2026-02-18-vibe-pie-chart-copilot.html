@@ -1,0 +1,1151 @@
+---
+layout: post
+title: "Vibe Pie Chart: Exploring Different Models with Copilot"
+---
+
+Yesterday I vibe coded a pie chart using <span><a href="/2026/02/17/vibe-pie-chart-qwen3-coder.html">Qwen3-coder</a></span> and today I'm trying the exact same prompt with Copilot.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        /* GLOBAL NAMESPACE WRAPPER */
+        #expense-tracker-app * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        #expense-tracker-app {
+            background: #f3f6fb;
+            color: #1f2933;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #expense-tracker-app .app-container {
+            max-width: 1100px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #expense-tracker-app .header {
+            background: #1d4ed8;
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #expense-tracker-app .header-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        #expense-tracker-app .header-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        #expense-tracker-app .content {
+            display: flex;
+            flex: 1;
+            min-height: 480px;
+        }
+
+        #expense-tracker-app .sidebar {
+            width: 250px;
+            border-right: 1px solid #e5e7eb;
+            padding: 20px 16px;
+            background: #f9fafb;
+        }
+
+        #expense-tracker-app .sidebar-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #4b5563;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        #expense-tracker-app .category-button {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: #ffffff;
+            color: #111827;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        #expense-tracker-app .category-button:hover {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.18);
+            transform: translateY(-1px);
+        }
+
+        #expense-tracker-app .category-button.active {
+            background: #1d4ed8;
+            color: #ffffff;
+            border-color: #1d4ed8;
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35);
+        }
+
+        #expense-tracker-app .category-name {
+            font-weight: 500;
+        }
+
+        #expense-tracker-app .category-total {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        #expense-tracker-app .main {
+            flex: 1;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: #ffffff;
+        }
+
+        #expense-tracker-app .chart-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 24px;
+            width: 100%;
+        }
+
+        #expense-tracker-app .chart-container {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #expense-tracker-app svg {
+            overflow: visible;
+        }
+
+        #expense-tracker-app .legend {
+            min-width: 220px;
+            max-width: 260px;
+            padding-top: 10px;
+        }
+
+        #expense-tracker-app .legend-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4b5563;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        #expense-tracker-app .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        #expense-tracker-app .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            margin-right: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        #expense-tracker-app .legend-label {
+            flex: 1;
+        }
+
+        #expense-tracker-app .legend-value {
+            font-weight: 500;
+            color: #111827;
+        }
+
+        #expense-tracker-app .total-display {
+            margin-top: 18px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        #expense-tracker-app .total-amount {
+            color: #1d4ed8;
+        }
+
+        #expense-tracker-app .footer-note {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 900px) {
+            #expense-tracker-app .content {
+                flex-direction: column;
+            }
+            #expense-tracker-app .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            #expense-tracker-app .sidebar-title {
+                width: 100%;
+            }
+            #expense-tracker-app .category-button {
+                width: calc(50% - 4px);
+            }
+            #expense-tracker-app .main {
+                padding-top: 16px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #expense-tracker-app .category-button {
+                width: 100%;
+            }
+            #expense-tracker-app .chart-container {
+                width: 320px;
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="expense-tracker-app">
+    <div class="app-container">
+        <div class="header">
+            <div>
+                <div class="header-title">Monthly Expense Tracker</div>
+                <div class="header-subtitle">Interactive category breakdown with animated D3 pie chart</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <aside class="sidebar">
+                <div class="sidebar-title">Categories</div>
+
+                <button class="category-button active" data-category="Groceries">
+                    <span class="category-name">Groceries</span>
+                    <span class="category-total" id="btn-total-groceries"></span>
+                </button>
+
+                <button class="category-button" data-category="Bills">
+                    <span class="category-name">Bills</span>
+                    <span class="category-total" id="btn-total-bills"></span>
+                </button>
+
+                <button class="category-button" data-category="Entertainment">
+                    <span class="category-name">Entertainment</span>
+                    <span class="category-total" id="btn-total-entertainment"></span>
+                </button>
+
+                <button class="category-button" data-category="Education">
+                    <span class="category-name">Education</span>
+                    <span class="category-total" id="btn-total-education"></span>
+                </button>
+
+                <button class="category-button" data-category="Travel">
+                    <span class="category-name">Travel</span>
+                    <span class="category-total" id="btn-total-travel"></span>
+                </button>
+            </aside>
+
+            <main class="main">
+                <div class="chart-wrapper">
+                    <div class="chart-container">
+                        <svg id="pieChart" width="400" height="400"></svg>
+                    </div>
+
+                    <div class="legend">
+                        <div class="legend-title">Breakdown</div>
+                        <div id="legend-items"></div>
+                    </div>
+                </div>
+
+                <div class="total-display">
+                    Total for <span id="current-category-label">Groceries</span>:
+                    <span class="total-amount" id="total-amount">$0</span>
+                </div>
+
+                <div class="footer-note">
+                    Click a category on the left to see its distribution animate into view.
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<script>
+    const expenseData = {
+        Groceries: [
+            { label: "Fresh Produce", value: 180 },
+            { label: "Meat & Seafood", value: 220 },
+            { label: "Dairy & Eggs", value: 95 },
+            { label: "Pantry Staples", value: 140 },
+            { label: "Snacks & Drinks", value: 110 }
+        ],
+        Bills: [
+            { label: "Rent / Mortgage", value: 1200 },
+            { label: "Utilities", value: 210 },
+            { label: "Internet & Phone", value: 130 },
+            { label: "Insurance", value: 190 },
+            { label: "Subscriptions", value: 85 }
+        ],
+        Entertainment: [
+            { label: "Streaming Services", value: 60 },
+            { label: "Dining Out", value: 160 },
+            { label: "Movies & Events", value: 90 },
+            { label: "Gaming", value: 75 },
+            { label: "Hobbies", value: 120 }
+        ],
+        Education: [
+            { label: "Online Courses", value: 140 },
+            { label: "Books & Materials", value: 80 },
+            { label: "Workshops", value: 120 },
+            { label: "Certifications", value: 200 },
+            { label: "Software Tools", value: 95 }
+        ],
+        Travel: [
+            { label: "Flights", value: 450 },
+            { label: "Accommodation", value: 380 },
+            { label: "Local Transport", value: 120 },
+            { label: "Food & Dining", value: 210 },
+            { label: "Activities", value: 160 }
+        ]
+    };
+
+    const categories = Object.keys(expenseData);
+
+    function computeTotal(category) {
+        return expenseData[category].reduce((sum, d) => sum + d.value, 0);
+    }
+
+    categories.forEach(cat => {
+        const total = computeTotal(cat);
+        const id = `btn-total-${cat.toLowerCase()}`;
+        const el = document.getElementById(id);
+        if (el) el.textContent = `$${total}`;
+    });
+
+    const width = 400;
+    const height = 400;
+    const radius = Math.min(width, height) / 2 - 10;
+
+    const svg = d3
+        .select("#pieChart")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+    const color = d3
+        .scaleOrdinal()
+        .range(["#1d4ed8", "#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe"]);
+
+    const pie = d3
+        .pie()
+        .sort(null)
+        .value(d => d.value);
+
+    const arc = d3
+        .arc()
+        .outerRadius(radius)
+        .innerRadius(0);
+
+    const arcLabel = d3
+        .arc()
+        .outerRadius(radius * 0.6)
+        .innerRadius(radius * 0.6);
+
+    let currentCategory = "Groceries";
+    let currentData = expenseData[currentCategory];
+
+    updateChart(currentData, true);
+    updateLegend(currentData);
+    updateTotalDisplay(currentCategory);
+
+    function updateChart(data, initial = false) {
+        const pieData = pie(data);
+
+        const arcs = svg.selectAll("path.slice").data(pieData, d => d.data.label);
+
+        arcs
+            .exit()
+            .transition()
+            .duration(1000)
+            .attrTween("d", function (d) {
+                const interpolate = d3.interpolate(this._current, {
+                    startAngle: this._current.endAngle,
+                    endAngle: this._current.endAngle
+                });
+                return t => arc(interpolate(t));
+            })
+            .remove();
+
+        const newArcs = arcs
+            .enter()
+            .append("path")
+            .attr("class", "slice")
+            .attr("fill", d => color(d.data.label))
+            .each(function (d) {
+                this._current = initial
+                    ? d
+                    : { startAngle: d.startAngle, endAngle: d.startAngle };
+            });
+
+        newArcs
+            .merge(arcs)
+            .transition()
+            .duration(1000)
+            .attrTween("d", function (d) {
+                const interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return t => arc(interpolate(t));
+            });
+
+        const labels = svg.selectAll("text.slice-label").data(pieData, d => d.data.label);
+
+        labels
+            .exit()
+            .transition()
+            .duration(500)
+            .style("opacity", 0)
+            .remove();
+
+        const newLabels = labels
+            .enter()
+            .append("text")
+            .attr("class", "slice-label")
+            .style("font-size", "11px")
+            .style("fill", "#ffffff")
+            .style("font-weight", "600")
+            .style("text-anchor", "middle")
+            .style("pointer-events", "none")
+            .each(function (d) {
+                this._current = initial
+                    ? d
+                    : { startAngle: d.startAngle, endAngle: d.startAngle };
+            });
+
+        newLabels
+            .merge(labels)
+            .transition()
+            .duration(1000)
+            .attrTween("transform", function (d) {
+                const interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return t => {
+                    const pos = arcLabel(interpolate(t)).centroid();
+                    return `translate(${pos[0]}, ${pos[1]})`;
+                };
+            })
+            .tween("text", function (d) {
+                const node = this;
+                const total = d3.sum(data, d => d.value);
+                const startValue = node._value || 0;
+                const endValue = (d.data.value / total) * 100;
+                const i = d3.interpolate(startValue, endValue);
+                return function (t) {
+                    const val = i(t);
+                    node.textContent = `${Math.round(val)}%`;
+                    node._value = val;
+                };
+            });
+    }
+
+    function updateLegend(data) {
+        const legendContainer = d3.select("#legend-items");
+        legendContainer.selectAll("*").remove();
+
+        const total = d3.sum(data, d => d.value);
+
+        const items = legendContainer
+            .selectAll(".legend-item")
+            .data(data)
+            .enter()
+            .append("div")
+            .attr("class", "legend-item");
+
+        items
+            .append("div")
+            .attr("class", "legend-color")
+            .style("background-color", d => color(d.label));
+
+        items
+            .append("div")
+            .attr("class", "legend-label")
+            .text(d => d.label);
+
+        items
+            .append("div")
+            .attr("class", "legend-value")
+            .text(d => {
+                const pct = ((d.value / total) * 100).toFixed(1);
+                return `$${d.value} (${pct}%)`;
+            });
+    }
+
+    function updateTotalDisplay(category) {
+        const total = computeTotal(category);
+        document.getElementById("current-category-label").textContent = category;
+        document.getElementById("total-amount").textContent = `$${total}`;
+    }
+
+    const buttons = document.querySelectorAll(".category-button");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const category = btn.getAttribute("data-category");
+            if (category === currentCategory) return;
+
+            currentCategory = category;
+            currentData = expenseData[category];
+
+            buttons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            updateChart(currentData);
+            updateLegend(currentData);
+            updateTotalDisplay(currentCategory);
+        });
+    });
+</script>
+
+<h3>Conclusion</h3>
+
+<h4>Bug fixing</h4>
+<p>This was really difficult with copilot. You have to ask for it to regenerate the code if that's what you want where qwen3-coder basically just updated the whole thing with changes.
+    Copilot was more intent on telling me how to make the change with instructions that were more cumbersome than helpful. So, if I had no idea
+what it was talking about, I would have been more lost. In the end I had to ask 2 times to get it to just print out the whole application again.</p>
+<p>The bug it created was with the CSS. It wasn't targeted, so it was breaking my site.</p>
+
+<h4>What's nice about it</h4>
+<p>This thing looks professional. That's the main thing that the qwen coder was missing. It worked, and it was what I asked for, but this Copilot made the same
+thing, but exemplified professional. It really sets it apart. And it's responsive. There's CSS for mobile, just nice.</p>
+<p>The animations work too. In fact, it's doing a more complex animation than I asked for. It does add a professional touch to it, if I have to say, but I don't think I like it. I more have to just look away until it's done if I want to understand the data that's being brought to light.</p>
+
+<h3>The prompt</h3>
+
+    <pre>
+    Create a single-page expense tracker application with a D3.js pie chart visualization. The app should include:
+
+Features:
+
+5 expense categories: Groceries, Bills, Entertainment, Education, Travel
+Interactive category buttons on the left side for switching between categories
+Animated pie chart that smoothly transitions between different expense distributions
+Percentage labels inside each pie slice
+Color-coded legend showing category names and values
+Total expense amount display
+Responsive design with clean, professional styling
+Technical Requirements:
+
+Use D3.js for chart rendering with smooth 1-second animations
+Implement proper data transitions when switching categories
+Include hover effects on buttons
+Make animations clearly visible and noticeable
+Use a consistent color palette for all pie slices
+Ensure the chart is centered and properly sized (400x400px)
+Include proper legend with color indicators
+Show total amount at the bottom of the chart
+Design:
+
+Left sidebar with category buttons (250px width)
+Main chart area with pie chart and legend
+Professional color scheme with blue header and white chart area
+Clear typography and spacing
+Responsive layout that works on different screen sizes
+Data Structure:
+
+Each category should contain 5 expense items with different values
+Data should be organized in a way that shows meaningful differences between categories
+Include realistic expense values for each item
+The application should allow users to click any category button and see the pie chart smoothly animate to show the new distribution of expenses.
+</pre>
+
+<h3>The Code</h3>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;title&gt;Expense Tracker&lt;/title&gt;
+  &lt;script src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;
+
+  &lt;style&gt;
+    /* GLOBAL NAMESPACE WRAPPER */
+    #expense-tracker-app * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #expense-tracker-app {
+        background: #f3f6fb;
+        color: #1f2933;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    #expense-tracker-app .app-container {
+        max-width: 1100px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #expense-tracker-app .header {
+        background: #1d4ed8;
+        color: #ffffff;
+        padding: 16px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #expense-tracker-app .header-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    #expense-tracker-app .header-subtitle {
+        font-size: 13px;
+        opacity: 0.9;
+    }
+
+    #expense-tracker-app .content {
+        display: flex;
+        flex: 1;
+        min-height: 480px;
+    }
+
+    #expense-tracker-app .sidebar {
+        width: 250px;
+        border-right: 1px solid #e5e7eb;
+        padding: 20px 16px;
+        background: #f9fafb;
+    }
+
+    #expense-tracker-app .sidebar-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #4b5563;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    #expense-tracker-app .category-button {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        background: #ffffff;
+        color: #111827;
+        text-align: left;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    #expense-tracker-app .category-button:hover {
+        background: #eff6ff;
+        border-color: #bfdbfe;
+        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.18);
+        transform: translateY(-1px);
+    }
+
+    #expense-tracker-app .category-button.active {
+        background: #1d4ed8;
+        color: #ffffff;
+        border-color: #1d4ed8;
+        box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35);
+    }
+
+    #expense-tracker-app .category-name {
+        font-weight: 500;
+    }
+
+    #expense-tracker-app .category-total {
+        font-size: 13px;
+        opacity: 0.9;
+    }
+
+    #expense-tracker-app .main {
+        flex: 1;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: #ffffff;
+    }
+
+    #expense-tracker-app .chart-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+        width: 100%;
+    }
+
+    #expense-tracker-app .chart-container {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #expense-tracker-app svg {
+        overflow: visible;
+    }
+
+    #expense-tracker-app .legend {
+        min-width: 220px;
+        max-width: 260px;
+        padding-top: 10px;
+    }
+
+    #expense-tracker-app .legend-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #4b5563;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    #expense-tracker-app .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+        font-size: 13px;
+        color: #374151;
+    }
+
+    #expense-tracker-app .legend-color {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        margin-right: 8px;
+        border: 1px solid #e5e7eb;
+    }
+
+    #expense-tracker-app .legend-label {
+        flex: 1;
+    }
+
+    #expense-tracker-app .legend-value {
+        font-weight: 500;
+        color: #111827;
+    }
+
+    #expense-tracker-app .total-display {
+        margin-top: 18px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    #expense-tracker-app .total-amount {
+        color: #1d4ed8;
+    }
+
+    #expense-tracker-app .footer-note {
+        margin-top: 6px;
+        font-size: 12px;
+        color: #6b7280;
+    }
+
+    @media (max-width: 900px) {
+        #expense-tracker-app .content {
+            flex-direction: column;
+        }
+        #expense-tracker-app .sidebar {
+            width: 100%;
+            border-right: none;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        #expense-tracker-app .sidebar-title {
+            width: 100%;
+        }
+        #expense-tracker-app .category-button {
+            width: calc(50% - 4px);
+        }
+        #expense-tracker-app .main {
+            padding-top: 16px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        #expense-tracker-app .category-button {
+            width: 100%;
+        }
+        #expense-tracker-app .chart-container {
+            width: 320px;
+            height: 320px;
+        }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div id="expense-tracker-app"&gt;
+  &lt;div class="app-container"&gt;
+    &lt;div class="header"&gt;
+      &lt;div&gt;
+        &lt;div class="header-title"&gt;Monthly Expense Tracker&lt;/div&gt;
+        &lt;div class="header-subtitle"&gt;Interactive category breakdown with animated D3 pie chart&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="content"&gt;
+      &lt;aside class="sidebar"&gt;
+        &lt;div class="sidebar-title"&gt;Categories&lt;/div&gt;
+
+        &lt;button class="category-button active" data-category="Groceries"&gt;
+          &lt;span class="category-name"&gt;Groceries&lt;/span&gt;
+          &lt;span class="category-total" id="btn-total-groceries"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+
+        &lt;button class="category-button" data-category="Bills"&gt;
+          &lt;span class="category-name"&gt;Bills&lt;/span&gt;
+          &lt;span class="category-total" id="btn-total-bills"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+
+        &lt;button class="category-button" data-category="Entertainment"&gt;
+          &lt;span class="category-name"&gt;Entertainment&lt;/span&gt;
+          &lt;span class="category-total" id="btn-total-entertainment"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+
+        &lt;button class="category-button" data-category="Education"&gt;
+          &lt;span class="category-name"&gt;Education&lt;/span&gt;
+          &lt;span class="category-total" id="btn-total-education"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+
+        &lt;button class="category-button" data-category="Travel"&gt;
+          &lt;span class="category-name"&gt;Travel&lt;/span&gt;
+          &lt;span class="category-total" id="btn-total-travel"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/aside&gt;
+
+      &lt;main class="main"&gt;
+        &lt;div class="chart-wrapper"&gt;
+          &lt;div class="chart-container"&gt;
+            &lt;svg id="pieChart" width="400" height="400"&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+
+          &lt;div class="legend"&gt;
+            &lt;div class="legend-title"&gt;Breakdown&lt;/div&gt;
+            &lt;div id="legend-items"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="total-display"&gt;
+          Total for &lt;span id="current-category-label"&gt;Groceries&lt;/span&gt;:
+          &lt;span class="total-amount" id="total-amount"&gt;$0&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class="footer-note"&gt;
+          Click a category on the left to see its distribution animate into view.
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  const expenseData = {
+      Groceries: [
+          { label: "Fresh Produce", value: 180 },
+          { label: "Meat & Seafood", value: 220 },
+          { label: "Dairy & Eggs", value: 95 },
+          { label: "Pantry Staples", value: 140 },
+          { label: "Snacks & Drinks", value: 110 }
+      ],
+      Bills: [
+          { label: "Rent / Mortgage", value: 1200 },
+          { label: "Utilities", value: 210 },
+          { label: "Internet & Phone", value: 130 },
+          { label: "Insurance", value: 190 },
+          { label: "Subscriptions", value: 85 }
+      ],
+      Entertainment: [
+          { label: "Streaming Services", value: 60 },
+          { label: "Dining Out", value: 160 },
+          { label: "Movies & Events", value: 90 },
+          { label: "Gaming", value: 75 },
+          { label: "Hobbies", value: 120 }
+      ],
+      Education: [
+          { label: "Online Courses", value: 140 },
+          { label: "Books & Materials", value: 80 },
+          { label: "Workshops", value: 120 },
+          { label: "Certifications", value: 200 },
+          { label: "Software Tools", value: 95 }
+      ],
+      Travel: [
+          { label: "Flights", value: 450 },
+          { label: "Accommodation", value: 380 },
+          { label: "Local Transport", value: 120 },
+          { label: "Food & Dining", value: 210 },
+          { label: "Activities", value: 160 }
+      ]
+  };
+
+  const categories = Object.keys(expenseData);
+
+  function computeTotal(category) {
+      return expenseData[category].reduce((sum, d) =&gt; sum + d.value, 0);
+  }
+
+  categories.forEach(cat =&gt; {
+      const total = computeTotal(cat);
+      const id = `btn-total-${cat.toLowerCase()}`;
+      const el = document.getElementById(id);
+      if (el) el.textContent = `$${total}`;
+  });
+
+  const width = 400;
+  const height = 400;
+  const radius = Math.min(width, height) / 2 - 10;
+
+  const svg = d3
+      .select("#pieChart")
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .append("g")
+      .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+  const color = d3
+      .scaleOrdinal()
+      .range(["#1d4ed8", "#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe"]);
+
+  const pie = d3
+      .pie()
+      .sort(null)
+      .value(d =&gt; d.value);
+
+  const arc = d3
+      .arc()
+      .outerRadius(radius)
+      .innerRadius(0);
+
+  const arcLabel = d3
+      .arc()
+      .outerRadius(radius * 0.6)
+      .innerRadius(radius * 0.6);
+
+  let currentCategory = "Groceries";
+  let currentData = expenseData[currentCategory];
+
+  updateChart(currentData, true);
+  updateLegend(currentData);
+  updateTotalDisplay(currentCategory);
+
+  function updateChart(data, initial = false) {
+      const pieData = pie(data);
+
+      const arcs = svg.selectAll("path.slice").data(pieData, d =&gt; d.data.label);
+
+      arcs
+          .exit()
+          .transition()
+          .duration(1000)
+          .attrTween("d", function (d) {
+              const interpolate = d3.interpolate(this._current, {
+                  startAngle: this._current.endAngle,
+                  endAngle: this._current.endAngle
+              });
+              return t =&gt; arc(interpolate(t));
+          })
+          .remove();
+
+      const newArcs = arcs
+          .enter()
+          .append("path")
+          .attr("class", "slice")
+          .attr("fill", d =&gt; color(d.data.label))
+          .each(function (d) {
+              this._current = initial
+                  ? d
+                  : { startAngle: d.startAngle, endAngle: d.startAngle };
+          });
+
+      newArcs
+          .merge(arcs)
+          .transition()
+          .duration(1000)
+          .attrTween("d", function (d) {
+              const interpolate = d3.interpolate(this._current, d);
+              this._current = interpolate(0);
+              return t =&gt; arc(interpolate(t));
+          });
+
+      const labels = svg.selectAll("text.slice-label").data(pieData, d =&gt; d.data.label);
+
+      labels
+          .exit()
+          .transition()
+          .duration(500)
+          .style("opacity", 0)
+          .remove();
+
+      const newLabels = labels
+          .enter()
+          .append("text")
+          .attr("class", "slice-label")
+          .style("font-size", "11px")
+          .style("fill", "#ffffff")
+          .style("font-weight", "600")
+          .style("text-anchor", "middle")
+          .style("pointer-events", "none")
+          .each(function (d) {
+              this._current = initial
+                  ? d
+                  : { startAngle: d.startAngle, endAngle: d.startAngle };
+          });
+
+      newLabels
+          .merge(labels)
+          .transition()
+          .duration(1000)
+          .attrTween("transform", function (d) {
+              const interpolate = d3.interpolate(this._current, d);
+              this._current = interpolate(0);
+              return t =&gt; {
+                  const pos = arcLabel(interpolate(t)).centroid();
+                  return `translate(${pos[0]}, ${pos[1]})`;
+              };
+          })
+          .tween("text", function (d) {
+              const node = this;
+              const total = d3.sum(data, d =&gt; d.value);
+              const startValue = node._value || 0;
+              const endValue = (d.data.value / total) * 100;
+              const i = d3.interpolate(startValue, endValue);
+              return function (t) {
+                  const val = i(t);
+                  node.textContent = `${Math.round(val)}%`;
+                  node._value = val;
+              };
+          });
+  }
+
+  function updateLegend(data) {
+      const legendContainer = d3.select("#legend-items");
+      legendContainer.selectAll("*").remove();
+
+      const total = d3.sum(data, d =&gt; d.value);
+
+      const items = legendContainer
+          .selectAll(".legend-item")
+          .data(data)
+          .enter()
+          .append("div")
+          .attr("class", "legend-item");
+
+      items
+          .append("div")
+          .attr("class", "legend-color")
+          .style("background-color", d =&gt; color(d.label));
+
+      items
+          .append("div")
+          .attr("class", "legend-label")
+          .text(d =&gt; d.label);
+
+      items
+          .append("div")
+          .attr("class", "legend-value")
+          .text(d =&gt; {
+              const pct = ((d.value / total) * 100).toFixed(1);
+              return `$${d.value} (${pct}%)`;
+          });
+  }
+
+  function updateTotalDisplay(category) {
+      const total = computeTotal(category);
+      document.getElementById("current-category-label").textContent = category;
+      document.getElementById("total-amount").textContent = `$${total}`;
+  }
+
+  const buttons = document.querySelectorAll(".category-button");
+  buttons.forEach(btn =&gt; {
+      btn.addEventListener("click", () =&gt; {
+          const category = btn.getAttribute("data-category");
+          if (category === currentCategory) return;
+
+          currentCategory = category;
+          currentData = expenseData[category];
+
+          buttons.forEach(b =&gt; b.classList.remove("active"));
+          btn.classList.add("active");
+
+          updateChart(currentData);
+          updateLegend(currentData);
+          updateTotalDisplay(currentCategory);
+      });
+  });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+
+</body>
+</html>
