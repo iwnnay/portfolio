@@ -4,11 +4,21 @@
     height: auto;
   }
 
-  p {
+  p, pre {
     line-height: 1em;
     padding: .25em 0;
     margin: 0 auto;
     max-width: 60ch;
+  }
+
+  pre {
+    max-width: 100ch;
+    overflow: auto;
+    max-height: 80vh;
+  }
+
+  pre.allowwrap {
+    text-wrap: auto;
   }
 
   p.imagecell {
