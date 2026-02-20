@@ -1,0 +1,1274 @@
+---
+layout: post
+title: "Vibe Pie Chart: Exploring Different Models - Claude"
+---
+
+Yesterday I vibe coded a pie chart using <span><a
+        href="/2026/02/17/vibe-pie-chart-qwen3-coder.html">Qwen3-coder</a></span> and today I'm trying the exact same prompt with Copilot.
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0f0f13;
+            --surface: #17171e;
+            --surface2: #1e1e28;
+            --border: #2a2a38;
+            --text: #e8e8f0;
+            --muted: #7070a0;
+            --accent: #6c63ff;
+            --c1: #6c63ff;
+            --c2: #ff6b9d;
+            --c3: #ffd166;
+            --c4: #06d6a0;
+            --c5: #ff9f43;
+        }
+
+        #claude-container {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #claude-container header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        #claude-container header .logo {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        #claude-container header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+        }
+
+        #claude-container header span {
+            color: var(--muted);
+            font-size: 13px;
+            margin-left: auto;
+        }
+
+        #claude-container .app {
+            display: flex;
+            flex: 1;
+            gap: 0;
+        }
+
+        /* SIDEBAR */
+        #claude-container .sidebar {
+            width: 260px;
+            min-width: 260px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        #claude-container .sidebar-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            padding: 0 8px;
+        }
+
+        #claude-container .cat-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+            color: var(--muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: left;
+            width: 100%;
+        }
+
+        #claude-container .cat-btn:hover {
+            background: var(--surface2);
+            color: var(--text);
+            border-color: var(--border);
+            transform: translateX(3px);
+        }
+
+        #claude-container .cat-btn.active {
+            background: rgba(108, 99, 255, 0.15);
+            border-color: rgba(108, 99, 255, 0.4);
+            color: var(--text);
+        }
+
+        #claude-container .cat-btn .cat-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+
+        #claude-container .cat-btn:hover .cat-icon,
+        #claude-container .cat-btn.active .cat-icon {
+            transform: scale(1.1);
+        }
+
+        #claude-container .cat-btn .cat-info {
+            flex: 1;
+        }
+
+        #claude-container .cat-btn .cat-name {
+            display: block;
+        }
+
+        #claude-container .cat-btn .cat-total {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        #claude-container .cat-btn.active .cat-total {
+            color: var(--accent);
+        }
+
+        #claude-container .cat-btn .cat-arrow {
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        #claude-container .cat-btn:hover .cat-arrow,
+        #claude-container .cat-btn.active .cat-arrow {
+            opacity: 1;
+        }
+
+        /* MAIN */
+        #claude-container .main {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #claude-container .chart-header {
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        #claude-container .chart-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            transition: all 0.4s ease;
+        }
+
+        #claude-container .chart-subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        #claude-container .total-badge {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 20px;
+            text-align: right;
+        }
+
+        #claude-container .total-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        #claude-container .total-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            color: var(--text);
+            transition: all 0.4s ease;
+        }
+
+        #claude-container .chart-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        #claude-container #pie-chart {
+            flex-shrink: 0;
+        }
+
+        #claude-container .legend {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        #claude-container .legend-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        #claude-container .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            cursor: default;
+        }
+
+        #claude-container .legend-item:hover {
+            background: var(--surface2);
+        }
+
+        #claude-container .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        #claude-container .legend-item-name {
+            font-size: 13px;
+            flex: 1;
+            color: var(--muted);
+        }
+
+        #claude-container .legend-item-val {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        #claude-container .legend-item-pct {
+            font-size: 11px;
+            color: var(--muted);
+            min-width: 36px;
+            text-align: right;
+        }
+
+        /* Pie slice hover */
+        #claude-container .slice path {
+            cursor: pointer;
+            transition: filter 0.2s;
+        }
+
+        #claude-container .slice path:hover {
+            filter: brightness(1.3);
+        }
+
+        /* Tooltip */
+        #claude-container .tooltip {
+            position: fixed;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 13px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            #claude-container .app {
+                flex-direction: column;
+            }
+
+            #claude-container .sidebar {
+                width: 100%;
+                min-width: unset;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 16px;
+            }
+
+            #claude-container .sidebar-title {
+                display: none;
+            }
+
+            #claude-container .cat-btn {
+                width: auto;
+                flex: 1;
+                min-width: 120px;
+            }
+
+            #claude-container .main {
+                padding: 20px;
+            }
+
+            #claude-container .chart-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="claude-container">
+    <header>
+        <div class="logo">💸</div>
+        <h1>Expensify</h1>
+        <span>Personal Finance Dashboard</span>
+    </header>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-title">Categories</div>
+            <!-- buttons injected by JS -->
+        </aside>
+
+        <main class="main">
+            <div class="chart-header">
+                <div>
+                    <div class="chart-title" id="chart-title">Groceries</div>
+                    <div class="chart-subtitle">Expense breakdown by item</div>
+                </div>
+                <div class="total-badge">
+                    <div class="total-label">Total</div>
+                    <div class="total-value" id="total-value">$0</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <svg id="pie-chart"></svg>
+                <div class="legend">
+                    <div class="legend-title">Breakdown</div>
+                    <div id="legend-items"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+</div>
+
+<script>
+    const COLORS = ['#6c63ff', '#ff6b9d', '#ffd166', '#06d6a0', '#ff9f43'];
+
+    const DATA = {
+        Groceries: {
+            icon: '🛒',
+            items: [
+                {name: 'Fresh Produce', value: 180},
+                {name: 'Dairy & Eggs', value: 95},
+                {name: 'Meat & Fish', value: 240},
+                {name: 'Pantry Staples', value: 130},
+                {name: 'Snacks & Drinks', value: 75},
+            ]
+        },
+        Bills: {
+            icon: '📃',
+            items: [
+                {name: 'Electricity', value: 145},
+                {name: 'Internet', value: 60},
+                {name: 'Water', value: 40},
+                {name: 'Rent', value: 950},
+                {name: 'Phone Plan', value: 55},
+            ]
+        },
+        Entertainment: {
+            icon: '🎬',
+            items: [
+                {name: 'Streaming', value: 45},
+                {name: 'Dining Out', value: 220},
+                {name: 'Events', value: 135},
+                {name: 'Gaming', value: 60},
+                {name: 'Books & Mags', value: 35},
+            ]
+        },
+        Education: {
+            icon: '📚',
+            items: [
+                {name: 'Online Courses', value: 99},
+                {name: 'Books', value: 75},
+                {name: 'Workshops', value: 150},
+                {name: 'Subscriptions', value: 45},
+                {name: 'Supplies', value: 60},
+            ]
+        },
+        Travel: {
+            icon: '✈️',
+            items: [
+                {name: 'Flights', value: 520},
+                {name: 'Accommodation', value: 380},
+                {name: 'Transport', value: 95},
+                {name: 'Food & Drink', value: 160},
+                {name: 'Activities', value: 120},
+            ]
+        }
+    };
+
+    // Sidebar buttons
+    const sidebar = document.querySelector('.sidebar');
+    Object.entries(DATA).forEach(([cat, data]) => {
+        const total = data.items.reduce((s, i) => s + i.value, 0);
+        const btn = document.createElement('button');
+        btn.className = 'cat-btn';
+        btn.dataset.cat = cat;
+        btn.innerHTML = `
+    <span class="cat-icon" style="background:rgba(108,99,255,0.12)">${data.icon}</span>
+    <span class="cat-info">
+      <span class="cat-name">${cat}</span>
+      <span class="cat-total">$${total.toLocaleString()}</span>
+    </span>
+    <span class="cat-arrow">›</span>
+  `;
+        btn.addEventListener('click', () => selectCategory(cat));
+        sidebar.appendChild(btn);
+    });
+
+    // D3 pie chart setup
+    const SIZE = 400;
+    const RADIUS = SIZE / 2;
+    const INNER = 80;
+
+    const svg = d3.select('#pie-chart')
+        .attr('width', SIZE)
+        .attr('height', SIZE);
+
+    const g = svg.append('g')
+        .attr('transform', `translate(${RADIUS},${RADIUS})`);
+
+    const pie = d3.pie().value(d => d.value).sort(null);
+    const arc = d3.arc().innerRadius(INNER).outerRadius(RADIUS - 20);
+    const arcLabel = d3.arc().innerRadius(RADIUS * 0.55).outerRadius(RADIUS * 0.55);
+
+    // Center text
+    const centerG = g.append('g');
+    const centerLabel = centerG.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dy', '-0.2em')
+        .attr('font-family', "'DM Serif Display', serif")
+        .attr('font-size', '22px')
+        .attr('fill', '#e8e8f0');
+
+    const centerSub = centerG.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dy', '1.4em')
+        .attr('font-size', '11px')
+        .attr('fill', '#7070a0')
+        .text('TOTAL');
+
+    let currentCat = 'Groceries';
+    let currentArcs = null;
+
+    const tooltip = document.getElementById('tooltip');
+
+    function selectCategory(cat) {
+        currentCat = cat;
+
+        // Update button states
+        document.querySelectorAll('.cat-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.cat === cat);
+        });
+
+        document.getElementById('chart-title').textContent = cat;
+
+        const items = DATA[cat].items;
+        const total = items.reduce((s, i) => s + i.value, 0);
+        document.getElementById('total-value').textContent = '$' + total.toLocaleString();
+
+        centerLabel.text('$' + total.toLocaleString());
+
+        updateChart(items, total);
+        updateLegend(items, total);
+    }
+
+    function updateChart(items, total) {
+        const pieData = pie(items);
+
+        // JOIN
+        const slices = g.selectAll('.slice').data(pieData, d => d.data.name);
+
+        // ENTER
+        const enterSlices = slices.enter().append('g').attr('class', 'slice');
+
+        enterSlices.append('path')
+            .attr('fill', (d, i) => COLORS[i % COLORS.length])
+            .attr('stroke', '#17171e')
+            .attr('stroke-width', 3)
+            .attr('d', arc)
+            .style('opacity', 0)
+            .on('mousemove', (event, d) => {
+                tooltip.style.opacity = '1';
+                tooltip.style.left = (event.clientX + 14) + 'px';
+                tooltip.style.top = (event.clientY - 30) + 'px';
+                tooltip.innerHTML = `<strong>${d.data.name}</strong><br>$${d.data.value.toLocaleString()} &middot; ${Math.round(d.data.value / total * 100)}%`;
+            })
+            .on('mouseleave', () => {
+                tooltip.style.opacity = '0';
+            });
+
+        enterSlices.append('text')
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '11px')
+            .attr('font-weight', '600')
+            .attr('fill', '#fff')
+            .attr('transform', d => `translate(${arcLabel.centroid(d)})`)
+            .style('opacity', 0)
+            .text(d => Math.round(d.data.value / total * 100) + '%');
+
+        // MERGE & TRANSITION
+        const allSlices = slices.merge(enterSlices);
+
+        allSlices.select('path')
+            .transition().duration(900).ease(d3.easeCubicInOut)
+            .attrTween('d', function (d) {
+                const prev = this._prev || {startAngle: 0, endAngle: 0};
+                const interp = d3.interpolate(prev, d);
+                this._prev = d;
+                return t => arc(interp(t));
+            })
+            .attr('fill', (d, i) => COLORS[i % COLORS.length])
+            .style('opacity', 1);
+
+        allSlices.select('text')
+            .transition().duration(900).ease(d3.easeCubicInOut)
+            .attrTween('transform', function (d) {
+                const prev = this._prev || {startAngle: 0, endAngle: 0};
+                const interp = d3.interpolate(prev, d);
+                this._prev = d;
+                return t => `translate(${arcLabel.centroid(interp(t))})`;
+            })
+            .style('opacity', d => (d.endAngle - d.startAngle) > 0.25 ? 1 : 0)
+            .text(d => Math.round(d.data.value / total * 100) + '%');
+
+        // EXIT
+        slices.exit().remove();
+
+        currentArcs = allSlices;
+    }
+
+    function updateLegend(items, total) {
+        const container = document.getElementById('legend-items');
+        container.innerHTML = '';
+        items.forEach((item, i) => {
+            const pct = Math.round(item.value / total * 100);
+            const el = document.createElement('div');
+            el.className = 'legend-item';
+            el.innerHTML = `
+      <span class="legend-dot" style="background:${COLORS[i]}"></span>
+      <span class="legend-item-name">${item.name}</span>
+      <span class="legend-item-val">$${item.value.toLocaleString()}</span>
+      <span class="legend-item-pct">${pct}%</span>
+    `;
+            container.appendChild(el);
+        });
+    }
+
+    // Init
+    selectCategory('Groceries');
+</script>
+
+<h3>Conclusion</h3>
+
+<h4>The Good News</h4>
+<p>Claude's go at this looks pretty decent. It's funny that I didn't suggest that there should be a title for this
+    feature and each LLM so far has given in a title, this one is problably the silliest in my opinion, but it does add
+    a sense of light heartedness.</p>
+<p>The code itself is the most organized so far. It's very concise, it's reusing as much as possible and the functions
+    are named very well. I like that it relied as little as possible on templating whole sections of HTML, but it still
+    did it a little when it could have used JavaScript.</p>
+<p>It is the most polished of the design. The icons for the categories, even though this breaks modularity.</p>
+<p>Overall, the best looking code wise</p>
+
+
+<h4>The Bad News</h4>
+<p>It still failed to use targeted CSS. Despite me listing this specifically in the prompt the first time. So, I had to
+    fix it up so that it didn't mess up my page.</p>
+<p>I like that it chose to use different fonts, but definitely a no-no. I didn't ask it to do that and I'd have to undo
+    it 99.9% of the time, just creates more work for me.</p>
+<p>It chose to go with a night mode, I didn't ask for that and if it's going to go that route it should have added a way
+    to switch it.</p>
+<p>It has the total twice, and the area outside the pie chart completely brakes the responsiveness of the app. This
+    either works on desktop or mobile, but nothing in between. Or if you had a smaller screen it's basically
+    unusable.</p>
+<p>I mentioned the polish design above, but this is also one of the worst parts. There are a lot of interaction points
+    with the mouse, that are just for show. I want people to know what can be clicked on to do something. This makes it
+    feel like the module is broken to me. Like things are half baked and not hooked up.</p>
+<p>And finally, while it did create animations, they are not what I asked for. I wanted a data transition animation. It
+    wipes out the data and fills it back in, so far Copilot on the win for this.</p>
+
+<h4>Overall</h4>
+<p>Suprisingly not good for the frontend coding. It looks good, but I'm kind of upset with how many poor executive
+    decisions it made. The code on the other hand,
+    if this was the backend, the code alone is fantastic so far. Compared to qwen3's slop that I couldn't really debug,
+    and Copilots better attempt, but sort of junior approach to codinng, this is clean readable code. It's not
+    consisten, but I'm impressed.</p>
+<p>Decent code, poor frontend.</p>
+
+<h3>The prompt</h3>
+
+<pre>
+Create a single-page expense tracker application with a D3.js pie chart visualization. The app should include:
+
+Features:
+
+5 expense categories: Groceries, Bills, Entertainment, Education, Travel
+Interactive category buttons on the left side for switching between categories
+Animated pie chart that smoothly transitions between different expense distributions
+Percentage labels inside each pie slice
+Color-coded legend showing category names and values
+Total expense amount display
+Responsive design with clean, professional styling
+Technical Requirements:
+
+Use D3.js for chart rendering with smooth 1-second animations
+Implement proper data transitions when switching categories
+Include hover effects on buttons
+Make animations clearly visible and noticeable
+Use a consistent color palette for all pie slices
+Ensure the chart is centered and properly sized (400x400px)
+Include proper legend with color indicators
+Show total amount at the bottom of the chart
+Targetted CSS to ensure mobility
+Design:
+
+Left sidebar with category buttons (250px width)
+Main chart area with pie chart and legend
+Professional color scheme with blue header and white chart area
+Clear typography and spacing
+Responsive layout that works on different screen sizes
+Data Structure:
+
+Each category should contain 5 expense items with different values
+Data should be organized in a way that shows meaningful differences between categories
+Include realistic expense values for each item
+The application should allow users to click any category button and see the pie chart smoothly animate to show the new distribution of expenses.
+</pre>
+
+<h3>The Code</h3>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Expense Tracker&lt;/title&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"&gt;&lt;/script&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"&gt;
+    &lt;style&gt;
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0f0f13;
+            --surface: #17171e;
+            --surface2: #1e1e28;
+            --border: #2a2a38;
+            --text: #e8e8f0;
+            --muted: #7070a0;
+            --accent: #6c63ff;
+            --c1: #6c63ff;
+            --c2: #ff6b9d;
+            --c3: #ffd166;
+            --c4: #06d6a0;
+            --c5: #ff9f43;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        header .logo {
+            width: 40px; height: 40px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+        }
+
+        header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+        }
+
+        header span {
+            color: var(--muted);
+            font-size: 13px;
+            margin-left: auto;
+        }
+
+        .app {
+            display: flex;
+            flex: 1;
+            gap: 0;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 260px;
+            min-width: 260px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            padding: 0 8px;
+        }
+
+        .cat-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+            color: var(--muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: left;
+            width: 100%;
+        }
+
+        .cat-btn:hover {
+            background: var(--surface2);
+            color: var(--text);
+            border-color: var(--border);
+            transform: translateX(3px);
+        }
+
+        .cat-btn.active {
+            background: rgba(108, 99, 255, 0.15);
+            border-color: rgba(108, 99, 255, 0.4);
+            color: var(--text);
+        }
+
+        .cat-btn .cat-icon {
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+
+        .cat-btn:hover .cat-icon,
+        .cat-btn.active .cat-icon {
+            transform: scale(1.1);
+        }
+
+        .cat-btn .cat-info { flex: 1; }
+        .cat-btn .cat-name { display: block; }
+        .cat-btn .cat-total {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        .cat-btn.active .cat-total { color: var(--accent); }
+
+        .cat-btn .cat-arrow {
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .cat-btn:hover .cat-arrow,
+        .cat-btn.active .cat-arrow { opacity: 1; }
+
+        /* MAIN */
+        .main {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-header {
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .chart-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            transition: all 0.4s ease;
+        }
+
+        .chart-subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .total-badge {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 20px;
+            text-align: right;
+        }
+
+        .total-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .total-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            color: var(--text);
+            transition: all 0.4s ease;
+        }
+
+        .chart-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        #pie-chart { flex-shrink: 0; }
+
+        .legend {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .legend-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            cursor: default;
+        }
+
+        .legend-item:hover { background: var(--surface2); }
+
+        .legend-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-item-name {
+            font-size: 13px;
+            flex: 1;
+            color: var(--muted);
+        }
+
+        .legend-item-val {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .legend-item-pct {
+            font-size: 11px;
+            color: var(--muted);
+            min-width: 36px;
+            text-align: right;
+        }
+
+        /* Pie slice hover */
+        .slice path {
+            cursor: pointer;
+            transition: filter 0.2s;
+        }
+
+        .slice path:hover {
+            filter: brightness(1.3);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 13px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            .app { flex-direction: column; }
+            .sidebar { width: 100%; min-width: unset; flex-direction: row; flex-wrap: wrap; padding: 16px; }
+            .sidebar-title { display: none; }
+            .cat-btn { width: auto; flex: 1; min-width: 120px; }
+            .main { padding: 20px; }
+            .chart-container { flex-direction: column; }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;header&gt;
+    &lt;div class="logo"&gt;💸&lt;/div&gt;
+    &lt;h1&gt;Expensify&lt;/h1&gt;
+    &lt;span&gt;Personal Finance Dashboard&lt;/span&gt;
+&lt;/header&gt;
+
+&lt;div class="app"&gt;
+    &lt;aside class="sidebar"&gt;
+        &lt;div class="sidebar-title"&gt;Categories&lt;/div&gt;
+        &lt;!-- buttons injected by JS --&gt;
+    &lt;/aside&gt;
+
+    &lt;main class="main"&gt;
+        &lt;div class="chart-header"&gt;
+            &lt;div&gt;
+                &lt;div class="chart-title" id="chart-title"&gt;Groceries&lt;/div&gt;
+                &lt;div class="chart-subtitle"&gt;Expense breakdown by item&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="total-badge"&gt;
+                &lt;div class="total-label"&gt;Total&lt;/div&gt;
+                &lt;div class="total-value" id="total-value"&gt;$0&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="chart-container"&gt;
+            &lt;svg id="pie-chart"&gt;&lt;/svg&gt;
+            &lt;div class="legend"&gt;
+                &lt;div class="legend-title"&gt;Breakdown&lt;/div&gt;
+                &lt;div id="legend-items"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+&lt;/div&gt;
+
+&lt;div class="tooltip" id="tooltip"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    const COLORS = ['#6c63ff','#ff6b9d','#ffd166','#06d6a0','#ff9f43'];
+
+    const DATA = {
+        Groceries: {
+            icon: '🛒',
+            items: [
+                { name: 'Fresh Produce',   value: 180 },
+                { name: 'Dairy & Eggs',    value: 95  },
+                { name: 'Meat & Fish',     value: 240 },
+                { name: 'Pantry Staples',  value: 130 },
+                { name: 'Snacks & Drinks', value: 75  },
+            ]
+        },
+        Bills: {
+            icon: '📃',
+            items: [
+                { name: 'Electricity',  value: 145 },
+                { name: 'Internet',     value: 60  },
+                { name: 'Water',        value: 40  },
+                { name: 'Rent',         value: 950 },
+                { name: 'Phone Plan',   value: 55  },
+            ]
+        },
+        Entertainment: {
+            icon: '🎬',
+            items: [
+                { name: 'Streaming',    value: 45  },
+                { name: 'Dining Out',   value: 220 },
+                { name: 'Events',       value: 135 },
+                { name: 'Gaming',       value: 60  },
+                { name: 'Books & Mags', value: 35  },
+            ]
+        },
+        Education: {
+            icon: '📚',
+            items: [
+                { name: 'Online Courses', value: 99  },
+                { name: 'Books',          value: 75  },
+                { name: 'Workshops',      value: 150 },
+                { name: 'Subscriptions',  value: 45  },
+                { name: 'Supplies',       value: 60  },
+            ]
+        },
+        Travel: {
+            icon: '✈️',
+            items: [
+                { name: 'Flights',       value: 520 },
+                { name: 'Accommodation', value: 380 },
+                { name: 'Transport',     value: 95  },
+                { name: 'Food & Drink',  value: 160 },
+                { name: 'Activities',    value: 120 },
+            ]
+        }
+    };
+
+    // Sidebar buttons
+    const sidebar = document.querySelector('.sidebar');
+    Object.entries(DATA).forEach(([cat, data]) =&gt; {
+        const total = data.items.reduce((s, i) =&gt; s + i.value, 0);
+        const btn = document.createElement('button');
+        btn.className = 'cat-btn';
+        btn.dataset.cat = cat;
+        btn.innerHTML = `
+    &lt;span class="cat-icon" style="background:rgba(108,99,255,0.12)"&gt;${data.icon}&lt;/span&gt;
+    &lt;span class="cat-info"&gt;
+      &lt;span class="cat-name"&gt;${cat}&lt;/span&gt;
+      &lt;span class="cat-total"&gt;$${total.toLocaleString()}&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class="cat-arrow"&gt;›&lt;/span&gt;
+  `;
+        btn.addEventListener('click', () =&gt; selectCategory(cat));
+        sidebar.appendChild(btn);
+    });
+
+    // D3 pie chart setup
+    const SIZE = 400;
+    const RADIUS = SIZE / 2;
+    const INNER = 80;
+
+    const svg = d3.select('#pie-chart')
+        .attr('width', SIZE)
+        .attr('height', SIZE);
+
+    const g = svg.append('g')
+        .attr('transform', `translate(${RADIUS},${RADIUS})`);
+
+    const pie = d3.pie().value(d =&gt; d.value).sort(null);
+    const arc = d3.arc().innerRadius(INNER).outerRadius(RADIUS - 20);
+    const arcLabel = d3.arc().innerRadius(RADIUS * 0.55).outerRadius(RADIUS * 0.55);
+
+    // Center text
+    const centerG = g.append('g');
+    const centerLabel = centerG.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dy', '-0.2em')
+        .attr('font-family', "'DM Serif Display', serif")
+        .attr('font-size', '22px')
+        .attr('fill', '#e8e8f0');
+
+    const centerSub = centerG.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dy', '1.4em')
+        .attr('font-size', '11px')
+        .attr('fill', '#7070a0')
+        .text('TOTAL');
+
+    let currentCat = 'Groceries';
+    let currentArcs = null;
+
+    const tooltip = document.getElementById('tooltip');
+
+    function selectCategory(cat) {
+        currentCat = cat;
+
+        // Update button states
+        document.querySelectorAll('.cat-btn').forEach(b =&gt; {
+            b.classList.toggle('active', b.dataset.cat === cat);
+        });
+
+        document.getElementById('chart-title').textContent = cat;
+
+        const items = DATA[cat].items;
+        const total = items.reduce((s, i) =&gt; s + i.value, 0);
+        document.getElementById('total-value').textContent = '$' + total.toLocaleString();
+
+        centerLabel.text('$' + total.toLocaleString());
+
+        updateChart(items, total);
+        updateLegend(items, total);
+    }
+
+    function updateChart(items, total) {
+        const pieData = pie(items);
+
+        // JOIN
+        const slices = g.selectAll('.slice').data(pieData, d =&gt; d.data.name);
+
+        // ENTER
+        const enterSlices = slices.enter().append('g').attr('class', 'slice');
+
+        enterSlices.append('path')
+            .attr('fill', (d, i) =&gt; COLORS[i % COLORS.length])
+            .attr('stroke', '#17171e')
+            .attr('stroke-width', 3)
+            .attr('d', arc)
+            .style('opacity', 0)
+            .on('mousemove', (event, d) =&gt; {
+                tooltip.style.opacity = '1';
+                tooltip.style.left = (event.clientX + 14) + 'px';
+                tooltip.style.top = (event.clientY - 30) + 'px';
+                tooltip.innerHTML = `&lt;strong&gt;${d.data.name}&lt;/strong&gt;&lt;br&gt;$${d.data.value.toLocaleString()} &middot; ${Math.round(d.data.value/total*100)}%`;
+            })
+            .on('mouseleave', () =&gt; { tooltip.style.opacity = '0'; });
+
+        enterSlices.append('text')
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '11px')
+            .attr('font-weight', '600')
+            .attr('fill', '#fff')
+            .attr('transform', d =&gt; `translate(${arcLabel.centroid(d)})`)
+            .style('opacity', 0)
+            .text(d =&gt; Math.round(d.data.value / total * 100) + '%');
+
+        // MERGE & TRANSITION
+        const allSlices = slices.merge(enterSlices);
+
+        allSlices.select('path')
+            .transition().duration(900).ease(d3.easeCubicInOut)
+            .attrTween('d', function(d) {
+                const prev = this._prev || { startAngle: 0, endAngle: 0 };
+                const interp = d3.interpolate(prev, d);
+                this._prev = d;
+                return t =&gt; arc(interp(t));
+            })
+            .attr('fill', (d, i) =&gt; COLORS[i % COLORS.length])
+            .style('opacity', 1);
+
+        allSlices.select('text')
+            .transition().duration(900).ease(d3.easeCubicInOut)
+            .attrTween('transform', function(d) {
+                const prev = this._prev || { startAngle: 0, endAngle: 0 };
+                const interp = d3.interpolate(prev, d);
+                this._prev = d;
+                return t =&gt; `translate(${arcLabel.centroid(interp(t))})`;
+            })
+            .style('opacity', d =&gt; (d.endAngle - d.startAngle) &gt; 0.25 ? 1 : 0)
+            .text(d =&gt; Math.round(d.data.value / total * 100) + '%');
+
+        // EXIT
+        slices.exit().remove();
+
+        currentArcs = allSlices;
+    }
+
+    function updateLegend(items, total) {
+        const container = document.getElementById('legend-items');
+        container.innerHTML = '';
+        items.forEach((item, i) =&gt; {
+            const pct = Math.round(item.value / total * 100);
+            const el = document.createElement('div');
+            el.className = 'legend-item';
+            el.innerHTML = `
+      &lt;span class="legend-dot" style="background:${COLORS[i]}"&gt;&lt;/span&gt;
+      &lt;span class="legend-item-name"&gt;${item.name}&lt;/span&gt;
+      &lt;span class="legend-item-val"&gt;$${item.value.toLocaleString()}&lt;/span&gt;
+      &lt;span class="legend-item-pct"&gt;${pct}%&lt;/span&gt;
+    `;
+            container.appendChild(el);
+        });
+    }
+
+    // Init
+    selectCategory('Groceries');
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+</body>
+</html>
