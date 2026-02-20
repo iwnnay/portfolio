@@ -7,7 +7,22 @@
   p {
     line-height: 1em;
     padding: .25em 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 60ch;
+  }
+
+  p.imagecell {
+    max-width: 100%;
+    text-align: center;
+
+    img {
+      display: inline-block;
+    }
+  }
+
+
+  h3, h4 {
+    text-align: center;
   }
 
   h4 {
