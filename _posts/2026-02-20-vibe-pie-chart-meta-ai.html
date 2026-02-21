@@ -1,0 +1,577 @@
+---
+layout: post
+title: "Vibe Pie Chart: Exploring Different Models - Meta.AI"
+---
+
+<p>I figured I'd reach out and see what other AIs are out there and what they have to offer. I tried codellama, but it refused to build this pie chart module claiming it was too much work and instead quoted me to expect to have to pay upwards of $5k to have it coded and delivered. This would be like 20 minutes of work if I did it from scratch because I'd grab the D3 documentation copy the starting chunk and add in the extra paarts I want. I wish I could charge $5k for having some fun like this.</p>
+<p>I've already done this with <a href="/2026/02/17/vibe-pie-chart-qwen3-coder.html">qwen3-coder</a>,  <a href="/2026/02/18/vibe-pie-chart-copilot.html">Copilot</a>, <a href="/2026/02/19/vibe-pie-chart-claude-code.html">Claude Code</a>, and here is Meta.AI. I have to say that from the get go, this was the most annoying code helper since it decided to split up code that clearly all go together in one file into 3 separate chunks... but let's see what it made.</p>
+
+<!--Chunk one-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<div class="container">
+    <div class="sidebar">
+        <h2>Categories</h2>
+        <ul id="category-buttons"></ul>
+    </div>
+    <div class="main">
+        <h1>Expense Tracker</h1>
+        <div id="chart-container"></div>
+        <div id="total-amount"></div>
+        <div id="legend"></div>
+    </div>
+</div>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<!--Chunk two-->
+<script>
+    const data = {
+        Groceries: [
+            { name: 'Milk', value: 2.50 },
+            { name: 'Bread', value: 1.50 },
+            { name: 'Eggs', value: 1.00 },
+            { name: 'Chicken', value: 5.00 },
+            { name: 'Rice', value: 2.00 }
+        ],
+        Bills: [
+            { name: 'Rent', value: 1000.00 },
+            { name: 'Electricity', value: 150.00 },
+            { name: 'Water', value: 50.00 },
+            { name: 'Internet', value: 100.00 },
+            { name: 'Phone', value: 50.00 }
+        ],
+        Entertainment: [
+            { name: 'Movies', value: 20.00 },
+            { name: 'Dining Out', value: 50.00 },
+            { name: 'Concert', value: 100.00 },
+            { name: 'Game', value: 60.00 },
+            { name: 'Sport', value: 30.00 }
+        ],
+        Education: [
+            { name: 'Books', value: 50.00 },
+            { name: 'Courses', value: 200.00 },
+            { name: 'Software', value: 100.00 },
+            { name: 'Subscription', value: 20.00 },
+            { name: 'Workshop', value: 150.00 }
+        ],
+        Travel: [
+            { name: 'Flights', value: 500.00 },
+            { name: 'Hotel', value: 300.00 },
+            { name: 'Food', value: 200.00 },
+            { name: 'Transport', value: 100.00 },
+            { name: 'Activities', value: 150.00 }
+        ]
+    };
+
+    const colors = ['#4CAF50', '#03A9F4', '#FF9800', '#E91E63', '#9C27B0'];
+
+    const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    const width = 400 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
+
+    const svg = d3.select('#chart-container')
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${width / 2 + margin.left}, ${height / 2 + margin.top})`);
+
+    const pie = d3.pie()
+        .value(d => d.value)
+        .sort(null);
+
+    const arc = d3.arc()
+        .outerRadius(width / 2)
+        .innerRadius(0);
+
+    let currentCategory = 'Groceries';
+    let currentData = data[currentCategory];
+
+    function updateChart() {
+        const pieData = pie(currentData);
+        const total = d3.sum(currentData, d => d.value);
+
+        d3.select('#total-amount').text(`Total: $${total.toFixed(2)}`);
+
+        const paths = svg.selectAll('path')
+            .data(pieData, d => d.data.name);
+
+        paths.transition()
+            .duration(1000)
+            .attrTween('d', function(d) {
+                const interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return function(t) {
+                    return arc(interpolate(t));
+                };
+            });
+
+        paths.enter()
+            .append('path')
+            .attr('fill', (d, i) => colors[i % colors.length])
+            .attr('d', arc)
+            .each(function(d) {
+                this._current = d;
+            })
+            .transition()
+            .duration(1000)
+            .attrTween('d', function(d) {
+                const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return function(t) {
+                    return arc(interpolate(t));
+                };
+            });
+
+        paths.exit()
+            .transition()
+            .duration(1000)
+            .attrTween('d', function(d) {
+                const interpolate = d3.interpolate(d, { startAngle: d.endAngle, endAngle: d.endAngle });
+                return function(t) {
+                    return arc(interpolate(t));
+                };
+            })
+            .remove();
+
+        const legend = d3.select('#legend')
+            .selectAll('div')
+            .data(currentData, d => d.name);
+
+        legend.enter()
+            .append('div')
+            .style('display', 'inline-block')
+            .style('margin', '5px')
+            .html(d => `<span style="background-color: ${colors[currentData.indexOf(d) % colors.length]}; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></span>${d.name}: $${d.value.toFixed(2)} (${(d.value / total * 100).toFixed(1)}%)`);
+
+        legend.transition()
+            .duration(1000)
+            .html(d => `<span style="background-color: ${colors[currentData.indexOf(d) % colors.length]}; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></span>${d.name}: $${d.value.toFixed(2)} (${(d.value / total * 100).toFixed(1)}%)`);
+
+        legend.exit().remove();
+
+        svg.selectAll('text')
+            .data(pieData)
+            .enter()
+            .append('text')
+            .attr('transform', d => `translate(${arc.centroid(d)})`)
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '12px')
+            .attr('fill', '#fff')
+            .text(d => `${(d.data.value / total * 100).toFixed(1)}%`);
+
+        svg.selectAll('text')
+            .data(pieData)
+            .transition()
+            .duration(1000)
+            .attr('transform', d => `translate(${arc.centroid(d)})`)
+            .text(d => `${(d.data.value / total * 100).toFixed(1)}%`);
+    }
+
+    Object.keys(data).forEach(category => {
+        d3.select('#category-buttons')
+            .append('li')
+            .append('button')
+            .text(category)
+            .on('click', () => {
+                currentCategory = category;
+                currentData = data[currentCategory];
+                updateChart();
+            });
+    });
+
+    updateChart();
+</script>
+<!--Chunk three-->
+<style>
+
+    .container {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .container .sidebar {
+        width: 250px;
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-right: 1px solid #ddd;
+    }
+
+    .container .sidebar h2 {
+        margin-top: 0;
+    }
+
+    .container #category-buttons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container  #category-buttons li {
+        margin-bottom: 10px;
+    }
+
+    .container button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .container button:hover {
+        background-color: #3e8e41;
+    }
+
+    .container .main {
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .container #chart-container {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .container #total-amount {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .container #legend {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+
+<h3>Conclusion</h3>
+<h4>The winner for worst</h4>
+<p>I'm kind of surprised by this and not surprised at all. There are so many bugs in this rendition. My biggest complaint about this AI is that it insisted on giving me three chunks of code, but didn't tell me how to hook them all up. If I wasn't already experienced enough to do this, I'd be totally lost.</p>
+
+<h4>The Good</h4>
+<p>Let's dive into what worked. It did get the animations to work sort of. I realize now that Copilot didn't do the animation correctly either, it's just that the close color palette masked the visual interpretation of the mistake. But the animation is there and I'd accept this if you told me this is all you could do.</p>
+<p>The CSS was really concise, which was nice since it failed to target it.</p>
+
+<h4>The Bad</h4>
+<p>I mean, everything is bad. I would fire this person if they worked for me, or at the very least send them to bootcamp.</p>
+<p>From the block on the left, to the fact that it's not responsive, to the bugs, to the lack luster overall design. I have to say that this may be the worst pie chart I've ever seen.</p>
+<p>Just to be clear, the title is not in a title area. It's right of the interactive buttons. These are not nav items. This makes me thinks that the categories are different pages. Given the large gray block I don't expect the categories to be related to the pie chart at all.</p>
+<p>My biggest deal is that almost none of my requirements were met. It was a D3 implementation of a pie chart, which is cool, but beyond that it should be able to add buttons and follow basic web design principles.</p>
+
+<h4>Overall</h4>
+<p>Don't use Meta.ai for coding. Probably don't use it at all. I see they only promotoe it as a like an Alexa or Google speaker that you have to type to, but only to answer information and not to set timers and such. Also, it's creepy that it's the only AI that I had to tell it how old I am to use it. It shouldn't matter. What's going on over at Meta?</p>
+
+<h3>The prompt</h3>
+
+<pre>
+Create a single-page expense tracker application with a D3.js pie chart visualization. The app should include:
+
+Features:
+
+5 expense categories: Groceries, Bills, Entertainment, Education, Travel
+Interactive category buttons on the left side for switching between categories
+Animated pie chart that smoothly transitions between different expense distributions
+Percentage labels inside each pie slice
+Color-coded legend showing category names and values
+Total expense amount display
+Responsive design with clean, professional styling
+Technical Requirements:
+
+Use D3.js for chart rendering with smooth 1-second animations
+Implement proper data transitions when switching categories
+Include hover effects on buttons
+Make animations clearly visible and noticeable
+Use a consistent color palette for all pie slices
+Ensure the chart is centered and properly sized (400x400px)
+Include proper legend with color indicators
+Show total amount at the bottom of the chart
+Targetted CSS to ensure mobility
+Design:
+
+Left sidebar with category buttons (250px width)
+Main chart area with pie chart and legend
+Professional color scheme with blue header and white chart area
+Clear typography and spacing
+Responsive layout that works on different screen sizes
+Data Structure:
+
+Each category should contain 5 expense items with different values
+Data should be organized in a way that shows meaningful differences between categories
+Include realistic expense values for each item
+The application should allow users to click any category button and see the pie chart smoothly animate to show the new distribution of expenses.
+</pre>
+
+<h3>The Code</h3>
+
+<pre>
+&lt;!--    chunk one--&gt;
+    &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Expense Tracker&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="sidebar"&gt;
+            &lt;h2&gt;Categories&lt;/h2&gt;
+            &lt;ul id="category-buttons"&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="main"&gt;
+            &lt;h1&gt;Expense Tracker&lt;/h1&gt;
+            &lt;div id="chart-container"&gt;&lt;/div&gt;
+            &lt;div id="total-amount"&gt;&lt;/div&gt;
+            &lt;div id="legend"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+    &lt;!--    chunk two--&gt;
+    const data = {
+    Groceries: [
+        { name: 'Milk', value: 2.50 },
+        { name: 'Bread', value: 1.50 },
+        { name: 'Eggs', value: 1.00 },
+        { name: 'Chicken', value: 5.00 },
+        { name: 'Rice', value: 2.00 }
+    ],
+    Bills: [
+        { name: 'Rent', value: 1000.00 },
+        { name: 'Electricity', value: 150.00 },
+        { name: 'Water', value: 50.00 },
+        { name: 'Internet', value: 100.00 },
+        { name: 'Phone', value: 50.00 }
+    ],
+    Entertainment: [
+        { name: 'Movies', value: 20.00 },
+        { name: 'Dining Out', value: 50.00 },
+        { name: 'Concert', value: 100.00 },
+        { name: 'Game', value: 60.00 },
+        { name: 'Sport', value: 30.00 }
+    ],
+    Education: [
+        { name: 'Books', value: 50.00 },
+        { name: 'Courses', value: 200.00 },
+        { name: 'Software', value: 100.00 },
+        { name: 'Subscription', value: 20.00 },
+        { name: 'Workshop', value: 150.00 }
+    ],
+    Travel: [
+        { name: 'Flights', value: 500.00 },
+        { name: 'Hotel', value: 300.00 },
+        { name: 'Food', value: 200.00 },
+        { name: 'Transport', value: 100.00 },
+        { name: 'Activities', value: 150.00 }
+    ]
+};
+
+const colors = ['#4CAF50', '#03A9F4', '#FF9800', '#E91E63', '#9C27B0'];
+
+const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+const width = 400 - margin.left - margin.right;
+const height = 400 - margin.top - margin.bottom;
+
+const svg = d3.select('#chart-container')
+    .append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+    .append('g')
+    .attr('transform', `translate(${width / 2 + margin.left}, ${height / 2 + margin.top})`);
+
+const pie = d3.pie()
+    .value(d =&gt; d.value)
+    .sort(null);
+
+const arc = d3.arc()
+    .outerRadius(width / 2)
+    .innerRadius(0);
+
+let currentCategory = 'Groceries';
+let currentData = data[currentCategory];
+
+function updateChart() {
+    const pieData = pie(currentData);
+    const total = d3.sum(currentData, d =&gt; d.value);
+
+    d3.select('#total-amount').text(`Total: $${total.toFixed(2)}`);
+
+    const paths = svg.selectAll('path')
+        .data(pieData, d =&gt; d.data.name);
+
+    paths.transition()
+        .duration(1000)
+        .attrTween('d', function(d) {
+            const interpolate = d3.interpolate(this._current, d);
+            this._current = interpolate(0);
+            return function(t) {
+                return arc(interpolate(t));
+            };
+        });
+
+    paths.enter()
+        .append('path')
+        .attr('fill', (d, i) =&gt; colors[i % colors.length])
+        .attr('d', arc)
+        .each(function(d) {
+            this._current = d;
+        })
+        .transition()
+        .duration(1000)
+        .attrTween('d', function(d) {
+            const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+            return function(t) {
+                return arc(interpolate(t));
+            };
+        });
+
+    paths.exit()
+        .transition()
+        .duration(1000)
+        .attrTween('d', function(d) {
+            const interpolate = d3.interpolate(d, { startAngle: d.endAngle, endAngle: d.endAngle });
+            return function(t) {
+                return arc(interpolate(t));
+            };
+        })
+        .remove();
+
+    const legend = d3.select('#legend')
+        .selectAll('div')
+        .data(currentData, d =&gt; d.name);
+
+    legend.enter()
+        .append('div')
+        .style('display', 'inline-block')
+        .style('margin', '5px')
+        .html(d =&gt; `&lt;span style="background-color: ${colors[currentData.indexOf(d) % colors.length]}; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"&gt;&lt;/span&gt;${d.name}: $${d.value.toFixed(2)} (${(d.value / total * 100).toFixed(1)}%)`);
+
+    legend.transition()
+        .duration(1000)
+        .html(d =&gt; `&lt;span style="background-color: ${colors[currentData.indexOf(d) % colors.length]}; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"&gt;&lt;/span&gt;${d.name}: $${d.value.toFixed(2)} (${(d.value / total * 100).toFixed(1)}%)`);
+
+    legend.exit().remove();
+
+    svg.selectAll('text')
+        .data(pieData)
+        .enter()
+        .append('text')
+        .attr('transform', d =&gt; `translate(${arc.centroid(d)})`)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '12px')
+        .attr('fill', '#fff')
+        .text(d =&gt; `${(d.data.value / total * 100).toFixed(1)}%`);
+
+    svg.selectAll('text')
+        .data(pieData)
+        .transition()
+        .duration(1000)
+        .attr('transform', d =&gt; `translate(${arc.centroid(d)})`)
+        .text(d =&gt; `${(d.data.value / total * 100).toFixed(1)}%`);
+}
+
+Object.keys(data).forEach(category =&gt; {
+    d3.select('#category-buttons')
+        .append('li')
+        .append('button')
+        .text(category)
+        .on('click', () =&gt; {
+            currentCategory = category;
+            currentData = data[currentCategory];
+            updateChart();
+        });
+});
+
+updateChart();
+
+    &lt;!--    chunk three--&gt;
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+#category-buttons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#category-buttons li {
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+#chart-container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#total-amount {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#legend {
+    text-align: center;
+    margin-top: 20px;
+}
+</pre>
+
+</body>
+</html>
