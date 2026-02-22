@@ -8,6 +8,14 @@ title: Resume
 Download my resume or contact me through my
 socials [LinkedIn](https://www.linkedin.com/in/joe-imhoff/) | [GitHub](https://github.com/iwnnay)
 
+<div class="download-block">Download
+<span onclick="downloadResume()">Resume</span>,
+<span>CV</span>,
+<span>Everything</span>,
+<span>General Cover Letter</span>
+</div>
+
+
 <details>
     <summary>Work Experience</summary>
     {% include resume/jobs.html %}

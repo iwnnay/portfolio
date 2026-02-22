@@ -62,6 +62,46 @@
       "end": "September 2025",
       "start": "October 2015",
       "location": "Schaumburg, IL (remote)",
+      "condensed": {
+        "title": "Software Engineer Manager | Site Reliability Focus",
+        "responsibilities": [
+          "Led a 5-person team to stabilize enterprise systems, reducing support overhead many times over via AI-enhanced knowledge bases and custom tooling.",
+          "Architected cloud-native CI/CD pipelines (Jenkins, EventBridge) and automated remediation, cutting deployment time from days to minutes with 0% downtime.",
+          "Co-developed an agentic AI solution that autonomously resolved 90% of billing rejections by analyzing deficiencies and resubmitting claims with qualified data.",
+          "Engineered self-healing systems using Concierge, reducing MTTR by 35% through proactive alerting and feedback loops.",
+          "Directed schema migration and data archiving via Airflow and Snowflake, optimizing database performance 30%.",
+          "Championed hiring and onboarding for engineers of all levels, aligning talent acquisition with technical and cultural standards.",
+        ],
+        "skills": [
+          "AWS",
+          "Agentic AI",
+          "Agile",
+          "Communication Skills",
+          "Concierge",
+          "Datadog",
+          "GCP",
+          "Jenkins",
+          "Jira",
+          "Kubernetes",
+          "Lambda",
+          "LangGraph",
+          "Leadership",
+          "Management",
+          "MariaDB",
+          "MySQL",
+          "Node.js",
+          "PHP",
+          "Point of Contact",
+          "Project Management",
+          "Python",
+          "RAG",
+          "React",
+          "Svelte",
+          "Symfony",
+          "TDD",
+          "Transparency"
+        ]
+      },
       "positions": [
         {
           "title": "Software Engineer Manager | Site Reliability Focus",
@@ -791,7 +831,6 @@
       "level": "Intermediate",
       "details": "I received comprehensive training in Windows Officeancen administration during my time at ISP Painting and later applied those skills at CellTrak, stepping in to provide support following a consultant's departure. While office technologies have evolved, I am capable of quickly adapting and providing functional administrative support when needed, though this isn’t a skill I actively maintain."
     },
-
     {
       "name": "System Administration",
       "type": "DevOps / Infrastructure",
@@ -1009,7 +1048,6 @@
       "years": "10+",
       "details": "I’ve used Redis extensively to improve the responsiveness of applications and provide caching across pods and microservices, enhancing performance and scalability."
     },
-
     {
       "name": "Sidekiq",
       "type": "Background Job Processor",
@@ -1451,7 +1489,6 @@
       "years": "<1",
       "details": "I have experience designing and implementing Agent to Agent (A2A) communication systems to orchestrate complex tasks and workflows. I have specifically worked with connecting and integrating third-party agent systems within the Gemini ecosystem, leveraging their capabilities to create cohesive and automated solutions. My expertise includes establishing communication protocols and managing data flow between diverse AI agents."
     },
-
     {
       "name": "MCP",
       "type": "AI Orchestration",
@@ -1564,14 +1601,12 @@
       "years": "~1",
       "details": "I prioritize Agent Goal Alignment (AGA) in my AI development work, ensuring that AI systems are designed and deployed in a responsible and ethical manner. While much of my experience with AGA is based on academic exploration and discussion, these principles directly inform my approach to architecting and implementing AI solutions."
     }
-
   ],
   "education": [
     {
       "degree": "Bachelor of Digital Media Production",
       "institution": "Illinois Institute of Art (Schaumburg)"
     }
-
   ],
   "certificates": [
     {
@@ -1579,7 +1614,23 @@
       "institution": "ADaSci",
       "link": "https://adasci.org/certifications/adasci-certified-agentic-ai-system-architect",
       "image": null,
-      "skills": ["RAG","AGA","A2A","MCP","Pinecone","GCP","n8n", "Agentic AI","CrewAI","LangChain", "Multimodal", "LangGraph", "CrewAI", "Ollama", "AutoGen" ],
+      "skills": [
+        "RAG",
+        "AGA",
+        "A2A",
+        "MCP",
+        "Pinecone",
+        "GCP",
+        "n8n",
+        "Agentic AI",
+        "CrewAI",
+        "LangChain",
+        "Multimodal",
+        "LangGraph",
+        "CrewAI",
+        "Ollama",
+        "AutoGen"
+      ],
       "description": "This certificate focused on the design, governance, strengths, weaknesses, and best practices of Agentic AI systems through labs and a mix of recorded and live sessions.",
       "credID": "#CERT-20251223-3126",
       "date": "December 2025"
@@ -1589,18 +1640,12 @@
     {
       "title": "Practical Multi-AI Agents and Advanced Use Cases with CrewAI",
       "institution": "deeplearning.ai",
-      "description": "This course focused on building and deploying multi-agent AI systems using the CrewAI framework. Key topics likely included:,
-      <ul>
-        <li>Multi-agent architecture design for complex AI workflows</li>
-        <li>CrewAI framework fundamentals and advanced features</li>
-        <li>Agent coordination and task delegation strategies</li>
-        <li>Real-world use case implementations (research, content creation, analysis)</li>
-        <li>Advanced prompt engineering for agent interactions</li>
-        <li>Error handling and system optimization techniques</li>
-        <li>The course emphasized practical application of AI agent systems rather than theoretical concepts, with hands-on implementation of multi-agent workflows for various business scenarios.</li></ul>",
+      "description": "This course focused on building and deploying multi-agent AI systems using the CrewAI framework. Key topics likely included:, <ul> <li>Multi-agent architecture design for complex AI workflows</li> <li>CrewAI framework fundamentals and advanced features</li> <li>Agent coordination and task delegation strategies</li> <li>Real-world use case implementations (research, content creation, analysis)</li> <li>Advanced prompt engineering for agent interactions</li> <li>Error handling and system optimization techniques</li> <li>The course emphasized practical application of AI agent systems rather than theoretical concepts, with hands-on implementation of multi-agent workflows for various business scenarios.</li></ul> ",
       "link": "https://learn.deeplearning.ai/courses/practical-multi-ai-agents-and-advanced-use-cases-with-crewai/information",
       "completedOn": "February 16, 2023",
-      "skills": [ "CrewAI"]
+      "skills": [
+        "CrewAI"
+      ]
     },
     {
       "title": "Angular Deep Dive - Beginner to Advanced (Angular 21)",
@@ -1608,7 +1653,15 @@
       "description": "12 hour course that covers Angular 21 and the backwards compatibility to angular 17",
       "link": "https://www.udemy.com/course/angular-course/",
       "completedOn": "Current",
-      "skills": [ "Angular", "TypeScript"]
+      "skills": [
+        "Angular",
+        "TypeScript"
+      ]
     }
-  ]
+  ],
+  "info": {
+    "summary": "",
+    "conciseSummary": "",
+    "coverLetter": ""
+  }
 }

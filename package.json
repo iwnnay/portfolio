@@ -10,6 +10,7 @@
   "dependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
+    "html2pdf.js": "0.9.0",
     "moment": "^2.30.1"
   },
   "scripts": {
