@@ -38,11 +38,11 @@
 
 }
 
-.skill {
+.skill, .download-block span {
   background-color: var(--c1);
 }
 
-.skill:hover {
+.skill:hover, .download-block span:hover {
   background-color: var(--c2);
 }
 
@@ -98,4 +98,12 @@ summary {
   z-index: 10;
   background: var(--stand-out);
   cursor: pointer;
+}
+
+.download-block {
+  span {
+   cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+  }
 }
