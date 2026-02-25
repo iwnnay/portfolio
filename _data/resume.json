@@ -1583,6 +1583,16 @@
       "description": "This certificate focused on the design, governance, strengths, weaknesses, and best practices of Agentic AI systems through labs and a mix of recorded and live sessions.",
       "credID": "#CERT-20251223-3126",
       "date": "December 2025"
+    },
+    {
+      "name": "PyTorch for Deep Learning",
+      "institution": "Deeplearning.ai",
+      "link": "/resume",
+      "image": null,
+      "skills": ["PyTorch", "TensorFlow"],
+      "description": "need this",
+      "credID": "need this",
+      "date": "February 2026"
     }
   ],
   "classes": [
