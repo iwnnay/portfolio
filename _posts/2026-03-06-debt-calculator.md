@@ -42,3 +42,7 @@ git push -u -f origin main
     - There will be an additional payment section so that an additional pay ment amount can be added every month
     - There will be an ammoritization schedule to show when the debts will be paid off, how much interest will be paid
     - The ammoritization schedule will be live based on values entered 
+
+If you want to see the result they are in commit  [3bbf6a80a53767a8bfbd09e436c09f440f585d07](https://github.com/iwnnay/debt_suggestion/commit/3bbf6a80a53767a8bfbd09e436c09f440f585d07)
+
+It's not bad, but it's filled with dummy data, which is more annoying than helpful.
