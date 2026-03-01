@@ -46,3 +46,21 @@ git push -u -f origin main
 If you want to see the result they are in commit  [3bbf6a80a53767a8bfbd09e436c09f440f585d07](https://github.com/iwnnay/debt_suggestion/commit/3bbf6a80a53767a8bfbd09e436c09f440f585d07)
 
 It's not bad, but it's filled with dummy data, which is more annoying than helpful.
+
+*And we're at the hour mark.* I did have a few distractions, the dogs wanted to play and be let out, but that's late night coding for you.
+
+# Step 4: Bugs and improvements
+I noticed a couple of things that didn't work and the initial state of the app means that I now have to delete my debt list since there is no "Update" feature. That's annoying.
+
+    Some things to fix.
+
+    Bugs:
+    The add button does not work
+    The remove button does not work
+    The payoff settings do not automatically update anything, or are not working.
+
+I got some code changes out of this at commit [cf208e12bfb39ac72abe6c43efc3b956b6a0a087](https://github.com/iwnnay/debt_suggestion/commit/cf208e12bfb39ac72abe6c43efc3b956b6a0a087),
+but it didn't fix anything. I still can't interact with the page. I'm going to have to dig into the code and see why
+I can't do anything.
+
+**One Hour, 24 minutes** Digging into the code.
