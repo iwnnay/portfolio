@@ -3,7 +3,7 @@ layout: post
 title: "Debt Calculator: Day 1"
 ---
 
-Here's my goal. I want to see how many hours it'll take to build a debt calculator using AI. With Svelte. I'm going to be
+WORK IN PROGRESS!! Here's my goal. I want to see how many hours it'll take to build a debt calculator using AI. With Svelte. I'm going to be
 using JetBrains AI. I'm hoping it only takes a couple of hours, but I've actually been trying a lot lately to get this done
 with a few smart prompts and it has not gone well.
 
