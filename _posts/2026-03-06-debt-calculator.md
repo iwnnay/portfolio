@@ -3,7 +3,7 @@ layout: post
 title: "Debt Calculator: Day 1"
 ---
 
-WORK IN PROGRESS!! Here's my goal. I want to see how many hours it'll take to build a debt calculator using AI. With Svelte. I'm going to be
+Here's my goal. I want to see how many hours it'll take to build a debt calculator using AI. With Svelte. I'm going to be
 using JetBrains AI. I'm hoping it only takes a couple of hours, but I've actually been trying a lot lately to get this done
 with a few smart prompts and it has not gone well.
 
@@ -64,3 +64,8 @@ but it didn't fix anything. I still can't interact with the page. I'm going to h
 I can't do anything.
 
 **One Hour, 24 minutes** Digging into the code.
+
+# End of Day 1
+
+Not a lot of progress today. I do have templates and a single page app with well defined components. Appart from that, nothing is working and the ammoritization schedule appears to neglect miniumum payments done on months
+for subsequent focused debts. This is a problem.
